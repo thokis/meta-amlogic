@@ -49,7 +49,7 @@ class BootSdAmlPlugin(SourcePlugin):
                      disk_name, full_path, disk.min_size)
 
         # Write LBA 0 part preserving MSDOS partition table
-        dd_cmd = "dd if=%s of=%s conv=fsync,notrunc bs=1 count=444" % (atf, full_path)
+        dd_cmd = "dd if=%s of=%s conv=fsync,notrunc bs=1 count=440" % (atf, full_path)
         exec_cmd(dd_cmd, native_sysroot)
 
         # Write the rest starting from LBA 1
