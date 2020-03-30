@@ -1,7 +1,7 @@
 # Default providers for (lazy) amlogic machines
 
 # linux kernel:
-PREFERRED_PROVIDER_virtual/kernel ?= "linux-yocto-dev"
+PREFERRED_PROVIDER_virtual/kernel ?= "linux-nosem-stable"
 
 # u-boot bootloader:
 EXTRA_IMAGEDEPENDS += "virtual/bootloader"
