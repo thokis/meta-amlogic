@@ -1,0 +1,8 @@
+# short-description: Create image for Amlogic devices
+# long-description: Creates an image for Amlogic devices when bootloader is not on SD nor eMMC
+# Boot files are located in the first vfat partition.
+
+part /boot --source bootimg-partition --fstype=vfat --label BOOT --active --align 2048 --size 128 --sourceparams="loader=u-boot" --use-uuid
+part / --source rootfs --fstype=ext4 --label root --align 4 --size 2048 --use-uuid
+
+bootloader --ptable gpt --append="console=ttyAML0,115200"
