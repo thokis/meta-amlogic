@@ -18,6 +18,10 @@ COMPATIBLE_MACHINE_aml-s805x-ac = "aml-s805x-ac"
 LIC_FILES_CHKSUM_aml-s805x-ac = "file://LICENSE;md5=7620f418d8fea612915a124b1ac30196"
 SRC_URI_aml-s805x-ac = "file://fip-collect-aml-s805x-ac-20180418.tar.gz"
 
+COMPATIBLE_MACHINE_amlogic-s400 = "amlogic-s400"
+LIC_FILES_CHKSUM_amlogic-s400 = "file://LICENSE;md5=7620f418d8fea612915a124b1ac30196"
+SRC_URI_amlogic-s400 = "file://fip-collect-aml-s400-20181003.tar.gz"
+
 inherit deploy
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/amlogic-prebuilt-atf:"
@@ -34,6 +38,13 @@ do_deploy () {
 }
 
 do_deploy_append_meson-gxl () {
+	install -m 644 ${B}/atf.bin.sd.bin ${DEPLOYDIR}/atf/atf.bin.sd.bin
+	install -m 644 ${B}/atf.bin.usb.bl2 ${DEPLOYDIR}/atf/atf.bin.usb.bl2
+	install -m 644 ${B}/atf.bin.usb.tpl ${DEPLOYDIR}/atf/atf.bin.usb.tpl
+}
+
+# Uhm - that's not nice - need to find a way to share the def with gxl
+do_deploy_append_meson-axg () {
 	install -m 644 ${B}/atf.bin.sd.bin ${DEPLOYDIR}/atf/atf.bin.sd.bin
 	install -m 644 ${B}/atf.bin.usb.bl2 ${DEPLOYDIR}/atf/atf.bin.usb.bl2
 	install -m 644 ${B}/atf.bin.usb.tpl ${DEPLOYDIR}/atf/atf.bin.usb.tpl
