@@ -8,3 +8,7 @@ EXTRA_IMAGEDEPENDS += "virtual/bootloader"
 PREFERRED_PROVIDER_virtual/bootloader ?= "u-boot"
 PREFERRED_VERSION_u-boot = "2019.07%"
 UBOOT_SUFFIX = "bin"
+
+# Arm Trusted Firmware
+EXTRA_IMAGEDEPENDS += "virtual/trusted-firmware-a"
+PREFERRED_PROVIDER_virtual/trusted-firmware-a = "amlogic-prebuilt-atf"
