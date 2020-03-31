@@ -4,7 +4,7 @@ SOC_FAMILY = "amlogic"
 require conf/machine/include/soc-family.inc
 
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS ?= "kernel-image kernel-devicetree"
-MACHINE_EXTRA_RRECOMMENDS ?= " kernel-modules"
+MACHINE_EXTRA_RDEPENDS ?= "kernel-modules"
 
 KERNEL_IMAGETYPE = "Image"
 
