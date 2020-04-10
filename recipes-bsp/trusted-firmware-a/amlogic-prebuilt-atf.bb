@@ -2,7 +2,8 @@ SUMMARY = "Amlogic ATF prebuilt"
 DESCRIPTION = "Arm trusted firmware A with Amlogic prebuilt binaries"
 PROVIDES = "virtual/trusted-firmware-a"
 
-LICENSE = "Proprietary"
+LICENSE = "Amlogic-Proprietary"
+NO_GENERIC_LICENSE[Amlogic-Proprietary] = "LICENSE"
 
 do_compile[depends] += "u-boot:do_deploy"
 
