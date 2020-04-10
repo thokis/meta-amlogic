@@ -3,6 +3,10 @@
 SOC_FAMILY = "amlogic"
 require conf/machine/include/soc-family.inc
 
+# Basic feature all HW usually have - override if necessary
+MACHINE_FEATURES ?= "serial"
+MACHINE_FEATURES_BACKFILL_CONSIDERED ?= "rtc"
+
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS ?= "kernel-image kernel-devicetree"
 MACHINE_EXTRA_RDEPENDS ?= "kernel-modules"
 
