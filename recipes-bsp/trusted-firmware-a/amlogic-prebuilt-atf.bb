@@ -4,7 +4,6 @@ PROVIDES = "virtual/trusted-firmware-a"
 
 LICENSE = "Proprietary"
 
-DEPENDS = "python-native"
 do_compile[depends] += "u-boot:do_deploy"
 
 # This package is machine specific
