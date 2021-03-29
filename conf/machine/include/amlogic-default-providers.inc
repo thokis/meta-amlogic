@@ -6,7 +6,7 @@ PREFERRED_PROVIDER_virtual/kernel ?= "linux-nosem-stable"
 # u-boot bootloader:
 EXTRA_IMAGEDEPENDS += "virtual/bootloader"
 PREFERRED_PROVIDER_virtual/bootloader ?= "u-boot"
-PREFERRED_VERSION_u-boot = "2020.01%"
+PREFERRED_VERSION_u-boot = "2020.07%"
 UBOOT_SUFFIX = "bin"
 
 # Arm Trusted Firmware
