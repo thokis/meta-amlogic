@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2020, Intel Corporation.
+# Copyright (c) 2020, Baylibre SAS
 #
 # SPDX-License-Identifier: GPL-2.0
 #
