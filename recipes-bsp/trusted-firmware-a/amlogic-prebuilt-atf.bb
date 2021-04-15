@@ -40,13 +40,7 @@ do_deploy () {
 	install -m 644 ${B}/atf.bin.sd.bin ${DEPLOYDIR}/atf/atf.bin.sd.bin
 }
 
-do_deploy_append_meson-gxl () {
-	install -m 644 ${B}/atf.bin.usb.bl2 ${DEPLOYDIR}/atf/atf.bin.usb.bl2
-	install -m 644 ${B}/atf.bin.usb.tpl ${DEPLOYDIR}/atf/atf.bin.usb.tpl
-}
-
-# Uhm - that's not nice - need to find a way to share the def with gxl
-do_deploy_append_meson-axg () {
+do_deploy_append_meson-gxl-boot () {
 	install -m 644 ${B}/atf.bin.usb.bl2 ${DEPLOYDIR}/atf/atf.bin.usb.bl2
 	install -m 644 ${B}/atf.bin.usb.tpl ${DEPLOYDIR}/atf/atf.bin.usb.tpl
 }
