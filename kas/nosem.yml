@@ -1,0 +1,6 @@
+header:
+  version: 10
+
+repos:
+  meta-nosem:
+
