@@ -15,3 +15,5 @@ KERNEL_IMAGETYPE = "Image"
 # All Amlogic platforms seems to use this console settings
 SERIAL_CONSOLES ?= "115200;ttyAML0"
 SERIAL_CONSOLES_CHECK = "${SERIAL_CONSOLES}"
+
+IMAGE_FSTYPES ?= "tar.bz2 wic wic.bz2 wic.bmap"
