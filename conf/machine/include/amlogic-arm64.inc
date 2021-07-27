@@ -10,7 +10,7 @@ MACHINE_FEATURES_BACKFILL_CONSIDERED ?= "rtc"
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS ?= "kernel-image kernel-devicetree"
 MACHINE_EXTRA_RDEPENDS ?= "kernel-modules"
 
-KERNEL_IMAGETYPE = "Image"
+KERNEL_IMAGETYPE ?= "Image"
 
 # All Amlogic platforms seems to use this console settings
 SERIAL_CONSOLES ?= "115200;ttyAML0"
