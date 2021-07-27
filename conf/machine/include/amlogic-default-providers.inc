@@ -11,4 +11,4 @@ UBOOT_SUFFIX = "bin"
 
 # Arm Trusted Firmware
 EXTRA_IMAGEDEPENDS += "virtual/trusted-firmware-a"
-PREFERRED_PROVIDER_virtual/trusted-firmware-a = "amlogic-prebuilt-atf"
+PREFERRED_PROVIDER_virtual/trusted-firmware-a ?= "amlogic-prebuilt-atf"
