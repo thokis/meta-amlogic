@@ -9,7 +9,6 @@ repos:
     layers:
       meta:
       meta-poky:
-      meta-yocto-bsp:
 
 bblayers_conf_header:
   standard: |
