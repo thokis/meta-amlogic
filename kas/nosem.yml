@@ -4,3 +4,7 @@ header:
 repos:
   meta-nosem:
 
+# Disable u-boot video and usb kbd by default
+local_conf_header:
+  no-video-usb-kbd: |
+    UBOOT_ILOVEUART ??= "1"
