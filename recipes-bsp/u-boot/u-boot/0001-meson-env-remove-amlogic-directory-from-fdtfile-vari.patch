@@ -1,4 +1,4 @@
-From 8bbff58e7ac5972c8f6aec8ab644af7072c48ca7 Mon Sep 17 00:00:00 2001
+From b62c6a39a2c6efaa75010429e9dc5aacd13a39de Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Sat, 28 Mar 2020 21:56:04 +0100
 Subject: [PATCH] meson: env: remove amlogic directory from fdtfile variable
@@ -8,15 +8,16 @@ default configuration. It does not seems very useful and I'm to lazy
 to look at extlinux right now
 
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+
 ---
  include/configs/meson64.h | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/include/configs/meson64.h b/include/configs/meson64.h
-index 50707a31978d..69c7aaadf370 100644
+index 52cc01f73da3..93e70fe2b72f 100644
 --- a/include/configs/meson64.h
 +++ b/include/configs/meson64.h
-@@ -85,7 +85,7 @@
+@@ -81,7 +81,7 @@
  	"kernel_addr_r=0x08080000\0" \
  	"pxefile_addr_r=0x01080000\0" \
  	"ramdisk_addr_r=0x13000000\0" \
@@ -25,6 +26,3 @@ index 50707a31978d..69c7aaadf370 100644
  	BOOTENV
  #endif
  
--- 
-2.24.1
-

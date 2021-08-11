@@ -18,6 +18,10 @@ COMPATIBLE_MACHINE_aml-s805x-ac = "aml-s805x-ac"
 LIC_FILES_CHKSUM_aml-s805x-ac = "file://LICENSE;md5=7620f418d8fea612915a124b1ac30196"
 SRC_URI_aml-s805x-ac = "https://jbrunet.baylibre.com/pub/amlogic/fips/fip-collect-aml-s805x-ac-20180418.tar.gz;sha256sum=f69ae29b141bad80eae7ac435d9ed4c66e52772e25d6b1103e82568eca51d0ef"
 
+COMPATIBLE_MACHINE_amlogic-p241 = "amlogic-p241"
+LIC_FILES_CHKSUM_amlogic-p241 = "file://LICENSE;md5=7620f418d8fea612915a124b1ac30196"
+SRC_URI_amlogic-p241 = "https://jbrunet.baylibre.com/pub/amlogic/fips/fip-collect-aml-s805x-ac-20180418.tar.gz;sha256sum=f69ae29b141bad80eae7ac435d9ed4c66e52772e25d6b1103e82568eca51d0ef"
+
 COMPATIBLE_MACHINE_amlogic-s400 = "amlogic-s400"
 LIC_FILES_CHKSUM_amlogic-s400 = "file://LICENSE;md5=7620f418d8fea612915a124b1ac30196"
 SRC_URI_amlogic-s400 = "https://jbrunet.baylibre.com/pub/amlogic/fips/fip-collect-aml-s400-20181003.tar.gz;sha256sum=a1367a2c8cf2fb928ee2931d8ffa236164d9afde326e92612208e24cc6409173"
