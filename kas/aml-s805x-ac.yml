@@ -1,0 +1,10 @@
+header:
+  version: 10
+  includes:
+    - poky.yml
+    - nosem.yml
+
+machine: aml-s805x-ac
+distro: poky
+target:
+  - core-image-minimal
