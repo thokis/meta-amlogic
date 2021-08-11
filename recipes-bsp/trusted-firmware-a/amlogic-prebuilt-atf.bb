@@ -44,7 +44,7 @@ do_deploy () {
 	install -m 644 ${B}/atf.bin.sd.bin ${DEPLOYDIR}/atf/atf.bin.sd.bin
 }
 
-do_deploy_append_meson-gxl-boot () {
+do_deploy_append_meson-gx-boot () {
 	install -m 644 ${B}/atf.bin.usb.bl2 ${DEPLOYDIR}/atf/atf.bin.usb.bl2
 	install -m 644 ${B}/atf.bin.usb.tpl ${DEPLOYDIR}/atf/atf.bin.usb.tpl
 }
