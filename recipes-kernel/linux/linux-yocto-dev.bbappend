@@ -1,6 +1,6 @@
-KBRANCH_aml-s905x-cc = "standard/base"
+KBRANCH_amlogic ?= "standard/base"
 
-KCONFIG_MODE_aml-s905x-cc="--alldefconfig"
-KBUILD_DEFCONFIG_aml-s905x-cc = "defconfig"
+KCONFIG_MODE_amlogic ?= "--alldefconfig"
+KBUILD_DEFCONFIG_amlogic ?= "defconfig"
 
-COMPATIBLE_MACHINE_aml-s905x-cc = "aml-s905x-cc"
+COMPATIBLE_MACHINE_amlogic = "amlogic"
