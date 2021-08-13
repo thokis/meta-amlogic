@@ -4,7 +4,9 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}/${PV}:"
 SRC_URI_append_amlogic = " file://0001-arm64-meson-import-p241-dts-from-linux-v5.8-rc1.patch \
 			   file://0002-arm64-meson-add-support-for-the-amlogic-p241-board.patch"
 
-# FIXME
+# Most platform just specify the dtb basename but meson adds the "amlogic/" dir.
+# We could force yocto to install the dtb in an "amlogic/" dir but its easier to just
+# amend the fdtfile variable to match yocto default behavior
 SRC_URI_append_amlogic = " file://0001-meson-env-remove-amlogic-directory-from-fdtfile-vari.patch"
 
 # HDMI and USB Keyboard mess with the TTY and are annoying while working on the platform
