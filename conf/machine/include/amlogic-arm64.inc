@@ -11,9 +11,12 @@ MACHINE_ESSENTIAL_EXTRA_RDEPENDS ?= "kernel-image kernel-devicetree"
 MACHINE_EXTRA_RDEPENDS ?= "kernel-modules"
 
 KERNEL_IMAGETYPE ?= "Image"
+IMAGE_BOOT_FILES ?= "${KERNEL_IMAGETYPE} \
+		     ${@os.path.basename("${KERNEL_DEVICETREE}")}"
 
 # All Amlogic platforms seems to use this console settings
 SERIAL_CONSOLES ?= "115200;ttyAML0"
 SERIAL_CONSOLES_CHECK = "${SERIAL_CONSOLES}"
 
+do_image_wic[depends] += "mtools-native:do_populate_sysroot dosfstools-native:do_populate_sysroot"
 IMAGE_FSTYPES ?= "tar.bz2 wic wic.bz2 wic.bmap"
