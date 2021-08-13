@@ -1,0 +1,10 @@
+header:
+  version: 10
+  includes:
+    - poky.yml
+    - nosem.yml
+
+machine: amlogic-s400
+distro: poky
+target:
+  - core-image-minimal
