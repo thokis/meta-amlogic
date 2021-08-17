@@ -55,4 +55,4 @@ do_deploy_append_meson-gx-boot () {
 	install -m 644 ${B}/atf.bin.usb.tpl ${DEPLOYDIR}/atf/atf.bin.usb.tpl
 }
 
-addtask deploy after do_compile
+addtask deploy after do_compile before do_populate_sysroot
