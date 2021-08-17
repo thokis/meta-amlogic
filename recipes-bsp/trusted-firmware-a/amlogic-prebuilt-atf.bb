@@ -36,12 +36,18 @@ S = "${WORKDIR}/fip-collect"
 
 do_compile () {
 	./generate-bins.sh ${S} ${DEPLOY_DIR_IMAGE}/u-boot.bin ${B} atf.bin
+
+	# Spliting the sd target atf in two image is usefull in some cases (eg. mender)
+	dd if=${B}/atf.bin.sd.bin of=${B}/atf.bin.sd-mbr.bin conv=fsync,notrunc bs=1 count=440
+	dd if=${B}/atf.bin.sd.bin of=${B}/atf.bin.sd-rest.bin conv=fsync,notrunc bs=512 skip=1
 }
 
 do_deploy () {
 	install -m 755 -d ${DEPLOYDIR}/atf
 	install -m 644 ${B}/atf.bin ${DEPLOYDIR}/atf/atf.bin
 	install -m 644 ${B}/atf.bin.sd.bin ${DEPLOYDIR}/atf/atf.bin.sd.bin
+	install -m 644 ${B}/atf.bin.sd-mbr.bin ${DEPLOYDIR}/atf/atf.bin.sd-mbr.bin
+	install -m 644 ${B}/atf.bin.sd-rest.bin ${DEPLOYDIR}/atf/atf.bin.sd-rest.bin
 }
 
 do_deploy_append_meson-gx-boot () {
