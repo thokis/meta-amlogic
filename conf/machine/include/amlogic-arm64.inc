@@ -8,9 +8,9 @@ MACHINE_FEATURES ?= "serial"
 MACHINE_FEATURES_BACKFILL_CONSIDERED ?= "rtc"
 
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS ?= "kernel-image \
-				     kernel-devicetree \
-				     alsa-state"
+				     kernel-devicetree"
 MACHINE_EXTRA_RDEPENDS ?= "kernel-modules"
+MACHINE_EXTRA_RRECOMMENDS ?= "alsa-state"
 
 KERNEL_IMAGETYPE ?= "Image"
 IMAGE_BOOT_FILES ?= "${KERNEL_IMAGETYPE} \
