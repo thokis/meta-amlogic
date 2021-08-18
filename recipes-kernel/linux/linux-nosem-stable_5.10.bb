@@ -15,4 +15,6 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
 SRC_URI = " \
     git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git;branch=${KBRANCH} \
     file://0001-menuconfig-mconf-cfg-Allow-specification-of-ncurses-.patch \
+    file://0002-arm64-dts-meson-p241-add-vcc_5v-regulator.patch \
+    file://0003-arm64-dts-meson-p241-add-sound-support.patch \
     "
