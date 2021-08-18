@@ -7,7 +7,9 @@ require conf/machine/include/soc-family.inc
 MACHINE_FEATURES ?= "serial"
 MACHINE_FEATURES_BACKFILL_CONSIDERED ?= "rtc"
 
-MACHINE_ESSENTIAL_EXTRA_RDEPENDS ?= "kernel-image kernel-devicetree"
+MACHINE_ESSENTIAL_EXTRA_RDEPENDS ?= "kernel-image \
+				     kernel-devicetree \
+				     alsa-state"
 MACHINE_EXTRA_RDEPENDS ?= "kernel-modules"
 
 KERNEL_IMAGETYPE ?= "Image"
