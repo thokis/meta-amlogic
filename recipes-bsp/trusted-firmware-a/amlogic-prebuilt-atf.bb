@@ -43,16 +43,15 @@ do_compile () {
 }
 
 do_deploy () {
-	install -m 755 -d ${DEPLOYDIR}/atf
-	install -m 644 ${B}/atf.bin ${DEPLOYDIR}/atf/atf.bin
-	install -m 644 ${B}/atf.bin.sd.bin ${DEPLOYDIR}/atf/atf.bin.sd.bin
-	install -m 644 ${B}/atf.bin.sd-mbr.bin ${DEPLOYDIR}/atf/atf.bin.sd-mbr.bin
-	install -m 644 ${B}/atf.bin.sd-rest.bin ${DEPLOYDIR}/atf/atf.bin.sd-rest.bin
+	install -m 644 ${B}/atf.bin ${DEPLOYDIR}/atf.bin
+	install -m 644 ${B}/atf.bin.sd.bin ${DEPLOYDIR}/atf.bin.sd.bin
+	install -m 644 ${B}/atf.bin.sd-mbr.bin ${DEPLOYDIR}/atf.bin.sd-mbr.bin
+	install -m 644 ${B}/atf.bin.sd-rest.bin ${DEPLOYDIR}/atf.bin.sd-rest.bin
 }
 
 do_deploy_append_meson-gx-boot () {
-	install -m 644 ${B}/atf.bin.usb.bl2 ${DEPLOYDIR}/atf/atf.bin.usb.bl2
-	install -m 644 ${B}/atf.bin.usb.tpl ${DEPLOYDIR}/atf/atf.bin.usb.tpl
+	install -m 644 ${B}/atf.bin.usb.bl2 ${DEPLOYDIR}/atf.bin.usb.bl2
+	install -m 644 ${B}/atf.bin.usb.tpl ${DEPLOYDIR}/atf.bin.usb.tpl
 }
 
 addtask deploy after do_compile before do_populate_sysroot

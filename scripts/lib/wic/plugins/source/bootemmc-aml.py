@@ -42,7 +42,7 @@ class BootEmmcAmlPlugin(SourcePlugin):
                            creator.ptable_format)
 
         deploy_dir = get_bitbake_var("DEPLOY_DIR_IMAGE")
-        atf = os.path.join(deploy_dir, "atf/atf.bin")
+        atf = os.path.join(deploy_dir, "atf.bin")
         full_path = creator._full_path(workdir, disk_name, "direct")
 
         logger.debug("Installing ATF on eMMC disk %s as %s with size %s bytes",

@@ -42,7 +42,7 @@ class BootSdAmlPlugin(SourcePlugin):
                            creator.ptable_format)
 
         deploy_dir = get_bitbake_var("DEPLOY_DIR_IMAGE")
-        atf = os.path.join(deploy_dir, "atf/atf.bin.sd.bin")
+        atf = os.path.join(deploy_dir, "atf.bin.sd.bin")
         full_path = creator._full_path(workdir, disk_name, "direct")
 
         logger.debug("Installing ATF on SD disk %s as %s with size %s bytes",
