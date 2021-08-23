@@ -34,7 +34,7 @@ git clone https://gitlab.com/jbrunet/meta-nosem.git
 Checkout poky with hardknott and setup the build as usual
 
 ```
-git clone git://git.yoctoproject.org/poky -b hardknott
+git clone git://git.yoctoproject.org/poky -b dunfell
 source poky/oe-init-build-env
 ```
 
@@ -49,9 +49,8 @@ You are done
 ## Quick Start with Kas
 
 This layer has basic for support kas (see
-https://kas.readthedocs.io/en/1.0/index.html) A subset of board are
-provided with the related kas yaml file. For the other, it is straight
-forward to add it. Taking the example of the `aml-s905x-cc`.
+https://kas.readthedocs.io/en/1.0/index.html) Boards are
+provided with the related kas yaml file.
 
 Just checkout `meta-nosem` and fire up `kas`. It will take care of the
 dependencies and the configuration
@@ -61,7 +60,7 @@ git clone https://gitlab.com/jbrunet/meta-nosem.git
 kas build kas/aml-s905x-cc.yml
 ```
 
-This will build `core-image-minimal` for the `aml-s905x-cc`
+This will build `core-image-base` for the `aml-s905x-cc`
 
 ## Flashing
 

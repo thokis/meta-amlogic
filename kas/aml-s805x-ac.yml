@@ -7,4 +7,4 @@ header:
 machine: aml-s805x-ac
 distro: poky
 target:
-  - core-image-minimal
+  - core-image-base

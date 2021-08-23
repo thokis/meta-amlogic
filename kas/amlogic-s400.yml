@@ -7,4 +7,4 @@ header:
 machine: amlogic-s400
 distro: poky
 target:
-  - core-image-minimal
+  - core-image-base

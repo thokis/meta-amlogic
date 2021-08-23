@@ -7,4 +7,4 @@ header:
 machine: khadas-vim3
 distro: poky
 target:
-  - core-image-minimal
+  - core-image-base

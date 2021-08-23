@@ -7,4 +7,15 @@ header:
 machine: amlogic-p241
 distro: poky
 target:
-  - core-image-minimal
+  - core-image-base
+
+local_conf_header:
+  testing: |
+    EXTRA_IMAGE_FEATURES_append = " \
+      ssh-server-dropbear \
+      allow-empty-password \
+      empty-root-password \
+      splash"
+    IMAGE_INSTALL_append = " \
+      alsa-utils \
+      mpg123"
