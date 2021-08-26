@@ -1,10 +1,6 @@
 header:
   version: 10
   includes:
-    - poky.yml
-    - nosem.yml
+  - include/common.yml
 
 machine: amlogic-p241
-distro: poky
-target:
-  - core-image-base

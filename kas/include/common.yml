@@ -9,6 +9,11 @@ repos:
     layers:
       meta:
       meta-poky:
+  meta-nosem:
+
+distro: poky
+target:
+  - core-image-base
 
 bblayers_conf_header:
   standard: |
@@ -33,3 +38,6 @@ local_conf_header:
         ABORT,${DL_DIR},100M,1K \
         ABORT,${SSTATE_DIR},100M,1K \
         ABORT,/tmp,10M,1K"
+  # Disable u-boot video and usb kbd by default
+  no-video-usb-kbd: |
+    UBOOT_ILOVEUART ??= "1"
