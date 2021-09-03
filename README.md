@@ -22,7 +22,6 @@ https://gitlab.com/jbrunet/meta-nosem
 
 Jerome Brunet <jbrunet@baylibre.com>
 
-
 ## Quick Start
 
 Checkout this awesome layer
@@ -34,7 +33,7 @@ git clone https://gitlab.com/jbrunet/meta-nosem.git
 Checkout poky with hardknott and setup the build as usual
 
 ```
-git clone git://git.yoctoproject.org/poky -b dunfell
+git clone git://git.yoctoproject.org/poky -b hardknott
 source poky/oe-init-build-env
 ```
 
@@ -64,8 +63,8 @@ This will build `core-image-base` for the `aml-s905x-cc`
 
 ## Flashing
 
-Image generated with `wic` can flash directly to the device using dd.  Even
-better, you can use bmap which is faster and saver
+Image generated with `wic` can be flashed directly to the device using dd.
+Even better, you can use bmaptool which is faster and safer
 
 ```
 bmaptool copy --bmap <some-img>.wic.bmap <some-img>.wic.bz2 <target-device>
@@ -75,7 +74,7 @@ If you used `amlogic-none.wks`, the atf was not installed in the
 `wic`. This is useful if you intend to install the bootloader on another
 device, such as a SPI or eMMC boot partition
 
-Check `tmp/deploy/images/atf/` for `atf.bin` and `atf.bin.sd.bin`
+Check `tmp/deploy/images/<machine>/` for `atf.bin` and `atf.bin.sd.bin`
 
 * SPI: using a bootstrap u-boot, write `atf.bin` directly at the start of
   the device
