@@ -1,4 +1,4 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}/${PV}:"
+FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}/${PV}:${THISDIR}/${PN}:"
 
 # Add p241 support
 SRC_URI_append = " file://0001-arm64-meson-import-p241-dts-from-linux-v5.8-rc1.patch \
