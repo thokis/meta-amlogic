@@ -7,6 +7,9 @@ require conf/machine/include/soc-family.inc
 MACHINE_FEATURES ?= "serial"
 MACHINE_FEATURES_BACKFILL_CONSIDERED ?= "rtc"
 
+# Between the default kernel and ramfs addresses
+UBOOT_ENTRYPOINT ?= "0x0c000000"
+
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS ?= "kernel-image \
 				     kernel-devicetree"
 MACHINE_EXTRA_RDEPENDS ?= "kernel-modules"
