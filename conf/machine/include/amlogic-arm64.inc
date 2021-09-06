@@ -21,6 +21,5 @@ SERIAL_CONSOLES ?= "115200;ttyAML0"
 SERIAL_CONSOLES_CHECK = "${SERIAL_CONSOLES}"
 
 do_image_wic[depends] += "mtools-native:do_populate_sysroot \
-			  dosfstools-native:do_populate_sysroot \
-			  virtual/trusted-firmware-a:do_populate_sysroot"
+			  dosfstools-native:do_populate_sysroot"
 IMAGE_FSTYPES ?= "tar.bz2 wic wic.bz2 wic.bmap"
