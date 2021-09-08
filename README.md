@@ -56,6 +56,7 @@ dependencies and the configuration
 
 ```
 git clone https://gitlab.com/jbrunet/meta-nosem.git
+cd meta-nosem
 kas build kas/aml-s905x-cc.yml
 ```
 
