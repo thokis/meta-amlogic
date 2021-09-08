@@ -1,0 +1,7 @@
+header:
+  version: 10
+
+local_conf_header:
+  save-space: |
+    INHERIT += "rm_work"
+
