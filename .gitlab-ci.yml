@@ -25,7 +25,7 @@ variables:
   extends: .setup
   interruptible: true
   script:
-    - kas build kas/$TARGET_MACHINE.yml:kas/rm-work.yml --target core-image-minimal
+    - kas build kas/$TARGET_MACHINE.yml --target core-image-minimal
     - cp -L $KAS_WORK_DIR/build/tmp/deploy/images/$TARGET_MACHINE/core-image-minimal-$TARGET_MACHINE.wic.{bz2,bmap} $ARTIFACT_DIR/
 
 .actual-build:
