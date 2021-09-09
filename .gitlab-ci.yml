@@ -10,7 +10,7 @@ stages:
 
 variables:
   DL_DIR: /cache/yocto/downloads
-  SSTATE_DIR: /cache/nosem/sstate
+  SSTATE_DIR: /cache/yocto/nosem/sstate
 
 .setup:
   before_script:
