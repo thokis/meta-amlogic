@@ -4,8 +4,8 @@ LINUX_KERNEL_TYPE ?= "longterm"
 
 LINUX_VERSION ?= "5.10"
 KBRANCH = "linux-5.10.y"
-SRCREV = "2c5bd949b1df3f9fb109107b3d766e2ebabd7238"
-PV = "5.10.60"
+SRCREV = "e07f317d5a289f06b7eb9025d2ada744cf22c940"
+PV = "5.10.63"
 
 KCONFIG_MODE="--alldefconfig"
 KBUILD_DEFCONFIG = "defconfig"
