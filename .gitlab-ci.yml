@@ -56,17 +56,18 @@ khadas-vim3:
 # Utility tasks, not executed automatically
 #
 
-delete-dl-dir:
+.cleanup-on-schedule:
   extends: .setup
   stage: prep
-  when: manual
+  rules:
+  - if: $CI_PIPELINE_SOURCE == "schedule" && $CI_CLEAN_SLATE == "mrproper"
+
+delete-dl-dir:
+  extends: .cleanup-on-schedule
   script:
   - rm -rf $DL_DIR/*
 
-# Delete all sstate
 delete-sstate:
-  extends: .setup
-  stage: prep
-  when: manual
+  extends: .cleanup-on-schedule
   script:
   - rm -rf $SSTATE_DIR/*
