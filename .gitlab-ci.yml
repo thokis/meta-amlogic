@@ -19,6 +19,10 @@ variables:
 
 .build:
   extends: .setup
+  only:
+    - hardknott
+    - dunfell
+    - tags
   interruptible: true
   variables:
     TARGET_MACHINE: $CI_JOB_NAME
@@ -31,30 +35,22 @@ variables:
     paths:
       - $CI_PROJECT_DIR/$CI_JOB_NAME/
 
-.smoke:
-  extends: .build
-
-.actual-build:
-  extends: .build
-  only:
-    - hardknott
-    - dunfell
-    - tags
-
+# Use as smoke test
 aml-s905x-cc:
-  extends: .smoke
+  extends: .build
+  only: null
 
 aml-s805x-ac:
-  extends: .actual-build
+  extends: .build
 
 amlogic-p241:
-  extends: .actual-build
+  extends: .build
 
 amlogic-s400:
-  extends: .actual-build
+  extends: .build
 
 khadas-vim3:
-  extends: .actual-build
+  extends: .build
 
 #
 # Utility tasks, not executed automatically
