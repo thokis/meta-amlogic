@@ -49,6 +49,9 @@ amlogic-p241:
 amlogic-s400:
   extends: .build
 
+amlogic-u200:
+  extends: .build
+
 khadas-vim3:
   extends: .build
 
