@@ -26,6 +26,10 @@ COMPATIBLE_MACHINE_amlogic-s400 = "amlogic-s400"
 LIC_FILES_CHKSUM_amlogic-s400 = "file://LICENSE;md5=7620f418d8fea612915a124b1ac30196"
 SRC_URI_amlogic-s400 = "https://jbrunet.baylibre.com/pub/amlogic/fips/fip-collect-aml-s400-20181003.tar.gz;sha256sum=a1367a2c8cf2fb928ee2931d8ffa236164d9afde326e92612208e24cc6409173"
 
+COMPATIBLE_MACHINE_amlogic-u200 = "amlogic-u200"
+LIC_FILES_CHKSUM_amlogic-u200 = "file://LICENSE;md5=7620f418d8fea612915a124b1ac30196"
+SRC_URI_amlogic-u200 = "https://jbrunet.baylibre.com/pub/amlogic/fips/fip-collect-aml-u200-20180418.tar.gz;sha256sum=342a8ab27210d5b74a8d8bc1e0388b20030af73a53bbd88896b0bd66c9253b07"
+
 COMPATIBLE_MACHINE_khadas-vim3 = "khadas-vim3"
 LIC_FILES_CHKSUM_khadas-vim3 = "file://LICENSE;md5=5576a462e448a0c3369dcff00d535eac"
 SRC_URI_khadas-vim3 = "https://jbrunet.baylibre.com/pub/amlogic/fips/fip-collect-khadas-vim3-20200410.tar.gz;sha256sum=eb61a70edb5503f78ff43fd378ece879acc318dc450f9c798358459e9814d8b5"
