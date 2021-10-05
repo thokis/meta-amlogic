@@ -38,6 +38,7 @@ build:
         KAS_TARGET: core-image-base
   artifacts:
     name: "$KAS_MACHINE-$CI_COMMIT_REF_SLUG"
+    expire_in: 1 day
     paths:
       - $CI_PROJECT_DIR/$KAS_MACHINE/
 
