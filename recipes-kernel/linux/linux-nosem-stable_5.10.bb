@@ -2,10 +2,9 @@ require linux-nosem.inc
 
 LINUX_KERNEL_TYPE ?= "longterm"
 
-LINUX_VERSION ?= "5.10"
+LINUX_VERSION ?= "5.10.70"
 KBRANCH = "linux-5.10.y"
-SRCREV = "e07f317d5a289f06b7eb9025d2ada744cf22c940"
-PV = "5.10.63"
+SRCREV = "f93026b28e2afe5060a493b0bbcee19d12961b7e"
 
 KCONFIG_MODE="--alldefconfig"
 KBUILD_DEFCONFIG = "defconfig"
