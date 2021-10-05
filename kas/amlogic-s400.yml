@@ -1,6 +1,0 @@
-header:
-  version: 10
-  includes:
-  - include/common.yml
-
-machine: amlogic-s400

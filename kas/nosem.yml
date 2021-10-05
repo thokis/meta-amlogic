@@ -3,4 +3,6 @@ header:
   includes:
   - include/common.yml
 
-machine: aml-s805x-ac
+machine: aml-s905x-cc
+target:
+  - core-image-base
