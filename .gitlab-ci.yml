@@ -1,76 +1,53 @@
 image: ghcr.io/siemens/kas/kas
 
 stages:
-  - prep
   - build
 
 variables:
   DL_DIR: /cache/yocto/downloads
   SSTATE_DIR: /cache/yocto/nosem/sstate
-
-.setup:
-  before_script:
-    - echo DL_DIR = $DL_DIR
-    - echo SSTATE_DIR = $SSTATE_DIR
-    - export KAS_WORK_DIR=$CI_PROJECT_DIR/work/$CI_JOB_NAME
-    - export ARTIFACT_DIR=$CI_PROJECT_DIR/$CI_JOB_NAME
-    - rm -rf $KAS_WORK_DIR $ARTIFACT_DIR
-    - mkdir --verbose --parents $KAS_WORK_DIR $SSTATE_DIR $DL_DIR $ARTIFACT_DIR
+  KAS_WORK_DIR: $CI_PROJECT_DIR/work
 
 .build:
-  extends: .setup
+  interruptible: true
+  stage: build
+  script:
+    - echo DL_DIR = $DL_DIR
+    - echo SSTATE_DIR = $SSTATE_DIR
+    - export ARTIFACT_DIR=$CI_PROJECT_DIR/$KAS_MACHINE
+    - rm -rf $KAS_WORK_DIR $ARTIFACT_DIR
+    - mkdir --verbose --parents $KAS_WORK_DIR $SSTATE_DIR $DL_DIR $ARTIFACT_DIR
+    - kas build kas/nosem.yml
+    - cp -L $KAS_WORK_DIR/build/tmp/deploy/images/$KAS_MACHINE/$KAS_TARGET-$KAS_MACHINE.wic.{bz2,bmap} $ARTIFACT_DIR/
+
+build:
+  extends: .build
   only:
     - hardknott
     - dunfell
     - tags
-  interruptible: true
-  variables:
-    TARGET_MACHINE: $CI_JOB_NAME
-  stage: build
-  script:
-    - kas build kas/$TARGET_MACHINE.yml --target core-image-minimal
-    - cp -L $KAS_WORK_DIR/build/tmp/deploy/images/$TARGET_MACHINE/core-image-minimal-$TARGET_MACHINE.wic.{bz2,bmap} $ARTIFACT_DIR/
+  parallel:
+    matrix:
+      - KAS_MACHINE:
+          - aml-s905x-cc
+          - aml-s805x-ac
+          - amlogic-p241
+          - amlogic-s400
+          - amlogic-u200
+          - khadas-vim3
+        KAS_TARGET: core-image-base
   artifacts:
-    name: "$CI_JOB_NAME-$CI_COMMIT_REF_SLUG"
+    name: "$KAS_MACHINE-$CI_COMMIT_REF_SLUG"
     paths:
-      - $CI_PROJECT_DIR/$CI_JOB_NAME/
+      - $CI_PROJECT_DIR/$KAS_MACHINE/
 
-# Use as smoke test
-aml-s905x-cc:
+smoke:
   extends: .build
-  only: null
-
-aml-s805x-ac:
-  extends: .build
-
-amlogic-p241:
-  extends: .build
-
-amlogic-s400:
-  extends: .build
-
-amlogic-u200:
-  extends: .build
-
-khadas-vim3:
-  extends: .build
-
-#
-# Utility tasks, not executed automatically
-#
-
-.cleanup-on-schedule:
-  extends: .setup
-  stage: prep
-  rules:
-  - if: $CI_PIPELINE_SOURCE == "schedule" && $CI_CLEAN_SLATE == "mrproper"
-
-delete-dl-dir:
-  extends: .cleanup-on-schedule
-  script:
-  - rm -rf $DL_DIR/*
-
-delete-sstate:
-  extends: .cleanup-on-schedule
-  script:
-  - rm -rf $SSTATE_DIR/*
+  except:
+    - hardknott
+    - dunfell
+    - tags
+  parallel:
+    matrix:
+      - KAS_MACHINE: aml-s905x-cc
+        KAS_TARGET: core-image-minimal
