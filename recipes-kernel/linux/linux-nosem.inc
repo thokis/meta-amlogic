@@ -10,3 +10,6 @@ inherit kernel-yocto kernel
 
 LINUX_VERSION_EXTENSION ?= "-nosem-${LINUX_KERNEL_TYPE}"
 PV = "${LINUX_VERSION}+git${SRCPV}"
+
+KCONFIG_MODE ?= "--alldefconfig"
+KBUILD_DEFCONFIG ?= "defconfig"

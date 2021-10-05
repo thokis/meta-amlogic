@@ -6,9 +6,6 @@ LINUX_VERSION ?= "5.10.70"
 KBRANCH = "linux-5.10.y"
 SRCREV = "f93026b28e2afe5060a493b0bbcee19d12961b7e"
 
-KCONFIG_MODE="--alldefconfig"
-KBUILD_DEFCONFIG = "defconfig"
-
 LIC_FILES_CHKSUM = "file://COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
 
 SRC_URI = " \
