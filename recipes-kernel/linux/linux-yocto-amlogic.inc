@@ -1,13 +1,13 @@
 # Add GXL support - libretech-cc simply re-use reference design p241
-KMACHINE_amlogic-p241 = "amlogic-p241"
-KMACHINE_aml-s905x-cc = "amlogic-p241"
-KMACHINE_aml-s805x-ac = "aml-s805x-ac"
-COMPATIBLE_MACHINE_append_amlogic = "|amlogic-p241|aml-s905x-cc|aml-s805x-ac"
+KMACHINE:amlogic-p241 = "amlogic-p241"
+KMACHINE:aml-s905x-cc = "amlogic-p241"
+KMACHINE:aml-s805x-ac = "aml-s805x-ac"
+COMPATIBLE_MACHINE:append:amlogic = "|amlogic-p241|aml-s905x-cc|aml-s805x-ac"
 
 # Add AXG support
-KMACHINE_amlogic-s400 = "amlogic-s400"
-COMPATIBLE_MACHINE_append_amlogic = "|amlogic-s400"
+KMACHINE:amlogic-s400 = "amlogic-s400"
+COMPATIBLE_MACHINE:append:amlogic = "|amlogic-s400"
 
 # Add G12 support
-KMACHINE_amlogic-u200 = "amlogic-u200"
-COMPATIBLE_MACHINE_append_amlogic = "|amlogic-u200"
+KMACHINE:amlogic-u200 = "amlogic-u200"
+COMPATIBLE_MACHINE:append:amlogic = "|amlogic-u200"

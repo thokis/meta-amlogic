@@ -2,4 +2,4 @@
 
 require conf/machine/include/amlogic-gxl.inc
 
-SOC_FAMILY_append = ":s805x"
+SOC_FAMILY:append = ":s805x"
