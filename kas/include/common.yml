@@ -23,9 +23,10 @@ bblayers_conf_header:
 local_conf_header:
   standard: |
     CONF_VERSION = "1"
-    PACKAGE_CLASSES ?= "package_rpm"
     USER_CLASSES ?= "buildstats"
     PATCHRESOLVE = "noop"
+  package-manager: |
+    PACKAGE_CLASSES ?= "package_rpm"
   debug-tweaks: |
     EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
   diskmon: |
