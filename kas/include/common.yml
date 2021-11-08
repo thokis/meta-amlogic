@@ -24,7 +24,7 @@ local_conf_header:
   standard: |
     CONF_VERSION = "1"
     PACKAGE_CLASSES ?= "package_rpm"
-    USER_CLASSES ?= "buildstats image-prelink"
+    USER_CLASSES ?= "buildstats"
     PATCHRESOLVE = "noop"
   debug-tweaks: |
     EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
