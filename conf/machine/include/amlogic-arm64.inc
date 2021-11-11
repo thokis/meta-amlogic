@@ -1,6 +1,6 @@
 # Amlogic ARM64 SoC configuration
 
-SOC_FAMILY = "amlogic"
+SOC_FAMILY = "amlogic:nosem"
 require conf/machine/include/soc-family.inc
 
 # Basic feature all HW usually have - override if necessary
