@@ -46,6 +46,21 @@ build:
     paths:
       - $CI_PROJECT_DIR/$KAS_MACHINE/
 
+linux-yocto:
+  extends: .build
+  only:
+    - hardknott
+    - dunfell
+    - tags
+  parallel:
+    matrix:
+      - KAS_MACHINE:
+          - aml-s905x-cc
+          - aml-s805x-ac
+          - amlogic-p241
+        KAS_TARGET: linux-yocto
+        KAS_YAML_CFG: kas/nosem.yml:kas/frag/linux-yocto.yml
+
 smoke:
   extends: .build
   except:
@@ -57,3 +72,6 @@ smoke:
       - KAS_MACHINE: aml-s905x-cc
         KAS_TARGET: core-image-minimal
         KAS_YAML_CFG: kas/nosem.yml
+      - KAS_MACHINE: aml-s905x-cc
+        KAS_TARGET: linux-yocto
+        KAS_YAML_CFG: kas/nosem.yml:kas/frag/linux-yocto.yml
