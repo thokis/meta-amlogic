@@ -16,7 +16,7 @@ variables:
     - echo SSTATE_DIR = $SSTATE_DIR
     - rm -rf $KAS_WORK_DIR
     - mkdir --verbose --parents $KAS_WORK_DIR $SSTATE_DIR
-    - kas build kas/nosem.yml
+    - kas build $KAS_YAML_CFG
 
 build:
   extends: .build
@@ -34,6 +34,7 @@ build:
           - amlogic-u200
           - khadas-vim3
         KAS_TARGET: core-image-base
+        KAS_YAML_CFG: kas/nosem.yml
   before_script:
     - rm -rf $CI_PROJECT_DIR/$KAS_MACHINE
     - mkdir --verbose --parents $CI_PROJECT_DIR/$KAS_MACHINE
@@ -55,3 +56,4 @@ smoke:
     matrix:
       - KAS_MACHINE: aml-s905x-cc
         KAS_TARGET: core-image-minimal
+        KAS_YAML_CFG: kas/nosem.yml
