@@ -14,11 +14,9 @@ variables:
   script:
     - echo DL_DIR = $DL_DIR
     - echo SSTATE_DIR = $SSTATE_DIR
-    - export ARTIFACT_DIR=$CI_PROJECT_DIR/$KAS_MACHINE
-    - rm -rf $KAS_WORK_DIR $ARTIFACT_DIR
-    - mkdir --verbose --parents $KAS_WORK_DIR $SSTATE_DIR $DL_DIR $ARTIFACT_DIR
+    - rm -rf $KAS_WORK_DIR
+    - mkdir --verbose --parents $KAS_WORK_DIR $SSTATE_DIR
     - kas build kas/nosem.yml
-    - cp -L $KAS_WORK_DIR/build/tmp/deploy/images/$KAS_MACHINE/$KAS_TARGET-$KAS_MACHINE.wic.{bz2,bmap} $ARTIFACT_DIR/
 
 build:
   extends: .build
@@ -36,6 +34,11 @@ build:
           - amlogic-u200
           - khadas-vim3
         KAS_TARGET: core-image-base
+  before_script:
+    - rm -rf $CI_PROJECT_DIR/$KAS_MACHINE
+    - mkdir --verbose --parents $CI_PROJECT_DIR/$KAS_MACHINE
+  after_script:
+    - cp -L $KAS_WORK_DIR/build/tmp/deploy/images/$KAS_MACHINE/$KAS_TARGET-$KAS_MACHINE.wic.{bz2,bmap} $CI_PROJECT_DIR/$KAS_MACHINE/
   artifacts:
     name: "$KAS_MACHINE-$CI_COMMIT_REF_SLUG"
     expire_in: 1 day
