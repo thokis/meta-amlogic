@@ -58,6 +58,8 @@ linux-yocto:
           - aml-s905x-cc
           - aml-s805x-ac
           - amlogic-p241
+          - amlogic-s400
+          - amlogic-u200
         KAS_TARGET: linux-yocto
         KAS_YAML_CFG: kas/nosem.yml:kas/frag/linux-yocto.yml
 
