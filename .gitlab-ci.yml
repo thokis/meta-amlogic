@@ -34,7 +34,9 @@ build:
           - amlogic-u200
           - khadas-vim3
         KAS_TARGET: core-image-base
-        KAS_YAML_CFG: kas/nosem.yml
+        KAS_YAML_CFG:
+          - kas/poky.yml
+          - kas/oe-core.yml
   before_script:
     - rm -rf $CI_PROJECT_DIR/$KAS_MACHINE
     - mkdir --verbose --parents $CI_PROJECT_DIR/$KAS_MACHINE
@@ -61,7 +63,7 @@ linux-yocto:
           - amlogic-s400
           - amlogic-u200
         KAS_TARGET: linux-yocto
-        KAS_YAML_CFG: kas/nosem.yml:kas/frag/linux-yocto.yml
+        KAS_YAML_CFG: kas/poky.yml:kas/frag/linux-yocto.yml
 
 smoke:
   extends: .build
@@ -73,7 +75,9 @@ smoke:
     matrix:
       - KAS_MACHINE: aml-s905x-cc
         KAS_TARGET: core-image-minimal
-        KAS_YAML_CFG: kas/nosem.yml
+        KAS_YAML_CFG:
+          - kas/poky.yml
+          - kas/oe-core.yml
       - KAS_MACHINE: aml-s905x-cc
         KAS_TARGET: linux-yocto
-        KAS_YAML_CFG: kas/nosem.yml:kas/frag/linux-yocto.yml
+        KAS_YAML_CFG: kas/poky.yml:kas/frag/linux-yocto.yml

@@ -2,16 +2,9 @@ header:
   version: 10
 
 repos:
-  poky:
-    url: https://git.yoctoproject.org/git/poky
-    path: layers/poky
-    refspec: hardknott
-    layers:
-      meta:
-      meta-poky:
   meta-nosem:
 
-distro: poky
+machine: aml-s905x-cc
 target:
   - core-image-base
 

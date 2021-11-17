@@ -12,6 +12,11 @@ Please see the corresponding sections below for details.
 
 * poky: `git://git.yoctoproject.org/poky` - refspec: `hardknott`
 
+OR
+
+* oe-core: `https://git.openembedded.org/openembedded-core` - refspec: `hardknott`
+* bitbake: `https://git.openembedded.org/bitbake` - refspec: `1.50`
+
 ## Patches
 
 Please submit any patches against the meta-nosem layer through a pull
@@ -57,7 +62,7 @@ dependencies and the configuration
 ```
 git clone https://gitlab.com/jbrunet/meta-nosem.git
 cd meta-nosem
-KAS_MACHINE=aml-s905x-cc kas build kas/nosem.yml
+KAS_MACHINE=aml-s905x-cc kas build kas/poky.yml
 ```
 
 This will build `core-image-base` for the `aml-s905x-cc`
