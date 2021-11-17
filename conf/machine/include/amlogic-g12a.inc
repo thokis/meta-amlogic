@@ -2,7 +2,7 @@
 
 require conf/machine/include/amlogic-g12.inc
 
-SOC_FAMILY:append = ":meson-g12a"
+SOC_FAMILY_append = ":meson-g12a"
 
 DEFAULTTUNE ?= "cortexa53"
 require conf/machine/include/tune-cortexa53.inc

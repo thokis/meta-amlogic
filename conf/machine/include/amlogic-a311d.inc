@@ -2,4 +2,4 @@
 
 require conf/machine/include/amlogic-g12b.inc
 
-SOC_FAMILY:append = ":a311d"
+SOC_FAMILY_append = ":a311d"

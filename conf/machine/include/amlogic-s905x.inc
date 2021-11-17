@@ -2,4 +2,4 @@
 
 require conf/machine/include/amlogic-s905dx.inc
 
-SOC_FAMILY:append = ":s905x"
+SOC_FAMILY_append = ":s905x"
