@@ -1,7 +1,8 @@
 header:
   version: 10
   includes:
-  - include/common.yml
+  - include/deps.yml
+  - include/base.yml
 
 repos:
   poky:
