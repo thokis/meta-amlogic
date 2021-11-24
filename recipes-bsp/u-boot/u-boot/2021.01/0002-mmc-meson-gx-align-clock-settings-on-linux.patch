@@ -1,4 +1,4 @@
-From 396fa29204c7d5ec610e7c9bb5cd711accfe8a45 Mon Sep 17 00:00:00 2001
+From f4d7b72e851a5fcd727bfc76dd0a77c30bfa767d Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Mon, 22 Nov 2021 13:49:17 +0100
 Subject: [PATCH 2/2] mmc: meson-gx: align clock settings on linux
@@ -13,12 +13,12 @@ data handling is refactored here
 
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
 ---
- drivers/mmc/meson_gx_mmc.c | 36 ++++++++++++++++++++----------------
+ drivers/mmc/meson_gx_mmc.c | 30 +++++++++++++++++++++---------
  drivers/mmc/meson_gx_mmc.h |  7 +++++++
- 2 files changed, 27 insertions(+), 16 deletions(-)
+ 2 files changed, 28 insertions(+), 9 deletions(-)
 
 diff --git a/drivers/mmc/meson_gx_mmc.c b/drivers/mmc/meson_gx_mmc.c
-index a9c8844d380a..8612f49680d3 100644
+index fa0bd379db72..2cbccd22e341 100644
 --- a/drivers/mmc/meson_gx_mmc.c
 +++ b/drivers/mmc/meson_gx_mmc.c
 @@ -17,13 +17,16 @@
@@ -45,7 +45,7 @@ index a9c8844d380a..8612f49680d3 100644
  
  static inline void *get_regbase(const struct mmc *mmc)
  {
-@@ -44,6 +47,7 @@ static inline void meson_write(struct mmc *mmc, uint32_t val, int offset)
+@@ -44,12 +47,19 @@ static inline void meson_write(struct mmc *mmc, uint32_t val, int offset)
  
  static void meson_mmc_config_clock(struct mmc *mmc)
  {
@@ -53,26 +53,19 @@ index a9c8844d380a..8612f49680d3 100644
  	uint32_t meson_mmc_clk = 0;
  	unsigned int clk, clk_src, clk_div;
  
-@@ -62,13 +66,11 @@ static void meson_mmc_config_clock(struct mmc *mmc)
- 	}
- 	clk_div = DIV_ROUND_UP(clk, mmc->clock);
+ 	if (!mmc->clock)
+ 		return;
  
--	/*
--	 * V3 based SoC prefer a different core phase.
--	 */
--	if (meson_gx_mmc_is_compatible(mmc->dev, MMC_COMPATIBLE_V3))
--		meson_mmc_clk |= CLK_CO_PHASE_270;
--	else
--		meson_mmc_clk |= CLK_CO_PHASE_180;
 +	/* Clk always on */
 +	meson_mmc_clk |= pdata->version->clk_always_on;
 +
 +	/* Core phase according to ip version */
 +	meson_mmc_clk |= pdata->version->core_phase;
++
+ 	/* TOFIX This should use the proper clock taken from DT */
  
- 	/* 0 phase tx clock */
- 	meson_mmc_clk |= CLK_TX_PHASE_000;
-@@ -240,6 +242,7 @@ static const struct dm_mmc_ops meson_dm_mmc_ops = {
+ 	/*
+@@ -236,6 +246,7 @@ static const struct dm_mmc_ops meson_dm_mmc_ops = {
  
  static int meson_mmc_ofdata_to_platdata(struct udevice *dev)
  {
@@ -80,7 +73,7 @@ index a9c8844d380a..8612f49680d3 100644
  	struct meson_mmc_platdata *pdata = dev_get_platdata(dev);
  	fdt_addr_t addr;
  
-@@ -248,6 +251,7 @@ static int meson_mmc_ofdata_to_platdata(struct udevice *dev)
+@@ -244,6 +255,7 @@ static int meson_mmc_ofdata_to_platdata(struct udevice *dev)
  		return -EINVAL;
  
  	pdata->regbase = (void *)addr;
@@ -88,7 +81,7 @@ index a9c8844d380a..8612f49680d3 100644
  
  	return 0;
  }
-@@ -308,8 +312,8 @@ static int meson_mmc_probe(struct udevice *dev)
+@@ -304,8 +316,8 @@ static int meson_mmc_probe(struct udevice *dev)
  
  	/* enable auto clock mode */
  	val = meson_read(mmc, MESON_SD_EMMC_CFG);

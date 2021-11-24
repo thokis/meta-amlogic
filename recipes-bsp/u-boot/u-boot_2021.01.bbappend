@@ -2,7 +2,7 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}/${PV}:${THISDIR}/${PN}:"
 
 # Fixup some mmc problems with 2021.01
 SRC_URI_append_nosem = " \
-	file://0001-mmc-meson-gx-set-270-degree-core-phase-for-v3-SoCs.patch \
+	file://0001-mmc-meson-gx-stick-to-the-oscillator.patch\
 	file://0002-mmc-meson-gx-align-clock-settings-on-linux.patch"
 
 # Most platform just specify the dtb basename but meson adds the "amlogic/" dir.
