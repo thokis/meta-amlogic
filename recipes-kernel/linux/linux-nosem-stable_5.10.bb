@@ -14,3 +14,7 @@ SRC_URI = " \
     file://0002-arm64-dts-meson-p241-add-vcc_5v-regulator.patch \
     file://0003-arm64-dts-meson-p241-add-sound-support.patch \
     "
+
+# Fixup reboot issue on v5.10 stable
+SRC_URI:append = " \
+    file://0001-Revert-drm-meson-fix-shutdown-crash-when-component-n.patch"
