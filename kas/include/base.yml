@@ -1,5 +1,5 @@
 header:
-  version: 10
+  version: 11
 
 machine: aml-s905x-cc
 target:

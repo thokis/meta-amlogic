@@ -1,8 +1,8 @@
 header:
-  version: 10
+  version: 11
   includes:
-  - include/deps.yml
-  - include/base.yml
+  - kas/include/deps.yml
+  - kas/include/base.yml
 
 repos:
   poky:

@@ -1,5 +1,5 @@
 header:
-  version: 10
+  version: 11
 
 local_conf_header:
   # It is weird to do this but mender does not play nice with u-boot
