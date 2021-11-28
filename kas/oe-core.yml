@@ -14,7 +14,7 @@ repos:
   bitbake:
     url: https://git.openembedded.org/bitbake
     path: layers/bitbake
-    refspec: yocto-3.3.3
+    refspec: '1.50'
     layers:
       conf: disabled
 
