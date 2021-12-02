@@ -12,3 +12,5 @@ repos:
     layers:
       meta:
       meta-poky:
+
+distro: poky

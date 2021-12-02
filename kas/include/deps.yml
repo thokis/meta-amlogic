@@ -3,7 +3,3 @@ header:
 
 repos:
   meta-nosem:
-
-machine: aml-s905x-cc
-target:
-  - core-image-base
