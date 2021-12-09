@@ -1,0 +1,65 @@
+From 78527652d26d5ebf6b717423d37d2147543b77ab Mon Sep 17 00:00:00 2001
+From: Alexander Stein <alexander.stein@mailbox.org>
+Date: Wed, 3 Feb 2021 20:28:24 +0100
+Subject: [PATCH] arm64: dts: amlogic: Assign a fixed index to mmc devices
+
+Recently introduced async probe on mmc devices can shuffle block IDs.
+Pin them to fixed values to ease booting in environments where UUIDs
+are not practical. Use newly introduced aliases for mmcblk devices from [1].
+[1]
+https://patchwork.kernel.org/patch/11747669/
+
+Commit message taken from commit 0011c6d18277 ("arm64: dts: rockchip: Assign a fixed index to mmc devices on rk3399 boards.")
+
+The unconventional order (B, C, A) is due to the fact that sd_emmc_a is
+(according to the comments) only used for SDIO.
+
+AFAICS all boards either have both sd_emmc_b and sd_emmc_c or only one of
+them enabled. So the alias order should match the previous non-async order
+for all of them.
+
+Signed-off-by: Alexander Stein <alexander.stein@mailbox.org>
+Signed-off-by: Kevin Hilman <khilman@baylibre.com>
+Link: https://lore.kernel.org/r/20210203192824.854491-1-alexander.stein@mailbox.org
+---
+ arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi | 6 ++++++
+ arch/arm64/boot/dts/amlogic/meson-gx.dtsi         | 6 ++++++
+ 2 files changed, 12 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi b/arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi
+index 959b299344e5..d30a3c481c1f 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi
++++ b/arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi
+@@ -17,6 +17,12 @@ / {
+ 	#address-cells = <2>;
+ 	#size-cells = <2>;
+ 
++	aliases {
++		mmc0 = &sd_emmc_b; /* SD card */
++		mmc1 = &sd_emmc_c; /* eMMC */
++		mmc2 = &sd_emmc_a; /* SDIO */
++	};
++
+ 	chosen {
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
+diff --git a/arch/arm64/boot/dts/amlogic/meson-gx.dtsi b/arch/arm64/boot/dts/amlogic/meson-gx.dtsi
+index 0edd137151f8..3d00404aae0f 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-gx.dtsi
++++ b/arch/arm64/boot/dts/amlogic/meson-gx.dtsi
+@@ -20,6 +20,12 @@ / {
+ 	#address-cells = <2>;
+ 	#size-cells = <2>;
+ 
++	aliases {
++		mmc0 = &sd_emmc_b; /* SD card */
++		mmc1 = &sd_emmc_c; /* eMMC */
++		mmc2 = &sd_emmc_a; /* SDIO */
++	};
++
+ 	reserved-memory {
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
+-- 
+2.34.1
+
