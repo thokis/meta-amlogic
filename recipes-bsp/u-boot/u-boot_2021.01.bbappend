@@ -19,3 +19,12 @@ SRC_URI:append:nosem = " \
 SRC_URI:append:amlogic-p241 = " \
 	file://0001-arm64-meson-import-p241-dts-from-linux-v5.8-rc1.patch \
 	file://0002-arm64-meson-add-support-for-the-amlogic-p241-board.patch"
+
+
+
+# Added Environment support
+ADD_ENV_DEFAULT_FILES = " \
+	file://env-storage.cfg \
+	file://fw_env.config"
+
+SRC_URI:append:aml-s905x-cc = "${ADD_ENV_DEFAULT_FILES}"
