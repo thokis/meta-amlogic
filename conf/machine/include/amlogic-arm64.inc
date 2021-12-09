@@ -13,7 +13,8 @@ UBOOT_ENTRYPOINT ?= "0x0c000000"
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS ?= "kernel-image \
 				     kernel-devicetree"
 MACHINE_EXTRA_RDEPENDS ?= "kernel-modules"
-MACHINE_EXTRA_RRECOMMENDS ?= "alsa-state"
+MACHINE_EXTRA_RRECOMMENDS:append ?= " \
+	${@bb.utils.contains("DISTRO_FEATURES", "alsa", "alsa-state", "", d)}"
 
 KERNEL_IMAGETYPE ?= "Image"
 IMAGE_BOOT_FILES ?= "${KERNEL_IMAGETYPE} \
