@@ -10,6 +10,8 @@ bblayers_conf_header:
     POKY_BBLAYERS_CONF_VERSION = "2"
 
 local_conf_header:
+  root-nopass: |
+    EXTRA_IMAGE_FEATURES += "debug-tweaks"
   standard: |
     CONF_VERSION = "1"
     USER_CLASSES ?= "buildstats"
