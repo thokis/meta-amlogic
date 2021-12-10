@@ -6,7 +6,12 @@ SRC_URI:append:nosem = " \
 
 # HDMI and USB Keyboard mess with the TTY and are annoying while working on the platform
 SRC_URI:append:nosem = " \
-	${@bb.utils.contains('UBOOT_ILOVEUART', '1', " file://meson-config-only-uart-by-default.patch", "", d)}"
+	${@bb.utils.contains('UBOOT_ILOVEUART', '1', "file://meson-config-only-uart-by-default.patch", "", d)}"
+
+# fit-support.cfg is meant to be replaced by another layer path prepend if the
+# requirements are different. For example, one might wish to disable
+# CONFIG_LEGACY_IMAGE_FORMAT for security reasons
+SRC_URI:append:nosem = " file://fit-support.cfg"
 
 # Added Environment support
 ADD_ENV_DEFAULT_FILES = " \
