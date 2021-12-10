@@ -10,13 +10,12 @@ MACHINE_FEATURES_BACKFILL_CONSIDERED ?= "rtc"
 # Between the default kernel and ramfs addresses
 UBOOT_ENTRYPOINT ?= "0x0c000000"
 
-MACHINE_ESSENTIAL_EXTRA_RDEPENDS ?= "kernel-image \
-				     kernel-devicetree"
-MACHINE_EXTRA_RDEPENDS ?= "kernel-modules"
+MACHINE_EXTRA_RRECOMMENDS:append = " kernel-modules"
 MACHINE_EXTRA_RRECOMMENDS:append ?= " \
 	${@bb.utils.contains("DISTRO_FEATURES", "alsa", "alsa-state", "", d)}"
 
-KERNEL_IMAGETYPE ?= "Image"
+KERNEL_CLASSES += "kernel-fitimage"
+KERNEL_IMAGETYPE ?= "fitImage"
 IMAGE_BOOT_FILES ?= "${KERNEL_IMAGETYPE} \
 		     ${@os.path.basename("${KERNEL_DEVICETREE}")}"
 

@@ -2,13 +2,6 @@ header:
   version: 11
 
 local_conf_header:
-  # It is weird to do this but mender does not play nice with u-boot
-  # fragments so we don't want them in the way by default
-  u-boot-fit-signature: |
-    SRC_URI:append:pn-u-boot = " file://fit-signature.cfg"
-  kernel-fit-image: |
-    KERNEL_CLASSES += "kernel-fitimage"
-    KERNEL_IMAGETYPE = "fitImage"
   verified-boot: |
     UBOOT_SIGN_ENABLE ?= "1"
     FIT_GENERATE_KEYS ?= "1"
