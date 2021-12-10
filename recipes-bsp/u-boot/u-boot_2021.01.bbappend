@@ -28,3 +28,4 @@ ADD_ENV_DEFAULT_FILES = " \
 	file://fw_env.config"
 
 SRC_URI:append:aml-s905x-cc = "${ADD_ENV_DEFAULT_FILES}"
+SRC_URI:append:khadas-vim3 = "${ADD_ENV_DEFAULT_FILES}"
