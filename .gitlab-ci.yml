@@ -48,7 +48,7 @@ build:
     paths:
       - $CI_PROJECT_DIR/$KAS_MACHINE/
 
-linux-yocto:
+linux-nosem-stable:
   extends: .build
   only:
     - hardknott
@@ -62,8 +62,8 @@ linux-yocto:
           - amlogic-p241
           - amlogic-s400
           - amlogic-u200
-        KAS_TARGET: linux-yocto
-        KAS_YAML_CFG: kas/poky.yml:kas/frag/linux-yocto.yml
+        KAS_TARGET: linux-nosem-stable
+        KAS_YAML_CFG: kas/poky.yml:kas/frag/linux-nosem-stable.yml
 
 smoke:
   extends: .build
