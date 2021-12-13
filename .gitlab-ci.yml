@@ -79,5 +79,5 @@ smoke:
           - kas/poky.yml
           - kas/oe-core.yml
       - KAS_MACHINE: aml-s905x-cc
-        KAS_TARGET: linux-yocto
-        KAS_YAML_CFG: kas/poky.yml:kas/frag/linux-yocto.yml
+        KAS_TARGET: linux-nosem-stable
+        KAS_YAML_CFG: kas/poky.yml:kas/frag/linux-nosem-stable.yml
