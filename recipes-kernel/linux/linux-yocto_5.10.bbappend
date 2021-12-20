@@ -10,3 +10,6 @@ require linux-yocto-amlogic.inc
 SRC_URI:append:amlogic = " \
 	file://0001-Revert-drm-meson-fix-shutdown-crash-when-component-n.patch"
 
+# Make sure we get stable mmc ids
+SRC_URI:append:amlogic = " \
+	file://0002-arm64-dts-amlogic-Assign-a-fixed-index-to-mmc-device.patch \
