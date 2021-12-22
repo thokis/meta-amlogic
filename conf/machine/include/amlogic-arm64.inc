@@ -17,16 +17,15 @@ MACHINE_EXTRA_RRECOMMENDS:append ?= " \
 
 KERNEL_CLASSES += "kernel-fitimage"
 KERNEL_IMAGETYPE ?= "fitImage"
-IMAGE_BOOT_FILES ?= " \
-	${KERNEL_IMAGETYPE} \
-	${@bb.utils.contains('KERNEL_IMAGETYPE', 'fitImage', '', os.path.basename("${KERNEL_DEVICETREE}"), d)}"
 
 # All Amlogic platforms seems to use this console settings
 SERIAL_CONSOLES ?= "115200;ttyAML0"
 SERIAL_CONSOLES_CHECK = "${SERIAL_CONSOLES}"
 
-do_image_wic[depends] += "mtools-native:do_populate_sysroot \
-			  dosfstools-native:do_populate_sysroot"
-IMAGE_FSTYPES ?= "wic.bz2 wic.bmap"
+# Make boot sources a bit simpler to change
+# eMMC seems like a sane default for most design
+NOSEM_BOOT_DEV ??= "emmc"
+MACHINEOVERRIDES:append = ":${MACHINE}-${NOSEM_BOOT_DEV}-boot"
+include nosem-boot-src-${NOSEM_BOOT_DEV}.inc
 
 require conf/machine/include/amlogic-default-providers.inc
