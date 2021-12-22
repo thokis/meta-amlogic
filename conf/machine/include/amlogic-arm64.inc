@@ -28,3 +28,5 @@ SERIAL_CONSOLES_CHECK = "${SERIAL_CONSOLES}"
 do_image_wic[depends] += "mtools-native:do_populate_sysroot \
 			  dosfstools-native:do_populate_sysroot"
 IMAGE_FSTYPES ?= "wic.bz2 wic.bmap"
+
+require conf/machine/include/amlogic-default-providers.inc
