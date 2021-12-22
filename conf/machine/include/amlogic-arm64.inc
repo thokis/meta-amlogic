@@ -16,8 +16,9 @@ MACHINE_EXTRA_RRECOMMENDS:append ?= " \
 
 KERNEL_CLASSES += "kernel-fitimage"
 KERNEL_IMAGETYPE ?= "fitImage"
-IMAGE_BOOT_FILES ?= "${KERNEL_IMAGETYPE} \
-		     ${@os.path.basename("${KERNEL_DEVICETREE}")}"
+IMAGE_BOOT_FILES ?= " \
+	${KERNEL_IMAGETYPE} \
+	${@bb.utils.contains('KERNEL_IMAGETYPE', 'fitImage', '', os.path.basename("${KERNEL_DEVICETREE}"), d)}"
 
 # All Amlogic platforms seems to use this console settings
 SERIAL_CONSOLES ?= "115200;ttyAML0"
