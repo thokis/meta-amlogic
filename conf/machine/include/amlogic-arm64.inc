@@ -9,6 +9,7 @@ MACHINE_FEATURES_BACKFILL_CONSIDERED ?= "rtc"
 
 # Between the default kernel and ramfs addresses
 UBOOT_ENTRYPOINT ?= "0x0c000000"
+UBOOT_SUFFIX = "bin"
 
 MACHINE_EXTRA_RRECOMMENDS:append = " kernel-modules"
 MACHINE_EXTRA_RRECOMMENDS:append ?= " \

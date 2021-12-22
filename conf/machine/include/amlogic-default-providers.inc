@@ -1,16 +1,15 @@
 # Default providers for (lazy) amlogic machines
 
 # linux kernel:
-PREFERRED_PROVIDER:virtual/kernel ?= "linux-nosem-stable"
-PREFERRED_VERSION:linux-yocto ?= "5.10%"
+PREFERRED_PROVIDER:virtual/kernel ??= "linux-nosem-stable"
+PREFERRED_VERSION:linux-yocto ??= "5.10%"
 
 # u-boot bootloader:
 EXTRA_IMAGEDEPENDS += "virtual/bootloader"
-PREFERRED_PROVIDER:virtual/bootloader ?= "u-boot"
-PREFERRED_PROVIDER:u-boot-fw-utils = "libubootenv"
-PREFERRED_VERSION:u-boot ?= "2021.01"
-UBOOT_SUFFIX = "bin"
+PREFERRED_PROVIDER:virtual/bootloader ??= "u-boot"
+PREFERRED_PROVIDER:u-boot-fw-utils ??= "libubootenv"
+PREFERRED_VERSION:u-boot ??= "2021.01"
 
 # Arm Trusted Firmware
 EXTRA_IMAGEDEPENDS += "virtual/trusted-firmware-a"
-PREFERRED_PROVIDER:virtual/trusted-firmware-a ?= "amlogic-prebuilt-atf"
+PREFERRED_PROVIDER:virtual/trusted-firmware-a ??= "amlogic-prebuilt-atf"
