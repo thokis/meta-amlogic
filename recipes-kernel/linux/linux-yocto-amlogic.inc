@@ -10,4 +10,5 @@ COMPATIBLE_MACHINE:append:amlogic = "|amlogic-s400"
 
 # Add G12 support
 KMACHINE:amlogic-u200 = "amlogic-u200"
-COMPATIBLE_MACHINE:append:amlogic = "|amlogic-u200"
+KMACHINE:khadas-vim3 = "khadas-vim3"
+COMPATIBLE_MACHINE:append:amlogic = "|amlogic-u200|khadas-vim3"

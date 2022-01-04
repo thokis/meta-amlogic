@@ -62,6 +62,7 @@ linux-nosem-stable:
           - amlogic-p241
           - amlogic-s400
           - amlogic-u200
+          - khadas-vim3
         KAS_TARGET: linux-nosem-stable
         KAS_YAML_CFG: kas/poky.yml:kas/frag/linux-nosem-stable.yml
 
