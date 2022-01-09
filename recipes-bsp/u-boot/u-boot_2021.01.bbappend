@@ -1,6 +1,6 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}/${PV}:${THISDIR}/${PN}:"
 
-require u_boot_nosem.inc
+require u-boot_nosem.inc
 
 # Fixup some mmc problems with 2021.01
 SRC_URI:append:nosem = " \
