@@ -49,7 +49,7 @@ error_usage() {
 
 fuse_is_clean() {
     # Check fuses are clean
-    if [ ! -z $(hexdump -s"$1" -n"$2" -e "${2}/1 \"%c\" \"\n\"" $efuse_path | tr -d '\000') ]; then
+    if [ ! -z $(dd if=$efuse_path bs=1 skip=$1 count=$2 2>/dev/null | hexdump -e "${2}/1 \"%c\" \"\n\"" | tr -d '\000') ]; then
 	# Fuse dirty
 	return 1
     else
@@ -61,7 +61,7 @@ get_mac() {
     if fuse_is_clean "$efuse_mac_offset" "$efuse_mac_size"; then
 	echo "Unset"
     else
-	hexdump -s"$efuse_mac_offset" -n6 -e '5/1 "%02x:" 1/1 "%02x\n"' $efuse_path
+	dd if=$efuse_path bs=1 skip=$efuse_mac_offset count=6 2>/dev/null | hexdump -e "5/1 \"%02x:\" 1/1 \"%02x\n\""
     fi
 }
 
@@ -69,7 +69,7 @@ get_sn() {
     if fuse_is_clean "$efuse_sn_offset" "$efuse_sn_size"; then
 	echo "Unset"
     else
-	hexdump -s"$efuse_sn_offset" -n"$efuse_sn_size" -e "${efuse_sn_size}/1 \"%c\" \"\n\"" $efuse_path
+	dd if=$efuse_path bs=1 skip=$efuse_sn_offset count=$efuse_sn_size 2>/dev/null | hexdump -e "${efuse_sn_size}/1 \"%c\" \"\n\""
     fi
 }
 
@@ -161,7 +161,7 @@ esac
 if [ "$action" = "fuse" ]; then
 
     # Check fuses are clean
-    if [ ! -z $(hexdump -s"$offset" -n"$size" -e "${size}/1 \"%c\" \"\n\"" $efuse_path | tr -d '\000') ]; then
+    if ! fuse_is_clean "$offset" "$size"; then
 	echo "$data fuses dirty - abort" 1>&2
 	exit 1
     fi
