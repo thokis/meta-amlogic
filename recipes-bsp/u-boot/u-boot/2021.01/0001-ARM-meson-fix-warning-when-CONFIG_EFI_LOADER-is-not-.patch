@@ -1,0 +1,40 @@
+From 1758d82eab010efc8f85c23f0f57ff0a1972ba18 Mon Sep 17 00:00:00 2001
+From: Jerome Brunet <jbrunet@baylibre.com>
+Date: Thu, 13 Jan 2022 15:56:25 +0100
+Subject: [PATCH] ARM: meson: fix warning when CONFIG_EFI_LOADER is not set
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+if CONFIG_EFI_LOADER is not set, we get the following warning
+
+arch/arm/mach-meson/board-common.c: In function ‘meson_board_add_reserved_memory’:
+arch/arm/mach-meson/board-common.c:77:17: warning: implicit declaration of function ‘efi_add_memory_map’ [-Wimplicit-function-declaration]
+   77 |                 efi_add_memory_map(start, size, EFI_RESERVED_MEMORY_TYPE);
+
+use the preprocessor to remove this warning.
+
+Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+---
+ arch/arm/mach-meson/board-common.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm/mach-meson/board-common.c b/arch/arm/mach-meson/board-common.c
+index 7ea0ed479474..d20422da9e7b 100644
+--- a/arch/arm/mach-meson/board-common.c
++++ b/arch/arm/mach-meson/board-common.c
+@@ -73,8 +73,9 @@ void meson_board_add_reserved_memory(void *fdt, u64 start, u64 size)
+ 	if (ret)
+ 		printf("Could not reserve zone @ 0x%llx\n", start);
+ 
+-	if (IS_ENABLED(CONFIG_EFI_LOADER))
+-		efi_add_memory_map(start, size, EFI_RESERVED_MEMORY_TYPE);
++#if CONFIG_IS_ENABLED(EFI_LOADER)
++	efi_add_memory_map(start, size, EFI_RESERVED_MEMORY_TYPE);
++#endif
+ }
+ 
+ int meson_generate_serial_ethaddr(void)
+-- 
+2.34.1
+
