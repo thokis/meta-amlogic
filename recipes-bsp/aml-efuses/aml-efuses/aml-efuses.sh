@@ -190,12 +190,10 @@ if [ "$action" = "fuse" ]; then
     # Dragons ...
 
     if [ ! -w $efuse_path ]; then
-	chmod +w $efuse_path
-	read_only=y
+	echo "$efuse is not writeable" 1>&2
+	exit 1
     fi
 fi
 
 # Yeah ... it was a lot nicer with bash ...
 "$action"_"$data" "$arg1"
-
-[ "$read_only" = "y" ] && chmod -w $efuse_path
