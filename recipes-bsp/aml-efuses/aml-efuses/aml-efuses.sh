@@ -47,14 +47,30 @@ error_usage() {
     exit 1
 }
 
+fuse_is_clean() {
+    # Check fuses are clean
+    if [ ! -z $(hexdump -s"$1" -n"$2" -e "${2}/1 \"%c\" \"\n\"" $efuse_path | tr -d '\000') ]; then
+	# Fuse dirty
+	return 1
+    else
+	return 0
+    fi
+}
+
 get_mac() {
-    MAC=$(hexdump -s"$efuse_mac_offset" -n6 -e '5/1 "%02x:" 1/1 "%02x\n"' $efuse_path)
-    [ "00:00:00:00:00:00" = "$MAC" ] && echo "Unset" || echo "$MAC"
+    if fuse_is_clean "$efuse_mac_offset" "$efuse_mac_size"; then
+	echo "Unset"
+    else
+	hexdump -s"$efuse_mac_offset" -n6 -e '5/1 "%02x:" 1/1 "%02x\n"' $efuse_path
+    fi
 }
 
 get_sn() {
-    SN=$(hexdump -s"$efuse_sn_offset" -n"$efuse_sn_size" -e "${efuse_sn_size}/1 \"%c\" \"\n\"" $efuse_path | tr -d '\000')
-    [ -z $SN ]  && echo "Unset" || echo "$SN"
+    if fuse_is_clean "$efuse_sn_offset" "$efuse_sn_size"; then
+	echo "Unset"
+    else
+	hexdump -s"$efuse_sn_offset" -n"$efuse_sn_size" -e "${efuse_sn_size}/1 \"%c\" \"\n\"" $efuse_path
+    fi
 }
 
 fuse_mac() {
