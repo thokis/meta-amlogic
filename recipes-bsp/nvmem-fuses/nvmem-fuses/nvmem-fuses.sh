@@ -2,11 +2,11 @@
 # SPDX-License-Identifer: MIT
 # Author: Jerome Brunet <jbrunet@baylibre.com>
 #
-# Utility for setting serial and mac in aml efuses
+# Utility for setting serial and mac in nvmem fuses
 
 set -e
 
-efuse_cfg="/etc/aml-efuses.cfg"
+efuse_cfg="/etc/nvmem-fuses.cfg"
 
 if [ ! -r $efuse_cfg ]; then
     echo "Configuration file $efuse_cfg not found" 1>&2
