@@ -1,7 +1,7 @@
-From a0bb50fdcb27dd22ee1f3e3d6f2bc9e546673a27 Mon Sep 17 00:00:00 2001
+From a3f2eaf4e8b907eedd71a07376cf3f67395963ea Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Wed, 18 Aug 2021 12:03:19 +0200
-Subject: [PATCH 2/3] arm64: dts: meson: p241: add vcc_5v regulator
+Subject: [PATCH 5/6] arm64: dts: meson: p241: add vcc_5v regulator
 
 Add the VCC_5V regulator, which feeds the HDMI, USB and audio amplifier.
 The regulator should controlled by GPIOAO_9 but the same gpio controls
@@ -49,5 +49,5 @@ index eb7f5a3fefd4..9d0684a8264b 100644
 +	phy-supply = <&vcc_5v>;
 +};
 -- 
-2.32.0
+2.34.1
 

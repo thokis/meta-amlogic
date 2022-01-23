@@ -1,7 +1,7 @@
-From afa61815f88edb9dada3dea0d966f3555f54c98f Mon Sep 17 00:00:00 2001
+From de6a96806bd228ce702ac55e17a0871fe8583681 Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Fri, 26 Nov 2021 15:58:56 +0100
-Subject: [PATCH] Revert "drm/meson: fix shutdown crash when component not
+Subject: [PATCH 2/6] Revert "drm/meson: fix shutdown crash when component not
  probed"
 
 Revert "drm: meson_drv add shutdown function"
@@ -45,5 +45,5 @@ index 2753067c08e6..3d1de9cbb1c8 100644
  		.name	= "meson-drm",
  		.of_match_table = dt_match,
 -- 
-2.34.0
+2.34.1
 

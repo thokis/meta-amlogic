@@ -1,7 +1,7 @@
-From 78527652d26d5ebf6b717423d37d2147543b77ab Mon Sep 17 00:00:00 2001
+From 972e85e450468b11a145d69e8fee38451c592d0e Mon Sep 17 00:00:00 2001
 From: Alexander Stein <alexander.stein@mailbox.org>
 Date: Wed, 3 Feb 2021 20:28:24 +0100
-Subject: [PATCH] arm64: dts: amlogic: Assign a fixed index to mmc devices
+Subject: [PATCH 3/6] arm64: dts: amlogic: Assign a fixed index to mmc devices
 
 Recently introduced async probe on mmc devices can shuffle block IDs.
 Pin them to fixed values to ease booting in environments where UUIDs
