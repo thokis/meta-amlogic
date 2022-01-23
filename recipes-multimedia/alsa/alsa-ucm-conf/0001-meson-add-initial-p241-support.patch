@@ -1,4 +1,4 @@
-From 0424fe4c9dd2f93a25064694fc410d3271ac96db Mon Sep 17 00:00:00 2001
+From 93a4e51d477357e6482a5920c1e2982b99f1445c Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Mon, 27 Sep 2021 22:23:40 +0200
 Subject: [PATCH 1/2] meson: add initial p241 support
@@ -15,7 +15,7 @@ Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
 
 diff --git a/ucm2/Meson/p241/p241-HiFi.conf b/ucm2/Meson/p241/p241-HiFi.conf
 new file mode 100644
-index 000000000000..58966b5004c3
+index 000000000000..3860b6137224
 --- /dev/null
 +++ b/ucm2/Meson/p241/p241-HiFi.conf
 @@ -0,0 +1,40 @@
@@ -59,7 +59,6 @@ index 000000000000..58966b5004c3
 +		cset "name='AIU HDMI CTRL SRC' DISABLED"
 +	]
 +}
-\ No newline at end of file
 diff --git a/ucm2/Meson/p241/p241.conf b/ucm2/Meson/p241/p241.conf
 new file mode 100644
 index 000000000000..14479967b231
@@ -83,5 +82,5 @@ index 000000000000..280ea38b04d7
 +../../Meson/p241/p241.conf
 \ No newline at end of file
 -- 
-2.33.0
+2.34.1
 
