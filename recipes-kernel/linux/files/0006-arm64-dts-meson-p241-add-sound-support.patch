@@ -1,7 +1,7 @@
-From d90c952d84e3c3683afa78f2b7b480e96853e280 Mon Sep 17 00:00:00 2001
+From c2081747df8f50bcc5bed583914b5ca0e8c40415 Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Wed, 18 Aug 2021 12:07:16 +0200
-Subject: [PATCH 3/3] arm64: dts: meson: p241: add sound support
+Subject: [PATCH 6/6] arm64: dts: meson: p241: add sound support
 
 Add the p241 sound card support. This board can play audio through HDMI or
 the internal DAC.
@@ -107,5 +107,5 @@ index 9d0684a8264b..ff906becd2ab 100644
  
  &cec_AO {
 -- 
-2.32.0
+2.34.1
 
