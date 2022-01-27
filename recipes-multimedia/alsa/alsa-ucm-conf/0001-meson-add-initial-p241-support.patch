@@ -1,24 +1,32 @@
-From 93a4e51d477357e6482a5920c1e2982b99f1445c Mon Sep 17 00:00:00 2001
+From 880752d05a436de226134f70f8c3c3f93f17754a Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Mon, 27 Sep 2021 22:23:40 +0200
 Subject: [PATCH 1/2] meson: add initial p241 support
 
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
 ---
- ucm2/Meson/p241/p241-HiFi.conf   | 40 ++++++++++++++++++++++++++++++++
- ucm2/Meson/p241/p241.conf        |  8 +++++++
- ucm2/conf.d/GXLP241/GXLP241.conf |  1 +
- 3 files changed, 49 insertions(+)
+ ucm2/GXL-P241/GXL-P241.conf    |  1 +
+ ucm2/Meson/p241/p241-HiFi.conf | 38 ++++++++++++++++++++++++++++++++++
+ ucm2/Meson/p241/p241.conf      |  8 +++++++
+ 3 files changed, 47 insertions(+)
+ create mode 120000 ucm2/GXL-P241/GXL-P241.conf
  create mode 100644 ucm2/Meson/p241/p241-HiFi.conf
  create mode 100644 ucm2/Meson/p241/p241.conf
- create mode 120000 ucm2/conf.d/GXLP241/GXLP241.conf
 
+diff --git a/ucm2/GXL-P241/GXL-P241.conf b/ucm2/GXL-P241/GXL-P241.conf
+new file mode 120000
+index 000000000000..4540cb73b9e2
+--- /dev/null
++++ b/ucm2/GXL-P241/GXL-P241.conf
+@@ -0,0 +1 @@
++../Meson/p241/p241.conf
+\ No newline at end of file
 diff --git a/ucm2/Meson/p241/p241-HiFi.conf b/ucm2/Meson/p241/p241-HiFi.conf
 new file mode 100644
-index 000000000000..3860b6137224
+index 000000000000..f5633c3369c1
 --- /dev/null
 +++ b/ucm2/Meson/p241/p241-HiFi.conf
-@@ -0,0 +1,40 @@
+@@ -0,0 +1,38 @@
 +SectionVerb {
 +	Value {
 +		PlaybackPriority 100
@@ -34,17 +42,15 @@ index 000000000000..3860b6137224
 +		cset "name='AIU ACODEC I2S Lane Select' 0"
 +		cset "name='AIU ACODEC OUT EN Switch' 1"
 +		cset "name='ACODEC Playback Switch' 1"
-+		cset "name='ACODEC Playback Volume' 255,255"
 +	]
 +	DisableSequence [
-+		cset "name='ACODEC Playback Volume' 0,0"
 +		cset "name='ACODEC Playback Switch' 0"
 +		cset "name='AIU ACODEC OUT EN Switch' 0"
 +		cset "name='AIU ACODEC SRC' DISABLED"
 +	]
 +	Value {
-+		PlaybackVolume "name='ACODEC Playback Volume'"
-+		PlaybackSwitch "name='ACODEC Playback Switch'"
++		PlaybackChannels 2
++		PlaybackVolume "ACODEC Playback Volume"
 +		PlaybackMixerElem "ACODEC"
 +	}
 +}
@@ -61,26 +67,18 @@ index 000000000000..3860b6137224
 +}
 diff --git a/ucm2/Meson/p241/p241.conf b/ucm2/Meson/p241/p241.conf
 new file mode 100644
-index 000000000000..14479967b231
+index 000000000000..122c6cb74abd
 --- /dev/null
 +++ b/ucm2/Meson/p241/p241.conf
 @@ -0,0 +1,8 @@
 +# Use case for the p241 Amlogic s805x reference design
 +
-+Syntax 4
++Syntax 3
 +
 +SectionUseCase."HiFi" {
 +	File "/Meson/p241/p241-HiFi.conf"
 +	Comment "Play HiFi quality Music"
 +}
-diff --git a/ucm2/conf.d/GXLP241/GXLP241.conf b/ucm2/conf.d/GXLP241/GXLP241.conf
-new file mode 120000
-index 000000000000..280ea38b04d7
---- /dev/null
-+++ b/ucm2/conf.d/GXLP241/GXLP241.conf
-@@ -0,0 +1 @@
-+../../Meson/p241/p241.conf
-\ No newline at end of file
 -- 
 2.34.1
 
