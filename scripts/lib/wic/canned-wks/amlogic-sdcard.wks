@@ -3,6 +3,6 @@
 # Boot files are located in the first vfat partition.
 
 part /boot --source bootimg-partition --fstype=vfat --label BOOT --active --align 2048 --size 128 --sourceparams="loader=u-boot" --use-uuid
-part / --source rootfs --fstype=ext4 --label root --align 4 --size 2048 --use-uuid
+part / --source rootfs --fstype=ext4 --label root --align 4 --size 2048 --use-uuid --exclude-path boot/
 
 bootloader --source bootsd-aml --ptable msdos --append="console=ttyAML0,115200 earlycon"
