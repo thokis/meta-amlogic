@@ -12,7 +12,7 @@ UBOOT_ENTRYPOINT ?= "0x0c000000"
 UBOOT_SUFFIX = "bin"
 
 MACHINE_EXTRA_RRECOMMENDS:append = " kernel-modules"
-MACHINE_EXTRA_RRECOMMENDS:append ?= " \
+MACHINE_EXTRA_RRECOMMENDS:append = " \
 	${@bb.utils.contains("DISTRO_FEATURES", "alsa", "alsa-state", "", d)}"
 
 KERNEL_CLASSES += "kernel-fitimage"
