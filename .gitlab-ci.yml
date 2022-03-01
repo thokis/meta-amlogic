@@ -33,6 +33,7 @@ build:
           - amlogic-s400
           - amlogic-u200
           - khadas-vim3
+          - khadas-vim3l
         KAS_TARGET: core-image-base
         KAS_YAML_CFG:
           - kas/poky.yml
@@ -63,6 +64,7 @@ linux-nosem-stable:
           - amlogic-s400
           - amlogic-u200
           - khadas-vim3
+          - khadas-vim3l
         KAS_TARGET: linux-nosem-stable
         KAS_YAML_CFG: kas/poky.yml:kas/frag/linux-nosem-stable.yml
 
