@@ -34,6 +34,10 @@ COMPATIBLE_MACHINE:khadas-vim3 = "khadas-vim3"
 LIC_FILES_CHKSUM:khadas-vim3 = "file://LICENSE;md5=5576a462e448a0c3369dcff00d535eac"
 SRC_URI:khadas-vim3 = "https://jbrunet.baylibre.com/pub/amlogic/fips/fip-collect-khadas-vim3-20200410.tar.gz;sha256sum=eb61a70edb5503f78ff43fd378ece879acc318dc450f9c798358459e9814d8b5"
 
+COMPATIBLE_MACHINE:khadas-vim3l = "khadas-vim3l"
+LIC_FILES_CHKSUM:khadas-vim3l = "file://LICENSE;md5=afdc9ce0e871df532ed095e6d0f3bb88"
+SRC_URI:khadas-vim3l = "https://jbrunet.baylibre.com/pub/amlogic/fips/fip-collect-khadas-vim3l-20200724.tar.gz;sha256sum=8ba2651d82b1dffc2746703cb831369849224396588f147ca50d0a57adf37731"
+
 inherit deploy
 
 S = "${WORKDIR}/fip-collect"
