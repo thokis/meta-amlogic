@@ -41,13 +41,6 @@ build:
   before_script:
     - rm -rf $CI_PROJECT_DIR/$KAS_MACHINE
     - mkdir --verbose --parents $CI_PROJECT_DIR/$KAS_MACHINE
-  after_script:
-    - cp -L $KAS_WORK_DIR/build/tmp/deploy/images/$KAS_MACHINE/$KAS_TARGET-$KAS_MACHINE.wic.{bz2,bmap} $CI_PROJECT_DIR/$KAS_MACHINE/
-  artifacts:
-    name: "$KAS_MACHINE-$CI_COMMIT_REF_SLUG"
-    expire_in: 1 day
-    paths:
-      - $CI_PROJECT_DIR/$KAS_MACHINE/
 
 linux-nosem-stable:
   extends: .build
