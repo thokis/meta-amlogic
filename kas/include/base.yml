@@ -13,7 +13,7 @@ local_conf_header:
   root-nopass: |
     EXTRA_IMAGE_FEATURES += "debug-tweaks"
   standard: |
-    CONF_VERSION = "1"
+    CONF_VERSION = "2"
     USER_CLASSES ?= "buildstats"
     PATCHRESOLVE = "noop"
   diskmon: |

@@ -8,7 +8,7 @@ repos:
   poky:
     url: https://git.yoctoproject.org/git/poky
     path: layers/poky
-    refspec: hardknott
+    refspec: honister
     layers:
       meta:
       meta-poky:

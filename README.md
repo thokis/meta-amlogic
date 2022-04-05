@@ -10,12 +10,12 @@ Please see the corresponding sections below for details.
 
 ## Dependencies
 
-* poky: `git://git.yoctoproject.org/poky` - refspec: `hardknott`
+* poky: `git://git.yoctoproject.org/poky` - refspec: `honister`
 
 OR
 
-* oe-core: `https://git.openembedded.org/openembedded-core` - refspec: `hardknott`
-* bitbake: `https://git.openembedded.org/bitbake` - refspec: `1.50`
+* oe-core: `https://git.openembedded.org/openembedded-core` - refspec: `honister`
+* bitbake: `https://git.openembedded.org/bitbake` - refspec: `1.52`
 
 ## Patches
 
@@ -35,10 +35,10 @@ Checkout this awesome layer
 git clone https://gitlab.com/jbrunet/meta-nosem.git
 ```
 
-Checkout poky with hardknott and setup the build as usual
+Checkout poky with honister and setup the build as usual
 
 ```
-git clone git://git.yoctoproject.org/poky -b hardknott
+git clone git://git.yoctoproject.org/poky -b honister
 source poky/oe-init-build-env
 ```
 
