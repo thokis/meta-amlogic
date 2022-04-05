@@ -20,7 +20,3 @@ repos:
 
 distro: nodistro
 
-local_conf_header:
-  # Well, it is easier not to have this for the ci part
-  tclibcappend: |
-    TCLIBCAPPEND = ""
