@@ -62,10 +62,8 @@ linux-nosem-stable:
 
 smoke:
   extends: .build
-  except:
-    - hardknott
-    - dunfell
-    - tags
+  only:
+    - /^smoke*/
   parallel:
     matrix:
       - KAS_MACHINE: aml-s905x-cc
