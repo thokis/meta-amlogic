@@ -1,29 +1,23 @@
-From 880752d05a436de226134f70f8c3c3f93f17754a Mon Sep 17 00:00:00 2001
+From fa137d42090557417387c609dee5aa236d5500da Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Mon, 27 Sep 2021 22:23:40 +0200
 Subject: [PATCH 1/2] meson: add initial p241 support
 
+Add support for the p241 board, the amlogic s905x reference design
+
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
 ---
- ucm2/GXL-P241/GXL-P241.conf    |  1 +
- ucm2/Meson/p241/p241-HiFi.conf | 38 ++++++++++++++++++++++++++++++++++
- ucm2/Meson/p241/p241.conf      |  8 +++++++
+ ucm2/Meson/p241/p241-HiFi.conf          | 38 +++++++++++++++++++++++++
+ ucm2/Meson/p241/p241.conf               |  8 ++++++
+ ucm2/conf.d/gx-sound-card/GXL-P241.conf |  1 +
  3 files changed, 47 insertions(+)
- create mode 120000 ucm2/GXL-P241/GXL-P241.conf
  create mode 100644 ucm2/Meson/p241/p241-HiFi.conf
  create mode 100644 ucm2/Meson/p241/p241.conf
+ create mode 120000 ucm2/conf.d/gx-sound-card/GXL-P241.conf
 
-diff --git a/ucm2/GXL-P241/GXL-P241.conf b/ucm2/GXL-P241/GXL-P241.conf
-new file mode 120000
-index 000000000000..4540cb73b9e2
---- /dev/null
-+++ b/ucm2/GXL-P241/GXL-P241.conf
-@@ -0,0 +1 @@
-+../Meson/p241/p241.conf
-\ No newline at end of file
 diff --git a/ucm2/Meson/p241/p241-HiFi.conf b/ucm2/Meson/p241/p241-HiFi.conf
 new file mode 100644
-index 000000000000..f5633c3369c1
+index 000000000000..ff0faadd747f
 --- /dev/null
 +++ b/ucm2/Meson/p241/p241-HiFi.conf
 @@ -0,0 +1,38 @@
@@ -34,7 +28,7 @@ index 000000000000..f5633c3369c1
 +	}
 +}
 +
-+SectionDevice."Lineout" {
++SectionDevice."Line" {
 +	Comment "Analog Lineout"
 +
 +	EnableSequence [
@@ -79,6 +73,14 @@ index 000000000000..122c6cb74abd
 +	File "/Meson/p241/p241-HiFi.conf"
 +	Comment "Play HiFi quality Music"
 +}
+diff --git a/ucm2/conf.d/gx-sound-card/GXL-P241.conf b/ucm2/conf.d/gx-sound-card/GXL-P241.conf
+new file mode 120000
+index 000000000000..280ea38b04d7
+--- /dev/null
++++ b/ucm2/conf.d/gx-sound-card/GXL-P241.conf
+@@ -0,0 +1 @@
++../../Meson/p241/p241.conf
+\ No newline at end of file
 -- 
-2.34.1
+2.35.1
 
