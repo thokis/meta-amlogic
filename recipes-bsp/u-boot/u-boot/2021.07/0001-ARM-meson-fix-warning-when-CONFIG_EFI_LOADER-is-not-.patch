@@ -1,4 +1,4 @@
-From 1758d82eab010efc8f85c23f0f57ff0a1972ba18 Mon Sep 17 00:00:00 2001
+From 148a87176e6b25aaca1cc61a7af8b3e4e131ed1b Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Thu, 13 Jan 2022 15:56:25 +0100
 Subject: [PATCH] ARM: meson: fix warning when CONFIG_EFI_LOADER is not set
@@ -20,10 +20,10 @@ Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
  1 file changed, 3 insertions(+), 2 deletions(-)
 
 diff --git a/arch/arm/mach-meson/board-common.c b/arch/arm/mach-meson/board-common.c
-index 7ea0ed479474..d20422da9e7b 100644
+index 1690b6b1e658..04bcc4a9db54 100644
 --- a/arch/arm/mach-meson/board-common.c
 +++ b/arch/arm/mach-meson/board-common.c
-@@ -73,8 +73,9 @@ void meson_board_add_reserved_memory(void *fdt, u64 start, u64 size)
+@@ -74,8 +74,9 @@ void meson_board_add_reserved_memory(void *fdt, u64 start, u64 size)
  	if (ret)
  		printf("Could not reserve zone @ 0x%llx\n", start);
  
@@ -36,5 +36,5 @@ index 7ea0ed479474..d20422da9e7b 100644
  
  int meson_generate_serial_ethaddr(void)
 -- 
-2.34.1
+2.35.1
 

@@ -1,7 +1,7 @@
-From 99464e87686a4c7587f2ef64801a365054651715 Mon Sep 17 00:00:00 2001
+From 8d1aecfe073b021986f50c43f4f3cf6a15a61e9f Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Tue, 10 Aug 2021 15:51:16 +0200
-Subject: [PATCH 2/3] arm64: meson: add support for the amlogic p241 board
+Subject: [PATCH 2/2] arm64: meson: add support for the amlogic p241 board
 
 Add support for the s805x reference design board, p241.
 
@@ -15,17 +15,17 @@ Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
  create mode 100644 configs/p241_defconfig
 
 diff --git a/arch/arm/dts/Makefile b/arch/arm/dts/Makefile
-index fd47e408f826..f1626c6bfd80 100644
+index 9fb38682e61c..73cbcaef860f 100644
 --- a/arch/arm/dts/Makefile
 +++ b/arch/arm/dts/Makefile
-@@ -160,6 +160,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
+@@ -161,6 +161,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
  	meson-gxbb-p201.dtb \
  	meson-gxl-s905x-p212.dtb \
  	meson-gxl-s805x-libretech-ac.dtb \
 +	meson-gxl-s805x-p241.dtb \
  	meson-gxl-s905x-libretech-cc.dtb \
+ 	meson-gxl-s905x-libretech-cc-v2.dtb \
  	meson-gxl-s905x-khadas-vim.dtb \
- 	meson-gxl-s905d-libretech-pc.dtb \
 diff --git a/arch/arm/dts/meson-gxl-s805x-p241-u-boot.dtsi b/arch/arm/dts/meson-gxl-s805x-p241-u-boot.dtsi
 new file mode 100644
 index 000000000000..c25963559f9a
@@ -41,7 +41,7 @@ index 000000000000..c25963559f9a
 +#include "meson-gxl-u-boot.dtsi"
 diff --git a/configs/p241_defconfig b/configs/p241_defconfig
 new file mode 100644
-index 000000000000..49be8df84f45
+index 000000000000..25a53a88c421
 --- /dev/null
 +++ b/configs/p241_defconfig
 @@ -0,0 +1,82 @@
@@ -128,5 +128,5 @@ index 000000000000..49be8df84f45
 +CONFIG_BMP_32BPP=y
 +CONFIG_OF_LIBFDT_OVERLAY=y
 -- 
-2.32.0
+2.35.1
 

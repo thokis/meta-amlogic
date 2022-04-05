@@ -1,4 +1,4 @@
-From f4d7b72e851a5fcd727bfc76dd0a77c30bfa767d Mon Sep 17 00:00:00 2001
+From a83d75496788ef13691aa3bece5fe285244b02ac Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Mon, 22 Nov 2021 13:49:17 +0100
 Subject: [PATCH 2/2] mmc: meson-gx: align clock settings on linux
@@ -18,7 +18,7 @@ Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
  2 files changed, 28 insertions(+), 9 deletions(-)
 
 diff --git a/drivers/mmc/meson_gx_mmc.c b/drivers/mmc/meson_gx_mmc.c
-index fa0bd379db72..2cbccd22e341 100644
+index 7c0827b9049e..b52dd55abdf0 100644
 --- a/drivers/mmc/meson_gx_mmc.c
 +++ b/drivers/mmc/meson_gx_mmc.c
 @@ -17,13 +17,16 @@
@@ -49,7 +49,7 @@ index fa0bd379db72..2cbccd22e341 100644
  
  static void meson_mmc_config_clock(struct mmc *mmc)
  {
-+	struct meson_mmc_platdata *pdata = mmc->priv;
++	struct meson_mmc_plat *pdata = mmc->priv;
  	uint32_t meson_mmc_clk = 0;
  	unsigned int clk, clk_src, clk_div;
  
@@ -67,13 +67,13 @@ index fa0bd379db72..2cbccd22e341 100644
  	/*
 @@ -236,6 +246,7 @@ static const struct dm_mmc_ops meson_dm_mmc_ops = {
  
- static int meson_mmc_ofdata_to_platdata(struct udevice *dev)
+ static int meson_mmc_of_to_plat(struct udevice *dev)
  {
 +	enum meson_gx_mmc_compatible compat = dev_get_driver_data(dev);
- 	struct meson_mmc_platdata *pdata = dev_get_platdata(dev);
+ 	struct meson_mmc_plat *pdata = dev_get_plat(dev);
  	fdt_addr_t addr;
  
-@@ -244,6 +255,7 @@ static int meson_mmc_ofdata_to_platdata(struct udevice *dev)
+@@ -244,6 +255,7 @@ static int meson_mmc_of_to_plat(struct udevice *dev)
  		return -EINVAL;
  
  	pdata->regbase = (void *)addr;
@@ -81,7 +81,7 @@ index fa0bd379db72..2cbccd22e341 100644
  
  	return 0;
  }
-@@ -304,8 +316,8 @@ static int meson_mmc_probe(struct udevice *dev)
+@@ -299,8 +311,8 @@ static int meson_mmc_probe(struct udevice *dev)
  
  	/* enable auto clock mode */
  	val = meson_read(mmc, MESON_SD_EMMC_CFG);
@@ -93,7 +93,7 @@ index fa0bd379db72..2cbccd22e341 100644
  
  	return 0;
 diff --git a/drivers/mmc/meson_gx_mmc.h b/drivers/mmc/meson_gx_mmc.h
-index ac1906d2ea47..fd70544691d7 100644
+index 21d81b4734bd..08c4c0bdb936 100644
 --- a/drivers/mmc/meson_gx_mmc.h
 +++ b/drivers/mmc/meson_gx_mmc.h
 @@ -49,6 +49,7 @@ enum meson_gx_mmc_compatible {
@@ -113,11 +113,11 @@ index ac1906d2ea47..fd70544691d7 100644
 +	uint32_t core_phase;
 +};
 +
- struct meson_mmc_platdata {
+ struct meson_mmc_plat {
 +	struct meson_gx_mmc_version_data *version;
  	struct mmc_config cfg;
  	struct mmc mmc;
  	void *regbase;
 -- 
-2.34.0
+2.35.1
 

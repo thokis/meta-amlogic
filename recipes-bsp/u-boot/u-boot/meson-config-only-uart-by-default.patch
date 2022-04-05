@@ -1,7 +1,7 @@
-From 21fce5d086b35de4ee4aeccbd967b4f789c94ca3 Mon Sep 17 00:00:00 2001
+From b4c0630ba37ebf5d068b42e13aad6d9ed69ca5e7 Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Wed, 11 Aug 2021 11:46:03 +0200
-Subject: [PATCH 3/3] HACK: meson: config: only uart by default
+Subject: [PATCH 2/2] HACK: meson: config: only uart by default
 
 By default, set stdin and stdout to use the uart only.
 video and usb keyboard messes with copy/paste in the uart which is
@@ -15,7 +15,7 @@ Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
  1 file changed, 10 deletions(-)
 
 diff --git a/include/configs/meson64.h b/include/configs/meson64.h
-index 52cc01f73da3..247268f204bc 100644
+index 5c17a338434b..0daa4130a10a 100644
 --- a/include/configs/meson64.h
 +++ b/include/configs/meson64.h
 @@ -16,18 +16,8 @@
@@ -38,5 +38,5 @@ index 52cc01f73da3..247268f204bc 100644
  #define CONFIG_CPU_ARMV8
  #define CONFIG_REMAKE_ELF
 -- 
-2.32.0
+2.35.1
 

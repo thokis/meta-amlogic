@@ -1,4 +1,4 @@
-From d3e4b8cf2ba322efe1db2acbe411dfc27d46ac7c Mon Sep 17 00:00:00 2001
+From 4c76ef30a53ef0c9d18aaa5bb2c9214243fa633a Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Mon, 22 Nov 2021 11:54:04 +0100
 Subject: [PATCH 1/2] mmc: meson-gx: stick to the oscillator
@@ -25,7 +25,7 @@ Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
  2 files changed, 17 insertions(+), 24 deletions(-)
 
 diff --git a/drivers/mmc/meson_gx_mmc.c b/drivers/mmc/meson_gx_mmc.c
-index a5e9ac5637b9..fa0bd379db72 100644
+index fcf4f03d1e24..7c0827b9049e 100644
 --- a/drivers/mmc/meson_gx_mmc.c
 +++ b/drivers/mmc/meson_gx_mmc.c
 @@ -52,28 +52,21 @@ static void meson_mmc_config_clock(struct mmc *mmc)
@@ -69,7 +69,7 @@ index a5e9ac5637b9..fa0bd379db72 100644
  	meson_mmc_clk |= CLK_TX_PHASE_000;
  
  	/* clock settings */
-@@ -326,9 +319,9 @@ int meson_mmc_bind(struct udevice *dev)
+@@ -321,9 +314,9 @@ int meson_mmc_bind(struct udevice *dev)
  }
  
  static const struct udevice_id meson_mmc_match[] = {
@@ -83,7 +83,7 @@ index a5e9ac5637b9..fa0bd379db72 100644
  };
  
 diff --git a/drivers/mmc/meson_gx_mmc.h b/drivers/mmc/meson_gx_mmc.h
-index 92aec5329f6e..ac1906d2ea47 100644
+index 8974b78f559d..21d81b4734bd 100644
 --- a/drivers/mmc/meson_gx_mmc.h
 +++ b/drivers/mmc/meson_gx_mmc.h
 @@ -10,8 +10,8 @@
@@ -98,5 +98,5 @@ index 92aec5329f6e..ac1906d2ea47 100644
  
  #define SDIO_PORT_A			0
 -- 
-2.34.0
+2.35.1
 
