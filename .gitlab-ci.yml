@@ -37,7 +37,6 @@ build:
         KAS_TARGET: core-image-base
         KAS_YAML_CFG:
           - kas/poky.yml
-          - kas/oe-core.yml
   before_script:
     - rm -rf $CI_PROJECT_DIR/$KAS_MACHINE
     - mkdir --verbose --parents $CI_PROJECT_DIR/$KAS_MACHINE
@@ -73,7 +72,6 @@ smoke:
         KAS_TARGET: core-image-minimal
         KAS_YAML_CFG:
           - kas/poky.yml
-          - kas/oe-core.yml
       - KAS_MACHINE: aml-s905x-cc
         KAS_TARGET: linux-nosem-stable
         KAS_YAML_CFG: kas/poky.yml:kas/frag/linux-nosem-stable.yml
