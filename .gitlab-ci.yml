@@ -21,6 +21,7 @@ variables:
 build:
   extends: .build
   only:
+    - honister
     - hardknott
     - dunfell
     - tags
@@ -44,6 +45,7 @@ build:
 linux-nosem-stable:
   extends: .build
   only:
+    - honister
     - hardknott
     - dunfell
     - tags
