@@ -2,9 +2,9 @@ require linux-nosem.inc
 
 LINUX_KERNEL_TYPE ?= "longterm"
 
-LINUX_VERSION ?= "5.10.93"
+LINUX_VERSION ?= "5.10.107"
 KBRANCH = "linux-5.10.y"
-SRCREV = "fd187a4925578f8743d4f266c821c7544d3cddae"
+SRCREV = "4c8814277b5dc2b9d2745c6493614b1ce10cef09"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
 
