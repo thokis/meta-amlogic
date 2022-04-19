@@ -18,7 +18,7 @@ SRC_URI:append:amlogic = " \
 SRC_URI:append:amlogic = " \
     file://0004-arm64-dts-meson-shorten-audio-card-names-for-alsa-co.patch"
 
-## Add Sound support on P241
+# Add Sound support on P241
 SRC_URI:append:amlogic = " \
     file://0005-arm64-dts-meson-p241-add-vcc_5v-regulator.patch \
     file://0006-arm64-dts-meson-p241-add-sound-support.patch"
