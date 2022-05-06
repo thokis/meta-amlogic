@@ -8,7 +8,7 @@ SRC_URI = "file://nvmem-fuses.cfg"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 COMPATIBLE_MACHINE:append = "|aml-s905x-cc"
 
-RDEPENDS_${PN} = "nvmem-fuses"
+RDEPENDS:${PN} = "nvmem-fuses"
 
 do_install() {
 	install -d ${D}${sysconfdir}
