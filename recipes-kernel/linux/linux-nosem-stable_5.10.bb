@@ -1,3 +1,5 @@
+FILESEXTRAPATHS:prepend := "${THISDIR}/files/5.10:${THISDIR}/files:"
+
 require linux-nosem.inc
 
 LINUX_KERNEL_TYPE ?= "longterm"
