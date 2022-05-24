@@ -2,7 +2,7 @@
 
 # linux kernel:
 PREFERRED_PROVIDER_virtual/kernel ??= "linux-nosem-stable"
-PREFERRED_VERSION_linux-yocto ?= "5.10%"
+PREFERRED_VERSION_linux-yocto ?= "5.15%"
 
 # u-boot bootloader:
 PREFERRED_PROVIDER_virtual/bootloader ??= "u-boot"
