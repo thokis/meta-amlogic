@@ -7,8 +7,9 @@ IMAGE_BOOT_FILES += " \
 	${@bb.utils.contains('KERNEL_IMAGETYPE', 'fitImage', '', os.path.basename("${KERNEL_DEVICETREE}"), d)}"
 
 WKS_FILE_DEPENDS += " \
-	mtools-native \
 	dosfstools-native \
+	e2fsprogs-native \
+	mtools-native \	
 	virtual/kernel"
 
 WKS_FILE ??= "amlogic-none.wks"
