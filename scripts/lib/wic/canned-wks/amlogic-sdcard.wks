@@ -2,7 +2,8 @@
 # long-description: Creates a partitioned SD card image for Amlogic devices.
 # Boot files are located in the first vfat partition.
 
+part --source rawcopy --sourceparams="file=atf.bin.sd-rest.bin" --no-table --offset 1s
 part /boot --source bootimg-partition --fstype=vfat --label BOOT --active --align 2048 --size 128 --sourceparams="loader=u-boot" --use-uuid
 part / --source rootfs --fstype=ext4 --label root --align 4 --size 2048 --use-uuid --exclude-path boot/
 
-bootloader --source bootsd-aml --ptable msdos --append="console=ttyAML0,115200 earlycon"
+bootloader --source boot-mbr --ptable msdos --append="console=ttyAML0,115200 earlycon"
