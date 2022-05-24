@@ -23,8 +23,6 @@ build:
   only:
     - kirkstone
     - honister
-    - hardknott
-    - dunfell
     - tags
   parallel:
     matrix:
@@ -48,8 +46,6 @@ linux-nosem-stable:
   only:
     - kirkstone
     - honister
-    - hardknott
-    - dunfell
     - tags
   parallel:
     matrix:
