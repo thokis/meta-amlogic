@@ -1,4 +1,4 @@
-From 9c6c0281d16a3a7a666227ab321b64c4e95682a6 Mon Sep 17 00:00:00 2001
+From bdd7f3bfc445f7275c544d27c293dd80f095247a Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Wed, 11 Aug 2021 18:11:14 +0200
 Subject: [PATCH 1/2] arm64: meson: import p241 dts from linux v5.8-rc1
@@ -243,5 +243,5 @@ index 000000000000..867e30f1d62b
 +	dr_mode = "host";
 +};
 -- 
-2.35.1
+2.36.1
 

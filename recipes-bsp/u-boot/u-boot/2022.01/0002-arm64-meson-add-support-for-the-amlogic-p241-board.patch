@@ -1,4 +1,4 @@
-From 8d1aecfe073b021986f50c43f4f3cf6a15a61e9f Mon Sep 17 00:00:00 2001
+From 7856c63102b6c3be8ef830afed595b2ceb1fa57e Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Tue, 10 Aug 2021 15:51:16 +0200
 Subject: [PATCH 2/2] arm64: meson: add support for the amlogic p241 board
@@ -9,22 +9,22 @@ Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
 ---
  arch/arm/dts/Makefile                         |  1 +
  arch/arm/dts/meson-gxl-s805x-p241-u-boot.dtsi |  7 ++
- configs/p241_defconfig                        | 82 +++++++++++++++++++
- 3 files changed, 90 insertions(+)
+ configs/p241_defconfig                        | 84 +++++++++++++++++++
+ 3 files changed, 92 insertions(+)
  create mode 100644 arch/arm/dts/meson-gxl-s805x-p241-u-boot.dtsi
  create mode 100644 configs/p241_defconfig
 
 diff --git a/arch/arm/dts/Makefile b/arch/arm/dts/Makefile
-index 9fb38682e61c..73cbcaef860f 100644
+index b3e2a9c9d77b..f2d44765e750 100644
 --- a/arch/arm/dts/Makefile
 +++ b/arch/arm/dts/Makefile
-@@ -161,6 +161,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
+@@ -174,6 +174,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
+ 	meson-gxbb-p200.dtb \
  	meson-gxbb-p201.dtb \
- 	meson-gxl-s905x-p212.dtb \
  	meson-gxl-s805x-libretech-ac.dtb \
 +	meson-gxl-s805x-p241.dtb \
- 	meson-gxl-s905x-libretech-cc.dtb \
- 	meson-gxl-s905x-libretech-cc-v2.dtb \
+ 	meson-gxl-s905d-libretech-pc.dtb \
+ 	meson-gxl-s905w-jethome-jethub-j80.dtb \
  	meson-gxl-s905x-khadas-vim.dtb \
 diff --git a/arch/arm/dts/meson-gxl-s805x-p241-u-boot.dtsi b/arch/arm/dts/meson-gxl-s805x-p241-u-boot.dtsi
 new file mode 100644
@@ -41,10 +41,10 @@ index 000000000000..c25963559f9a
 +#include "meson-gxl-u-boot.dtsi"
 diff --git a/configs/p241_defconfig b/configs/p241_defconfig
 new file mode 100644
-index 000000000000..25a53a88c421
+index 000000000000..dced4cfeef09
 --- /dev/null
 +++ b/configs/p241_defconfig
-@@ -0,0 +1,82 @@
+@@ -0,0 +1,84 @@
 +CONFIG_ARM=y
 +CONFIG_ARCH_MESON=y
 +CONFIG_SYS_TEXT_BASE=0x01000000
@@ -52,12 +52,13 @@ index 000000000000..25a53a88c421
 +CONFIG_ENV_SIZE=0x2000
 +CONFIG_ENV_OFFSET=0x1f0000
 +CONFIG_DM_GPIO=y
++CONFIG_DEFAULT_DEVICE_TREE="meson-gxl-s805x-p241"
 +CONFIG_MESON_GXL=y
 +CONFIG_DEBUG_UART_BASE=0xc81004c0
 +CONFIG_DEBUG_UART_CLOCK=24000000
 +CONFIG_IDENT_STRING=" p241"
-+CONFIG_DEFAULT_DEVICE_TREE="meson-gxl-s805x-p241"
 +CONFIG_DEBUG_UART=y
++CONFIG_SYS_LOAD_ADDR=0x1000000
 +CONFIG_OF_BOARD_SETUP=y
 +CONFIG_USE_PREBOOT=y
 +# CONFIG_DISPLAY_CPUINFO is not set
@@ -85,16 +86,17 @@ index 000000000000..25a53a88c421
 +CONFIG_MMC_MESON_GX=y
 +CONFIG_MTD=y
 +CONFIG_DM_MTD=y
-+CONFIG_PHY_ADDR_ENABLE=y
-+CONFIG_PHY_ADDR=8
 +CONFIG_PHY_MESON_GXL=y
 +CONFIG_DM_ETH=y
-+CONFIG_ETH_DESIGNWARE=y
++CONFIG_DM_MDIO=y
++CONFIG_DM_MDIO_MUX=y
++CONFIG_ETH_DESIGNWARE_MESON8B=y
++CONFIG_MDIO_MUX_MMIOREG=y
 +CONFIG_MESON_GXL_USB_PHY=y
 +CONFIG_PINCTRL=y
 +CONFIG_PINCTRL_MESON_GXL=y
 +CONFIG_POWER_DOMAIN=y
-+CONFIG_MESON_GX_VPU_POWER_DOMAIN=y
++CONFIG_MESON_EE_POWER_DOMAIN=y
 +CONFIG_DM_REGULATOR=y
 +CONFIG_DM_REGULATOR_FIXED=y
 +CONFIG_DM_RESET=y
@@ -128,5 +130,5 @@ index 000000000000..25a53a88c421
 +CONFIG_BMP_32BPP=y
 +CONFIG_OF_LIBFDT_OVERLAY=y
 -- 
-2.35.1
+2.36.1
 
