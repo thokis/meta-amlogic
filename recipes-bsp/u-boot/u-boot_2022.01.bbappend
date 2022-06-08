@@ -11,6 +11,10 @@ SRC_URI:append:nosem = " \
 	file://0001-mmc-meson-gx-stick-to-the-oscillator.patch \
 	file://0002-mmc-meson-gx-align-clock-settings-on-linux.patch"
 
+# Add the watchdog support
+SRC_URI:append:nosem = " \
+	file://0001-watchdog-add-amlogic-watchdog-support.patch"
+
 # Add p241 support
 SRC_URI:append:amlogic-p241 = " \
 	file://0001-arm64-meson-import-p241-dts-from-linux-v5.8-rc1.patch \
