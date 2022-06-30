@@ -1,7 +1,7 @@
-From b79cb0521c95673dbbef64c312d65d3e9e29da75 Mon Sep 17 00:00:00 2001
+From c3b26f54d02649257bd2ab99a4e70307363e3e8e Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Thu, 16 Jun 2022 10:59:30 +0200
-Subject: [PATCH 2/5] net: mdio-mux-meson-g12a: force internal PHY off on mux
+Subject: [PATCH 3/5] net: mdio-mux-meson-g12a: force internal PHY off on mux
  switch
 
 As suggested, force the internal PHY off then on when switching to the

@@ -21,8 +21,8 @@ SRC_URI:append = " \
 
 # Add ethernet stability patches
 SRC_URI:append:amlogic = " \
-	file://0001-net-phy-meson-gxl-align-on-vendor-kernel-analog-sett.patch \
-	file://0002-net-mdio-mux-meson-g12a-force-internal-PHY-off-on-mu.patch \
-	file://0003-arm64-dts-amlogic-enable-ethernet-reset.patch \
-	file://0004-Revert-net-stmmac-Use-resolved-link-config-in-mac_li.patch \
-	file://0005-Revert-net-phy-meson-gxl-improve-link-up-behavior.patch"
+	file://0001-Revert-net-phy-meson-gxl-improve-link-up-behavior.patch \
+	file://0002-net-phy-meson-gxl-align-on-vendor-kernel-analog-sett.patch \
+	file://0003-net-mdio-mux-meson-g12a-force-internal-PHY-off-on-mu.patch \
+	file://0004-arm64-dts-amlogic-enable-ethernet-reset.patch \
+	file://0005-net-stmmac-do-not-poke-MAC_CTRL_REG-twice-on-link-up.patch"

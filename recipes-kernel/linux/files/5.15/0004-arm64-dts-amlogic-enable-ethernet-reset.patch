@@ -1,7 +1,7 @@
-From 09fcba7bf4353f0066d5d23c482b150b3805ee9b Mon Sep 17 00:00:00 2001
+From 7f0cccf7e88b2c2004b71c97fe5605cf4269bf4b Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Thu, 16 Jun 2022 11:03:49 +0200
-Subject: [PATCH 3/5] arm64: dts: amlogic: enable ethernet reset
+Subject: [PATCH 4/5] arm64: dts: amlogic: enable ethernet reset
 
 Enable the ethernet reset to help solve the intilization issue
 seen on the Amlogic SoCs with the internal phy path.

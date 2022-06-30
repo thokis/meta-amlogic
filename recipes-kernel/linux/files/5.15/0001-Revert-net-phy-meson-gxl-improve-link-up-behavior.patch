@@ -1,7 +1,7 @@
-From 45894bc7005216c1cc69acebbc8057e935d50194 Mon Sep 17 00:00:00 2001
+From 9e318edcf8a43518a05bcd7b68fb801e5439591b Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Tue, 28 Jun 2022 16:41:25 +0200
-Subject: [PATCH 5/5] Revert "net: phy: meson-gxl: improve link-up behavior"
+Subject: [PATCH 1/5] Revert "net: phy: meson-gxl: improve link-up behavior"
 
 This reverts commit 732c7172b79ce0d39bc9c3aebbe38ba7dd14a265.
 ---
@@ -9,10 +9,10 @@ This reverts commit 732c7172b79ce0d39bc9c3aebbe38ba7dd14a265.
  1 file changed, 1 insertion(+), 7 deletions(-)
 
 diff --git a/drivers/net/phy/meson-gxl.c b/drivers/net/phy/meson-gxl.c
-index e4e7e6947090..cc805b901a2d 100644
+index 73f7962a37d3..c49062ad72c6 100644
 --- a/drivers/net/phy/meson-gxl.c
 +++ b/drivers/net/phy/meson-gxl.c
-@@ -314,13 +314,7 @@ static irqreturn_t meson_gxl_handle_interrupt(struct phy_device *phydev)
+@@ -243,13 +243,7 @@ static irqreturn_t meson_gxl_handle_interrupt(struct phy_device *phydev)
  	    irq_status == INTSRC_ENERGY_DETECT)
  		return IRQ_HANDLED;
  
