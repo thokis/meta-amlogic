@@ -19,6 +19,10 @@ SRC_URI:append = " \
     file://0002-arm64-dts-meson-p241-add-vcc_5v-regulator.patch \
     file://0003-arm64-dts-meson-p241-add-sound-support.patch"
 
+# Add Watchdog restart support
+SRC_URI:append:amlogic = " \
+	file://0004-watchdog-meson-keep-running-if-already-active.patch"
+
 # Add ethernet stability patches
 SRC_URI:append:amlogic = " \
 	file://0001-Revert-net-phy-meson-gxl-improve-link-up-behavior.patch \
