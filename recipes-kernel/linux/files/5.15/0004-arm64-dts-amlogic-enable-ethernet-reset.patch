@@ -1,4 +1,4 @@
-From 7f0cccf7e88b2c2004b71c97fe5605cf4269bf4b Mon Sep 17 00:00:00 2001
+From f3d0d0fb490bff02dbede1f96da6efe4f0062449 Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Thu, 16 Jun 2022 11:03:49 +0200
 Subject: [PATCH 4/5] arm64: dts: amlogic: enable ethernet reset

@@ -1,4 +1,4 @@
-From c3b26f54d02649257bd2ab99a4e70307363e3e8e Mon Sep 17 00:00:00 2001
+From 9f2965ef994d520822bb87d154d269cd951f3118 Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Thu, 16 Jun 2022 10:59:30 +0200
 Subject: [PATCH 3/5] net: mdio-mux-meson-g12a: force internal PHY off on mux

@@ -21,4 +21,4 @@ SRC_URI:append:amlogic = " \
 	file://0002-net-phy-meson-gxl-align-on-vendor-kernel-analog-sett.patch \
 	file://0003-net-mdio-mux-meson-g12a-force-internal-PHY-off-on-mu.patch \
 	file://0004-arm64-dts-amlogic-enable-ethernet-reset.patch \
-	file://0005-net-stmmac-do-not-poke-MAC_CTRL_REG-twice-on-link-up.patch"
+	file://0005-net-stmmac-work-around-sporadic-tx-issue-on-link-up.patch"

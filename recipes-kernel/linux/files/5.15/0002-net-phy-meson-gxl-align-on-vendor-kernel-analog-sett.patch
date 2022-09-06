@@ -1,4 +1,4 @@
-From b341411db88a2b6a0eb514ef3bca957d2c0aa114 Mon Sep 17 00:00:00 2001
+From 3841565062447c729983d2381c934e8d32d191ef Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Tue, 28 Jun 2022 15:52:34 +0200
 Subject: [PATCH 2/5] net: phy: meson-gxl: align on vendor kernel analog
