@@ -30,3 +30,7 @@ SRC_URI:append:amlogic = " \
 	file://0003-net-mdio-mux-meson-g12a-force-internal-PHY-off-on-mu.patch \
 	file://0004-arm64-dts-amlogic-enable-ethernet-reset.patch \
 	file://0005-net-stmmac-work-around-sporadic-tx-issue-on-link-up.patch"
+
+# Add Sticky register support
+SRC_URI:append:amlogic = " \
+	file://0001-arm64-dts-amlogic-add-AO-rti-sticky-register-sram.patch"
