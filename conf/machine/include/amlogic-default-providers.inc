@@ -12,4 +12,3 @@ MACHINE_EXTRA_RRECOMMENDS:append = ' ${@oe.utils.conditional("PREFERRED_PROVIDER
 
 # Arm Trusted Firmware
 PREFERRED_PROVIDER_virtual/trusted-firmware-a ??= "amlogic-prebuilt-atf"
-DEPLOY_MBR_NAME = "atf.bin.sd-mbr.bin"
