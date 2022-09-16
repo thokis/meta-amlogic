@@ -7,7 +7,7 @@ inherit allarch
 SRC_URI = "file://nvmem-fuses.sh"
 
 # Require shell, dd and hexdump
-RDEPENDS_${PN} = "${VIRTUAL-RUNTIME_base-utils} util-linux"
+RDEPENDS:${PN} = "${VIRTUAL-RUNTIME_base-utils} util-linux"
 
 do_install() {
 	install -d ${D}${sbindir}
