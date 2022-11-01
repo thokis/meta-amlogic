@@ -21,8 +21,8 @@ variables:
 build:
   extends: .build
   only:
+    - langdale
     - kirkstone
-    - honister
     - tags
   parallel:
     matrix:
@@ -44,8 +44,8 @@ build:
 linux-nosem-stable:
   extends: .build
   only:
+    - langdale
     - kirkstone
-    - honister
     - tags
   parallel:
     matrix:

@@ -8,13 +8,13 @@ repos:
   core:
     url: https://git.openembedded.org/openembedded-core
     path: layers/oe-core
-    refspec: kirkstone
+    refspec: langdale
     layers:
       meta:
   bitbake:
     url: https://git.openembedded.org/bitbake
     path: layers/bitbake
-    refspec: '2.0'
+    refspec: '2.2'
     layers:
       conf: disabled
 
