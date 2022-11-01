@@ -36,7 +36,7 @@ build:
           - khadas-vim3l
         KAS_TARGET: core-image-base
         KAS_YAML_CFG:
-          - kas/poky.yml
+          - kas/default.yml
   before_script:
     - rm -rf $CI_PROJECT_DIR/$KAS_MACHINE
     - mkdir --verbose --parents $CI_PROJECT_DIR/$KAS_MACHINE
@@ -58,7 +58,7 @@ linux-nosem-stable:
           - khadas-vim3
           - khadas-vim3l
         KAS_TARGET: linux-nosem-stable
-        KAS_YAML_CFG: kas/poky.yml:kas/frag/linux-nosem-stable.yml
+        KAS_YAML_CFG: kas/default.yml:kas/frag/linux-nosem-stable.yml
 
 smoke:
   extends: .build
@@ -72,4 +72,4 @@ smoke:
           - kas/poky.yml
       - KAS_MACHINE: aml-s905x-cc
         KAS_TARGET: linux-nosem-stable
-        KAS_YAML_CFG: kas/poky.yml:kas/frag/linux-nosem-stable.yml
+        KAS_YAML_CFG: kas/default.yml:kas/frag/linux-nosem-stable.yml
