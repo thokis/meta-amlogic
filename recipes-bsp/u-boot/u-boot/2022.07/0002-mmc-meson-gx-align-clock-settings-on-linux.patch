@@ -1,4 +1,4 @@
-From 9cf2d36f8181b9c0cb95c85600f4726e0cb8810a Mon Sep 17 00:00:00 2001
+From a5f90ca2f7e9f572136828d20f504446e45b6fe2 Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Mon, 22 Nov 2021 13:49:17 +0100
 Subject: [PATCH 2/2] mmc: meson-gx: align clock settings on linux
@@ -119,5 +119,5 @@ index 21d81b4734bd..08c4c0bdb936 100644
  	struct mmc mmc;
  	void *regbase;
 -- 
-2.36.1
+2.30.2
 

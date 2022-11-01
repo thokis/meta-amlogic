@@ -1,4 +1,4 @@
-From a3a5fd1cd5e406105d207faf8cfb00830bbf2d45 Mon Sep 17 00:00:00 2001
+From 457f812a834078b53044723d1597a4f680acf35a Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Wed, 11 Aug 2021 11:46:03 +0200
 Subject: [PATCH] HACK: meson: config: only uart by default
@@ -15,7 +15,7 @@ Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
  1 file changed, 10 deletions(-)
 
 diff --git a/include/configs/meson64.h b/include/configs/meson64.h
-index b7dadf347f69..ea3e982f76bd 100644
+index c4676a4bcf30..edb7ff54af94 100644
 --- a/include/configs/meson64.h
 +++ b/include/configs/meson64.h
 @@ -16,18 +16,8 @@
@@ -35,8 +35,8 @@ index b7dadf347f69..ea3e982f76bd 100644
  #define STDIN_CFG "serial"
 -#endif
  
- #define CONFIG_CPU_ARMV8
- #define CONFIG_REMAKE_ELF
+ #define CONFIG_SYS_MAXARGS		32
+ #define CONFIG_SYS_CBSIZE		1024
 -- 
-2.36.1
+2.30.2
 

@@ -1,4 +1,4 @@
-From 6cdc991e8476c4ffd5a59701229c559733710a12 Mon Sep 17 00:00:00 2001
+From bdc73253b56df666ac6593139789b4989615a6fb Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Tue, 2 Aug 2022 16:16:57 +0200
 Subject: [PATCH] ARM: meson: fixup error on efuse commands return

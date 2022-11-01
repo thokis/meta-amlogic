@@ -1,4 +1,4 @@
-From 7856c63102b6c3be8ef830afed595b2ceb1fa57e Mon Sep 17 00:00:00 2001
+From 0389ef1878009fd54f6623891e1841bb1c297a7e Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Tue, 10 Aug 2021 15:51:16 +0200
 Subject: [PATCH 2/2] arm64: meson: add support for the amlogic p241 board
@@ -15,10 +15,10 @@ Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
  create mode 100644 configs/p241_defconfig
 
 diff --git a/arch/arm/dts/Makefile b/arch/arm/dts/Makefile
-index b3e2a9c9d77b..f2d44765e750 100644
+index a7e0d9f6c0e8..c9eb5039d283 100644
 --- a/arch/arm/dts/Makefile
 +++ b/arch/arm/dts/Makefile
-@@ -174,6 +174,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
+@@ -182,6 +182,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
  	meson-gxbb-p200.dtb \
  	meson-gxbb-p201.dtb \
  	meson-gxl-s805x-libretech-ac.dtb \
@@ -130,5 +130,5 @@ index 000000000000..dced4cfeef09
 +CONFIG_BMP_32BPP=y
 +CONFIG_OF_LIBFDT_OVERLAY=y
 -- 
-2.36.1
+2.30.2
 

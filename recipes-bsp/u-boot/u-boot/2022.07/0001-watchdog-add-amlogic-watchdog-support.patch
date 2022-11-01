@@ -1,4 +1,4 @@
-From d076e8be016e36e5911739459e2df7e9f49b4b1b Mon Sep 17 00:00:00 2001
+From eac420e086ab838528316aa907525c4d38f93ded Mon Sep 17 00:00:00 2001
 From: Philippe Boos <pboos@baylibre.com>
 Date: Wed, 8 Jun 2022 10:45:37 +0200
 Subject: [PATCH] watchdog: add amlogic watchdog support
@@ -16,12 +16,12 @@ Signed-off-by: Philippe Boos <pboos@baylibre.com>
  create mode 100644 drivers/watchdog/meson_gxbb_wdt.c
 
 diff --git a/drivers/watchdog/Kconfig b/drivers/watchdog/Kconfig
-index 1177f17fd8..37517a189b 100644
+index c3eb8a8aec1b..81b60482c91e 100644
 --- a/drivers/watchdog/Kconfig
 +++ b/drivers/watchdog/Kconfig
-@@ -158,6 +158,12 @@ config WDT_GPIO
- 	  doc/device-tree-bindings/watchdog/gpio-wdt.txt for
- 	  information on how to describe the watchdog in device tree.
+@@ -175,6 +175,12 @@ config WDT_MAX6370
+ 	help
+ 	  Select this to enable max6370 watchdog timer.
  
 +config WDT_MESON_GXBB
 +	bool "Amlogic watchdog timer support"
@@ -33,20 +33,20 @@ index 1177f17fd8..37517a189b 100644
  	bool "MPC8xx watchdog timer support"
  	depends on WDT && MPC8xx
 diff --git a/drivers/watchdog/Makefile b/drivers/watchdog/Makefile
-index fa7ce583ce..8cbad2190d 100644
+index 1f6199becafb..0e2f582a5f99 100644
 --- a/drivers/watchdog/Makefile
 +++ b/drivers/watchdog/Makefile
-@@ -26,6 +26,7 @@ obj-$(CONFIG_WDT_CORTINA) += cortina_wdt.o
- obj-$(CONFIG_WDT_ORION) += orion_wdt.o
+@@ -27,6 +27,7 @@ obj-$(CONFIG_WDT_ORION) += orion_wdt.o
  obj-$(CONFIG_WDT_CDNS) += cdns_wdt.o
  obj-$(CONFIG_WDT_GPIO) += gpio_wdt.o
+ obj-$(CONFIG_WDT_MAX6370) += max6370_wdt.o
 +obj-$(CONFIG_WDT_MESON_GXBB) += meson_gxbb_wdt.o
  obj-$(CONFIG_WDT_MPC8xx) += mpc8xx_wdt.o
  obj-$(CONFIG_WDT_MT7620) += mt7620_wdt.o
  obj-$(CONFIG_WDT_MT7621) += mt7621_wdt.o
 diff --git a/drivers/watchdog/meson_gxbb_wdt.c b/drivers/watchdog/meson_gxbb_wdt.c
 new file mode 100644
-index 0000000000..6ab005813f
+index 000000000000..6ab005813f92
 --- /dev/null
 +++ b/drivers/watchdog/meson_gxbb_wdt.c
 @@ -0,0 +1,136 @@
@@ -187,5 +187,5 @@ index 0000000000..6ab005813f
 +	.flags = DM_FLAG_PRE_RELOC,
 +};
 -- 
-2.20.1
+2.30.2
 

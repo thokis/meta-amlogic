@@ -1,4 +1,4 @@
-From 0acc791399dc136bcbefcd710237ed18efe74bbf Mon Sep 17 00:00:00 2001
+From a7acc65f0f047a8efadb658cca339b157808f3a9 Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Mon, 22 Nov 2021 11:54:04 +0100
 Subject: [PATCH 1/2] mmc: meson-gx: stick to the oscillator
@@ -98,5 +98,5 @@ index 8974b78f559d..21d81b4734bd 100644
  
  #define SDIO_PORT_A			0
 -- 
-2.36.1
+2.30.2
 
