@@ -69,7 +69,7 @@ smoke:
       - KAS_MACHINE: aml-s905x-cc
         KAS_TARGET: core-image-minimal
         KAS_YAML_CFG:
-          - kas/poky.yml
+          - kas/default.yml
       - KAS_MACHINE: aml-s905x-cc
         KAS_TARGET: linux-nosem-stable
         KAS_YAML_CFG: kas/default.yml:kas/frag/linux-nosem-stable.yml
