@@ -31,9 +31,5 @@ WKS_FILE ?= "amlogic-${NOSEM_BOOT_DEV}.wks"
 # Amlogic will need the TFA to boot.
 EXTRA_IMAGEDEPENDS += "virtual/trusted-firmware-a"
 WKS_FILE_DEPENDS += "virtual/trusted-firmware-a"
-DEPLOY_ATF_NAME = "atf.bin"
-DEPLOY_ATF_NAME:sdcard-boot = "atf.bin.sd.bin"
-DEPLOY_MBR_NAME = "atf.bin.sd-mbr.bin"
-WICVARS:append = " DEPLOY_MBR_NAME"
 
 require conf/machine/include/amlogic-default-providers.inc
