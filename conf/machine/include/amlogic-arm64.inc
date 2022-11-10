@@ -20,7 +20,7 @@ KERNEL_IMAGETYPE ?= "fitImage"
 
 # All Amlogic platforms seems to use this console settings
 SERIAL_CONSOLES ?= "115200;ttyAML0"
-SERIAL_CONSOLES_CHECK = "${SERIAL_CONSOLES}"
+SERIAL_CONSOLES_CHECK ?= "${SERIAL_CONSOLES}"
 
 # Make boot sources a bit simpler to change
 # eMMC seems like a sane default for most design
