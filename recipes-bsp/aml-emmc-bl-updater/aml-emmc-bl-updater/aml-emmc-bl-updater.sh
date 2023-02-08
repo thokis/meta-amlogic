@@ -94,14 +94,18 @@ update_boot() {
 }
 
 finalize_update() {
-    # invalidate the bootloader in the user part
-    case "${2}" in
-	0|7)
-	    # Invalidate the user part if it was the boot source
-	    errcho "Disabled user partition"
-	    dd if=/dev/zero of="${1}" seek=1 bs=512 count=1 conv=notrunc 2>/dev/null
-	    ;;
-    esac
+    # invalidate the bootloader in the user part safely
+    # It might seems redundant to check the boot source and the parttype
+    # but it is necessary if we reflash the device, switching from dos to gpt
+    if [ "$(lsblk --raw -nd -o PTTYPE "${1}")" = "dos" ]; then
+        case "${2}" in
+	    0|7)
+	        # Invalidate the user part if it was the boot source
+	        errcho "Disabled user partition"
+	        dd if=/dev/zero of="${1}" seek=1 bs=512 count=1 conv=notrunc 2>/dev/null
+	        ;;
+        esac
+    fi
 
     errcho "Update done"
 }
