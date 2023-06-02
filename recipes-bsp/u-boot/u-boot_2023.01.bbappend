@@ -6,18 +6,10 @@ require u-boot_nosem.inc
 SRC_URI:append:nosem = " \
 	file://0001-ARM-meson-fix-warning-when-CONFIG_EFI_LOADER-is-not-.patch"
 
-# Fixup error on efuse commands
-SRC_URI:append:nosem = " \
-        file://0001-ARM-meson-fixup-error-on-efuse-commands-return.patch"
-
 # Fixup some mmc problems with 2021.01
 SRC_URI:append:nosem = " \
 	file://0001-mmc-meson-gx-stick-to-the-oscillator.patch \
 	file://0002-mmc-meson-gx-align-clock-settings-on-linux.patch"
-
-# Add the watchdog support
-SRC_URI:append:nosem = " \
-	file://0001-watchdog-add-amlogic-watchdog-support.patch"
 
 # Add p241 support
 SRC_URI:append:amlogic-p241 = " \

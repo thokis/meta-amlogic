@@ -7,7 +7,7 @@ PREFERRED_VERSION_linux-yocto ?= "5.15%"
 # u-boot bootloader:
 PREFERRED_PROVIDER_virtual/bootloader ??= "u-boot"
 PREFERRED_PROVIDER_u-boot-fw-utils ??= "libubootenv"
-PREFERRED_VERSION_u-boot ??= "2022.07"
+PREFERRED_VERSION_u-boot ??= "2023.01"
 MACHINE_EXTRA_RRECOMMENDS:append = ' ${@oe.utils.conditional("PREFERRED_PROVIDER_virtual/bootloader", "u-boot", "u-boot-fw-utils", "", d)}'
 
 # Arm Trusted Firmware

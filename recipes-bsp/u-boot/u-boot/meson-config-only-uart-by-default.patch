@@ -1,4 +1,4 @@
-From 457f812a834078b53044723d1597a4f680acf35a Mon Sep 17 00:00:00 2001
+From f085d71492a91a26ca99cb30c1cb7c8b408636eb Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Wed, 11 Aug 2021 11:46:03 +0200
 Subject: [PATCH] HACK: meson: config: only uart by default
@@ -15,15 +15,15 @@ Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
  1 file changed, 10 deletions(-)
 
 diff --git a/include/configs/meson64.h b/include/configs/meson64.h
-index c4676a4bcf30..edb7ff54af94 100644
+index 0d8d320d04d5..0637b87b483a 100644
 --- a/include/configs/meson64.h
 +++ b/include/configs/meson64.h
-@@ -16,18 +16,8 @@
- #define GICC_BASE			0xc4302000
- #endif
+@@ -23,18 +23,8 @@
+ 		230400, 250000, 460800, 500000, 1000000, 2000000, 4000000, \
+ 		8000000 }
  
 -/* For splashscreen */
--#ifdef CONFIG_DM_VIDEO
+-#ifdef CONFIG_VIDEO
 -#define STDOUT_CFG "vidconsole,serial"
 -#else
  #define STDOUT_CFG "serial"
@@ -35,8 +35,8 @@ index c4676a4bcf30..edb7ff54af94 100644
  #define STDIN_CFG "serial"
 -#endif
  
- #define CONFIG_SYS_MAXARGS		32
- #define CONFIG_SYS_CBSIZE		1024
+ #define CONFIG_SYS_SDRAM_BASE		0
+ 
 -- 
 2.30.2
 
