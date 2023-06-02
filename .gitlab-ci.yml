@@ -21,7 +21,7 @@ variables:
 build:
   extends: .build
   only:
-    - langdale
+    - mickledore
     - kirkstone
     - tags
   parallel:
@@ -44,7 +44,7 @@ build:
 linux-nosem-stable:
   extends: .build
   only:
-    - langdale
+    - mickledore
     - kirkstone
     - tags
   parallel:
