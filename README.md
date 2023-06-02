@@ -90,14 +90,6 @@ Check `tmp/deploy/images/<machine>/` for `atf.bin` and `atf.bin.sd.bin`
 dd if=atf.bin of=/dev/mmcblkX bs=512 seek=1
 ```
 
-* SDCard: write `atf.bin.sd.bin` at the beginning of the SDCard, preserving
-the MBR.
-
-```
-dd if=atf.bin.sd.bin of=/dev/mmcblkX bs=1 count=440
-dd if=atf.bin.sd.bin of=/dev/mmcblkX bs=512 skip=1 seek=1
-```
-
 NOTE: Because of how the bootloader is installed, the storage holding the
 bootloader can't use GPT partitionning scheme.
 
