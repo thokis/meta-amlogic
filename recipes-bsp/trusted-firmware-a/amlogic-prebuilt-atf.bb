@@ -25,10 +25,10 @@ COMPATIBLE_MACHINE:amlogic-u200 = "amlogic-u200"
 SRC_URI:amlogic-u200 = "https://jbrunet.baylibre.com/pub/amlogic/fips/fip-collect-aml-u200-20180418.tar.gz;sha256sum=342a8ab27210d5b74a8d8bc1e0388b20030af73a53bbd88896b0bd66c9253b07"
 
 COMPATIBLE_MACHINE:khadas-vim3 = "khadas-vim3"
-SRC_URI:khadas-vim3 = "https://jbrunet.baylibre.com/pub/amlogic/fips/fip-collect-khadas-vim3-20200410.tar.gz;sha256sum=eb61a70edb5503f78ff43fd378ece879acc318dc450f9c798358459e9814d8b5"
+SRC_URI:khadas-vim3 = "https://jbrunet.baylibre.com/pub/amlogic/fips/fip-collect-khadas-vim3-20200918.tar.gz;sha256sum=b96ceb6f4f4e48281ff5094c6392ad429b789eafee63d572d2863672472c9f04"
 
 COMPATIBLE_MACHINE:khadas-vim3l = "khadas-vim3l"
-SRC_URI:khadas-vim3l = "https://jbrunet.baylibre.com/pub/amlogic/fips/fip-collect-khadas-vim3l-20200724.tar.gz;sha256sum=8ba2651d82b1dffc2746703cb831369849224396588f147ca50d0a57adf37731"
+SRC_URI:khadas-vim3l = "https://jbrunet.baylibre.com/pub/amlogic/fips/fip-collect-khadas-vim3l-20200918.tar.gz;sha256sum=261df690f4956a32867236f8f5802a8d8b624730510b050d201b08c018745699"
 
 inherit deploy
 
