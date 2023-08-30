@@ -2,7 +2,7 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/files/6.1:${THISDIR}/files:"
 
 SRC_URI:append:amlogic = " \
         git://gitlab.com/jbrunet/yocto-kernel-cache-nosem.git;protocol=https;type=kmeta;name=meta-nosem;branch=yocto-6.1;destsuffix=${KMETA}-nosem"
-SRCREV_meta-nosem = "6cc589e2a0b0e08345b5ec84becbe2c6b2599a96"
+SRCREV_meta-nosem = "9735848cd3a6b8ca76e64df0fd29502c0c665d95"
 
 require linux-yocto-amlogic.inc
 
