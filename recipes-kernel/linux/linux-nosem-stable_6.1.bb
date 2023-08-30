@@ -13,6 +13,10 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
 SRC_URI = " \
     git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git;branch=${KBRANCH}"
 
+# Add channel allocation fixup
+SRC_URI:append:amlogic = " \
+	file://0001-ASoC-meson-axg-tdm-formatter-fix-channel-slot-alloca.patch;maxver=6.1.46"
+
 # Add Sticky register support
 SRC_URI:append:amlogic = " \
 	file://0001-arm64-dts-amlogic-add-AO-rti-sticky-register-sram.patch"

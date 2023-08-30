@@ -22,6 +22,10 @@ SRC_URI:append:amlogic = " \
 	file://0004-arm64-dts-amlogic-enable-ethernet-reset.patch \
 	file://0005-net-stmmac-work-around-sporadic-tx-issue-on-link-up.patch;maxver=5.15.67 "
 
+# Add channel allocation fixup
+SRC_URI:append:amlogic = " \
+	file://0001-ASoC-meson-axg-tdm-formatter-fix-channel-slot-alloca.patch;maxver=5.15.127"
+
 # Add Sticky register support
 SRC_URI:append:amlogic = " \
 	file://0001-arm64-dts-amlogic-add-AO-rti-sticky-register-sram.patch"
