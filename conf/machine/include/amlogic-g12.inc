@@ -3,3 +3,5 @@
 require conf/machine/include/amlogic-arm64.inc
 
 SOC_FAMILY:append = ":meson-g12"
+
+PACKAGECONFIG:append:pn-mesa = "kmsro panfrost"

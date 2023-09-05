@@ -6,3 +6,5 @@ SOC_FAMILY:append = ":meson-gx-boot:meson-gx"
 
 DEFAULTTUNE ?= "cortexa53"
 require conf/machine/include/arm/armv8a/tune-cortexa53.inc
+
+PACKAGECONFIG:append:pn-mesa = "kmsro lima"

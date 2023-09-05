@@ -6,3 +6,5 @@ SOC_FAMILY:append = ":meson-sm1"
 
 DEFAULTTUNE ?= "cortexa55"
 require conf/machine/include/arm/armv8-2a/tune-cortexa55.inc
+
+PACKAGECONFIG:append:pn-mesa = "kmsro panfrost"
