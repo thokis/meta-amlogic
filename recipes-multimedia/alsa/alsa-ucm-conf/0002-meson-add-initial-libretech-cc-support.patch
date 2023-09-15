@@ -1,4 +1,4 @@
-From ca26b16732c2ad19b91aa59019d7092f64d111f3 Mon Sep 17 00:00:00 2001
+From 7101e677be66d7c7d00af672619bace5a25aead1 Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Sun, 23 Jan 2022 19:37:26 +0100
 Subject: [PATCH 2/2] meson: add initial libretech cc support
@@ -13,12 +13,12 @@ Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
 
 diff --git a/ucm2/conf.d/gx-sound-card/LIBRETECH-CC.conf b/ucm2/conf.d/gx-sound-card/LIBRETECH-CC.conf
 new file mode 120000
-index 000000000000..280ea38b04d7
+index 000000000000..a05d6573242d
 --- /dev/null
 +++ b/ucm2/conf.d/gx-sound-card/LIBRETECH-CC.conf
 @@ -0,0 +1 @@
-+../../Meson/p241/p241.conf
++../../Amlogic/p241/p241.conf
 \ No newline at end of file
 -- 
-2.35.1
+2.40.1
 
