@@ -10,9 +10,11 @@ COMPATIBLE_MACHINE:append:amlogic = "|amlogic-s400"
 
 # Add G12 support
 KMACHINE:amlogic-u200 = "amlogic-u200"
+KMACHINE:aml-a311d-cc = "libretech-cottonwood"
 KMACHINE:khadas-vim3 = "khadas-vim3"
 COMPATIBLE_MACHINE:append:amlogic = "|amlogic-u200|khadas-vim3"
 
 # Add SM1 support
+KMACHINE:aml-s905d3-cc = "libretech-cottonwood"
 KMACHINE:khadas-vim3l = "khadas-vim3"
 COMPATIBLE_MACHINE:append:amlogic = "|khadas-vim3l"

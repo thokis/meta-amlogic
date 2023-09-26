@@ -2,7 +2,7 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/files/6.1:${THISDIR}/files:"
 
 SRC_URI:append:amlogic = " \
         git://gitlab.com/jbrunet/yocto-kernel-cache-nosem.git;protocol=https;type=kmeta;name=meta-nosem;branch=yocto-6.1;destsuffix=${KMETA}-nosem"
-SRCREV_meta-nosem = "dd3e1cce8043ecd772c8062f8f84dc45e72aa158"
+SRCREV_meta-nosem = "5a69b9c5a58b3b740a51a45f3d8cfda1638dea22"
 
 require linux-yocto-amlogic.inc
 
@@ -13,3 +13,12 @@ SRC_URI:append:amlogic = " \
 # Add Sticky register support
 SRC_URI:append:amlogic = " \
 	file://0001-arm64-dts-amlogic-add-AO-rti-sticky-register-sram.patch"
+
+# Add libretech cottonwood support
+SRC_URI:append:libretech-cottonwood = " \
+	file://0001-arm64-dts-amlogic-add-libretech-cottonwood-support.patch"
+
+# FIXME:
+# cottonwood is only compatible with v6.1 until it lands in mainline
+# It won't be backported to v5.15
+COMPATIBLE_MACHINE:append:amlogic = "|aml-a311d-cc|aml-s905d3-cc"
