@@ -41,25 +41,6 @@ build:
     - rm -rf $CI_PROJECT_DIR/$KAS_MACHINE
     - mkdir --verbose --parents $CI_PROJECT_DIR/$KAS_MACHINE
 
-linux-nosem-stable:
-  extends: .build
-  only:
-    - mickledore
-    - kirkstone
-    - tags
-  parallel:
-    matrix:
-      - KAS_MACHINE:
-          - aml-s905x-cc
-          - aml-s805x-ac
-          - amlogic-p241
-          - amlogic-s400
-          - amlogic-u200
-          - khadas-vim3
-          - khadas-vim3l
-        KAS_TARGET: linux-nosem-stable
-        KAS_YAML_CFG: kas/default.yml:kas/frag/linux-nosem-stable.yml
-
 smoke:
   extends: .build
   only:
@@ -70,6 +51,3 @@ smoke:
         KAS_TARGET: core-image-minimal
         KAS_YAML_CFG:
           - kas/default.yml
-      - KAS_MACHINE: aml-s905x-cc
-        KAS_TARGET: linux-nosem-stable
-        KAS_YAML_CFG: kas/default.yml:kas/frag/linux-nosem-stable.yml
