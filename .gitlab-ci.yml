@@ -27,6 +27,8 @@ build:
   parallel:
     matrix:
       - KAS_MACHINE:
+          - aml-a311d-cc
+          - aml-s905d3-cc
           - aml-s905x-cc
           - aml-s805x-ac
           - amlogic-p241
