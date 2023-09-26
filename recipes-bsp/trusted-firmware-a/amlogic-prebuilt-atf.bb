@@ -9,6 +9,12 @@ do_compile[depends] += "u-boot:do_deploy"
 # This package is machine specific
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
+COMPATIBLE_MACHINE:aml-a311d-cc = "aml-a311d-cc"
+SRC_URI:aml-a311d-cc = "https://jbrunet.baylibre.com/pub/amlogic/fips/fip-collect-aml-a311d-cc-20230701.tar.gz;sha256sum=6471490bdbac53508003071f3844b8b93b77b48a242aade8cf96492bd0e39175"
+
+COMPATIBLE_MACHINE:aml-s905d3-cc = "aml-s905d3-cc"
+SRC_URI:aml-s905d3-cc = "https://jbrunet.baylibre.com/pub/amlogic/fips/fip-collect-aml-s905d3-cc-20230820.tar.gz;sha256sum=bae0d43c3d86c6d86df6bace2a8df65c3d5ee073647bced280daabdf6c78b5ff"
+
 COMPATIBLE_MACHINE:aml-s905x-cc = "aml-s905x-cc"
 SRC_URI:aml-s905x-cc = "https://jbrunet.baylibre.com/pub/amlogic/fips/fip-collect-aml-s905x-cc-20181003.tar.gz;sha256sum=98e011eea20a3832b148267f7cd8b875964e358c8ea1752c9fd00b7dad9977c6"
 
