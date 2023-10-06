@@ -10,6 +10,11 @@ require linux-yocto-amlogic.inc
 SRC_URI:append:amlogic = " \
 	file://0001-ASoC-meson-axg-tdm-formatter-fix-channel-slot-alloca.patch;maxver=6.1.46"
 
+# Add Genesys gl3510 support for cottonwood
+SRC_URI:append:amlogic = " \
+	file://0001-usb-misc-onboard_usb_hub-add-Genesys-Logic-gl3510-hu.patch \
+	file://0002-usb-misc-onboard_usb_hub-extend-gl3510-reset-duratio.patch"
+
 # Add Sticky register support
 SRC_URI:append:amlogic = " \
 	file://0001-arm64-dts-amlogic-add-AO-rti-sticky-register-sram.patch"

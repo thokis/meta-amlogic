@@ -1,0 +1,51 @@
+From aafa7ca033784419296f972afe11e26fe3afde2e Mon Sep 17 00:00:00 2001
+From: Jerome Brunet <jbrunet@baylibre.com>
+Date: Fri, 6 Oct 2023 11:54:22 +0200
+Subject: [PATCH 2/2] usb: misc: onboard_usb_hub: extend gl3510 reset duration
+
+Initial tests with the gl3510 has been done on libretech aml-a311d-cc.
+A 50us reset was fine as long as the hub node was under the usb phy node it
+DT. DT schema does not allow that. Moving the hub under the dwc3 controller
+caused issues, such as:
+
+onboard-usb-hub 1-1: Failed to suspend device, error -32
+onboard-usb-hub 1-1: can't set config #1, error -71
+onboard-usb-hub 1-1: Failed to suspend device, error -32
+onboard-usb-hub 1-1: USB disconnect, device number 2
+
+Extending the reset duration solves the problem.
+Since there is no documentation available for this hub, it is difficult to
+know the actual required reset duration. 200us seems to work fine so far.
+
+Suggested-by: Neil Armstrong <neil.armstrong@linaro.org>
+Fixes: 65009ccf7e8f ("usb: misc: onboard_usb_hub: add Genesys Logic gl3510 hub support")
+Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+---
+ drivers/usb/misc/onboard_usb_hub.h | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/usb/misc/onboard_usb_hub.h b/drivers/usb/misc/onboard_usb_hub.h
+index 08a9f18cba84..6c617a288335 100644
+--- a/drivers/usb/misc/onboard_usb_hub.h
++++ b/drivers/usb/misc/onboard_usb_hub.h
+@@ -22,12 +22,16 @@ static const struct onboard_hub_pdata ti_tusb8041_data = {
+ 	.reset_us = 3000,
+ };
+ 
++static const struct onboard_hub_pdata genesys_gl3510_data = {
++	.reset_us = 200,
++};
++
+ static const struct of_device_id onboard_hub_match[] = {
+ 	{ .compatible = "usb424,2514", .data = &microchip_usb424_data, },
+ 	{ .compatible = "usb424,2517", .data = &microchip_usb424_data, },
+ 	{ .compatible = "usb451,8140", .data = &ti_tusb8041_data, },
+ 	{ .compatible = "usb451,8142", .data = &ti_tusb8041_data, },
+-	{ .compatible = "usb5e3,626", .data = &genesys_gl852g_data, },
++	{ .compatible = "usb5e3,626", .data = &genesys_gl3510_data, },
+ 	{ .compatible = "usbbda,411", .data = &realtek_rts5411_data, },
+ 	{ .compatible = "usbbda,5411", .data = &realtek_rts5411_data, },
+ 	{ .compatible = "usbbda,414", .data = &realtek_rts5411_data, },
+-- 
+2.40.1
+
