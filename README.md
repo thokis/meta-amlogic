@@ -80,11 +80,11 @@ If you used `amlogic-none.wks`, the atf was not installed in the
 `wic`. This is useful if you intend to install the bootloader on another
 device, such as a SPI or eMMC boot partition
 
-Check `tmp/deploy/images/<machine>/` for `atf.bin` and `atf.bin.sd.bin`
+Check `tmp/deploy/images/<machine>/` for `atf.bin`
 
 * SPI: using a bootstrap u-boot, write `atf.bin` directly at the start of
   the device
-* eMMC: write `atf.bin`, start from the 2nd sector
+* eMMC and SDcard: write `atf.bin`, start from the 2nd sector
 
 ```
 dd if=atf.bin of=/dev/mmcblkX bs=512 seek=1
