@@ -1,6 +1,6 @@
-# meta-nosem
+# meta-amlogic
 
-This README file contains information on the contents of the meta-nosem
+This README file contains information on the contents of the meta-amlogic
 layer.
 
 It provides support amlogic based boards, using upstream kernel and u-boot.
@@ -19,9 +19,9 @@ OR
 
 ## Patches
 
-Please submit any patches against the meta-nosem layer through a pull
+Please submit any patches against the meta-amlogic layer through a pull
 request to the corresponding gitlab project at
-https://gitlab.com/jbrunet/meta-nosem
+https://gitlab.com/jbrunet/meta-amlogic
 
 ## Maintainer
 
@@ -32,7 +32,7 @@ Jerome Brunet <jbrunet@baylibre.com>
 Checkout this awesome layer
 
 ```
-git clone https://gitlab.com/jbrunet/meta-nosem.git
+git clone https://gitlab.com/jbrunet/meta-amlogic.git
 ```
 
 Checkout poky with kirkstone and setup the build as usual
@@ -42,10 +42,10 @@ git clone git://git.yoctoproject.org/poky -b kirkstone
 source poky/oe-init-build-env
 ```
 
-Finally add meta-nosem to your build
+Finally add meta-amlogic to your build
 
 ```
-bitbake-layers add-layer ../meta-nosem
+bitbake-layers add-layer ../meta-amlogic
 ```
 
 You are done
@@ -56,12 +56,12 @@ This layer has basic for support kas (see
 https://kas.readthedocs.io/en/1.0/index.html) Boards are
 provided with the related kas yaml file.
 
-Just checkout `meta-nosem` and fire up `kas`. It will take care of the
+Just checkout `meta-amlogic` and fire up `kas`. It will take care of the
 dependencies and the configuration
 
 ```
-git clone https://gitlab.com/jbrunet/meta-nosem.git
-cd meta-nosem
+git clone https://gitlab.com/jbrunet/meta-amlogic.git
+cd meta-amlogic
 KAS_MACHINE=aml-s905x-cc kas build kas/poky.yml
 ```
 

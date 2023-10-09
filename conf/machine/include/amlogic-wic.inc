@@ -1,4 +1,4 @@
-# Generic configuration when doing wic on nosem
+# Generic configuration when doing wic on amlogic
 # Most machine will use it having this aside give us the option
 # to disable it or defer the settings to something else
 

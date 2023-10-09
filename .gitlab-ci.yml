@@ -5,7 +5,7 @@ stages:
 
 variables:
   DL_DIR: /cache/yocto/downloads
-  SSTATE_DIR: /cache/yocto/nosem/sstate
+  SSTATE_DIR: /cache/yocto/amlogic/sstate
   KAS_WORK_DIR: $CI_PROJECT_DIR/work
 
 .build:

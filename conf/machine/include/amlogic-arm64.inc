@@ -1,6 +1,6 @@
 # Amlogic ARM64 SoC configuration
 
-SOC_FAMILY = "amlogic:nosem"
+SOC_FAMILY = "amlogic"
 require conf/machine/include/soc-family.inc
 
 # Basic feature all HW usually have - override if necessary
@@ -24,9 +24,9 @@ SERIAL_CONSOLES_CHECK ?= "${SERIAL_CONSOLES}"
 
 # Make boot sources a bit simpler to change
 # eMMC seems like a sane default for most design
-NOSEM_BOOT_DEV ??= "emmc"
-MACHINEOVERRIDES:append = ":${MACHINE}-${NOSEM_BOOT_DEV}-boot:${NOSEM_BOOT_DEV}-boot"
-WKS_FILE ?= "amlogic-${NOSEM_BOOT_DEV}.wks"
+AMLOGIC_BOOT_DEV ??= "emmc"
+MACHINEOVERRIDES:append = ":${MACHINE}-${AMLOGIC_BOOT_DEV}-boot:${AMLOGIC_BOOT_DEV}-boot"
+WKS_FILE ?= "amlogic-${AMLOGIC_BOOT_DEV}.wks"
 
 # Amlogic will need the TFA to boot.
 EXTRA_IMAGEDEPENDS += "virtual/trusted-firmware-a"
