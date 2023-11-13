@@ -1,4 +1,4 @@
-From f5a686ece62f984eff62ef47e3e993ccae3e4fb3 Mon Sep 17 00:00:00 2001
+From 24755956d695f92fc375fe09d7b81a37b82e0120 Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Thu, 13 Jan 2022 15:56:25 +0100
 Subject: [PATCH] ARM: meson: fix warning when CONFIG_EFI_LOADER is not set
@@ -15,6 +15,7 @@ arch/arm/mach-meson/board-common.c:77:17: warning: implicit declaration of funct
 use the preprocessor to remove this warning.
 
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+Upstream-Status: Pending
 ---
  arch/arm/mach-meson/board-common.c | 5 +++--
  1 file changed, 3 insertions(+), 2 deletions(-)
@@ -36,5 +37,5 @@ index 7ceba7cede85..376ec61c3c66 100644
  
  int meson_generate_serial_ethaddr(void)
 -- 
-2.30.2
+2.42.0
 

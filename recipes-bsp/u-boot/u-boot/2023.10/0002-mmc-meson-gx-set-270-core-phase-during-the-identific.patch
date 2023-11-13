@@ -1,4 +1,4 @@
-From be4a3da5978bde814063cbcf2c50632fe06f09fa Mon Sep 17 00:00:00 2001
+From bcc9c7dd87d553e9f635d3a5771723bdb42d858d Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Wed, 2 Aug 2023 18:38:38 +0200
 Subject: [PATCH 2/2] mmc: meson-gx: set 270 core phase during the
@@ -8,6 +8,7 @@ Setting 270 core phase during the legacy identification phase seems to
 help.
 
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+Upstream-Status: Submitted [u-boot-amlogic@groups.io]
 ---
  drivers/mmc/meson_gx_mmc.c | 7 ++++++-
  1 file changed, 6 insertions(+), 1 deletion(-)
@@ -33,5 +34,5 @@ index c6168792cbae..284be2b9dca4 100644
  	if (mmc->clock > 16000000) {
  		clk = SD_EMMC_CLKSRC_DIV2;
 -- 
-2.40.1
+2.42.0
 

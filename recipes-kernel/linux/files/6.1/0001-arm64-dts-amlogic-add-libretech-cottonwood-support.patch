@@ -11,6 +11,7 @@ The "Alta" board uses an a311d while the "Solitude" variant uses an s905d3.
 Co-developed-by: Da Xue <da.xue@libretech.co>
 Signed-off-by: Da Xue <da.xue@libretech.co>
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+Upstream-Status: Backport [a702d4f016788f83ed02666930992d792e9a80cc]
 ---
  arch/arm64/boot/dts/amlogic/Makefile          |   2 +
  .../amlogic/meson-g12b-a311d-libretech-cc.dts | 121 ++++

@@ -20,6 +20,7 @@ know the actual required reset duration. 200us seems to work fine so far.
 Suggested-by: Neil Armstrong <neil.armstrong@linaro.org>
 Fixes: 65009ccf7e8f ("usb: misc: onboard_usb_hub: add Genesys Logic gl3510 hub support")
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+Upstream-Status: Pending
 ---
  drivers/usb/misc/onboard_usb_hub.h | 6 +++++-
  1 file changed, 5 insertions(+), 1 deletion(-)

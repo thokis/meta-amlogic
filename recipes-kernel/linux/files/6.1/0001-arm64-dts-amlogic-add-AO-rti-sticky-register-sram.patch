@@ -7,6 +7,7 @@ Add the general purpose scratch registers AO_RTI_STICKY as
 an sram device.
 
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+Upstream-Status: Pending
 ---
  arch/arm64/boot/dts/amlogic/meson-axg.dtsi        | 8 ++++++++
  arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi | 8 ++++++++

@@ -3,8 +3,6 @@ From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Wed, 9 Aug 2023 19:19:31 +0200
 Subject: [PATCH] ASoC: meson: axg-tdm-formatter: fix channel slot allocation
 
-[ Upstream commit c1f848f12103920ca165758aedb1c10904e193e1 ]
-
 When the tdm lane mask is computed, the driver currently fills the 1st lane
 before moving on to the next. If the stream has less channels than the
 lanes can accommodate, slots will be disabled on the last lanes.
@@ -34,6 +32,7 @@ Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
 Link: https://lore.kernel.org/r/20230809171931.1244502-1-jbrunet@baylibre.com
 Signed-off-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
+Upstream-Status: Backport [c1f848f12103920ca165758aedb1c10904e193e1]
 ---
  sound/soc/meson/axg-tdm-formatter.c | 42 ++++++++++++++++++-----------
  1 file changed, 26 insertions(+), 16 deletions(-)

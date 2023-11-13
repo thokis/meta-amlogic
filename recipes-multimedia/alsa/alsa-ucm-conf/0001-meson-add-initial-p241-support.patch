@@ -6,6 +6,7 @@ Subject: [PATCH 1/2] meson: add initial p241 support
 Add support for the p241 board, the amlogic s905x reference design
 
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+Upstream-Status: Backport [90f991ba7740f80e3abc00a07a44061f3ee7da67]
 ---
  ucm2/Amlogic/p241/p241-HiFi.conf        | 40 +++++++++++++++++++++++++
  ucm2/Amlogic/p241/p241.conf             | 31 +++++++++++++++++++

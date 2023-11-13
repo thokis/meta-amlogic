@@ -8,6 +8,7 @@ default configuration. It does not seems very useful and I'm to lazy
 to look at extlinux right now
 
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+Upstream-Status: Inappropriate [HACK]
 ---
  include/configs/meson64.h | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)

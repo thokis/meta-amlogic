@@ -21,7 +21,7 @@ variables:
 build:
   extends: .build
   only:
-    - mickledore
+    - nanbield
     - kirkstone
     - tags
   parallel:

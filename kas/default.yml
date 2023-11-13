@@ -8,13 +8,13 @@ repos:
   core:
     url: https://git.openembedded.org/openembedded-core
     path: layers/oe-core
-    branch: mickledore
+    branch: nanbield
     layers:
       meta:
   bitbake:
     url: https://git.openembedded.org/bitbake
     path: layers/bitbake
-    branch: '2.4'
+    branch: '2.6'
     layers:
       conf: disabled
 

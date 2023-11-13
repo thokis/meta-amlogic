@@ -11,6 +11,7 @@ No public documentation is available for this hub. Using the same reset
 duration as the gl852g which seems OK.
 
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+Upstream-Status: Submitted [bb9f10ff6709e15fb935c954f1fb715ac1f970e7]
 ---
  drivers/usb/misc/onboard_usb_hub.h | 1 +
  1 file changed, 1 insertion(+)

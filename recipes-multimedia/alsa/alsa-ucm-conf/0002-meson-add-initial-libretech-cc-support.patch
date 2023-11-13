@@ -6,6 +6,7 @@ Subject: [PATCH 2/2] meson: add initial libretech cc support
 Add support for the libretech-cc based on the amlogic s905x
 
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+Upstream-Status: Backport [f869f26401c3d02cef4869750c49d30139041c74]
 ---
  ucm2/conf.d/gx-sound-card/LIBRETECH-CC.conf | 1 +
  1 file changed, 1 insertion(+)

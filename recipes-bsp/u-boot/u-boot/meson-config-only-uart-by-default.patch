@@ -1,4 +1,4 @@
-From f085d71492a91a26ca99cb30c1cb7c8b408636eb Mon Sep 17 00:00:00 2001
+From 19315881257aaa99cda0c7a9f05cdfaf5a87c773 Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Wed, 11 Aug 2021 11:46:03 +0200
 Subject: [PATCH] HACK: meson: config: only uart by default
@@ -10,15 +10,16 @@ extremely annoying.
 If necessary, video and usb can be enabled by reseting the env variables
 
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+Upstream-Status: Inappropriate [configuration]
 ---
  include/configs/meson64.h | 10 ----------
  1 file changed, 10 deletions(-)
 
 diff --git a/include/configs/meson64.h b/include/configs/meson64.h
-index 0d8d320d04d5..0637b87b483a 100644
+index eeceafe19943..710939d147e7 100644
 --- a/include/configs/meson64.h
 +++ b/include/configs/meson64.h
-@@ -23,18 +23,8 @@
+@@ -26,18 +26,8 @@
  		230400, 250000, 460800, 500000, 1000000, 2000000, 4000000, \
  		8000000 }
  
@@ -35,8 +36,8 @@ index 0d8d320d04d5..0637b87b483a 100644
  #define STDIN_CFG "serial"
 -#endif
  
- #define CONFIG_SYS_SDRAM_BASE		0
+ #define CFG_SYS_SDRAM_BASE		0
  
 -- 
-2.30.2
+2.42.0
 

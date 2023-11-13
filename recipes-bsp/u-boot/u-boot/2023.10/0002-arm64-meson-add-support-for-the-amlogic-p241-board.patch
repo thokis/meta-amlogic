@@ -1,4 +1,4 @@
-From 322d2080549eece92651d11da84451bd01804a81 Mon Sep 17 00:00:00 2001
+From 692d0539918ef3e354eaa0b3612d02fd6be4cc58 Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Tue, 10 Aug 2021 15:51:16 +0200
 Subject: [PATCH 2/2] arm64: meson: add support for the amlogic p241 board
@@ -6,21 +6,22 @@ Subject: [PATCH 2/2] arm64: meson: add support for the amlogic p241 board
 Add support for the s805x reference design board, p241.
 
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+Upstream-Status: Pending
 ---
  arch/arm/dts/Makefile                         |  1 +
  arch/arm/dts/meson-gxl-s805x-p241-u-boot.dtsi |  7 ++
- configs/p241_defconfig                        | 86 +++++++++++++++++++
- 3 files changed, 94 insertions(+)
+ configs/p241_defconfig                        | 84 +++++++++++++++++++
+ 3 files changed, 92 insertions(+)
  create mode 100644 arch/arm/dts/meson-gxl-s805x-p241-u-boot.dtsi
  create mode 100644 configs/p241_defconfig
 
 diff --git a/arch/arm/dts/Makefile b/arch/arm/dts/Makefile
-index 43951a7731ea..dcf3d45dfc78 100644
+index 85fd5b1157b1..cd9c6587ff25 100644
 --- a/arch/arm/dts/Makefile
 +++ b/arch/arm/dts/Makefile
-@@ -182,6 +182,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
- 	meson-gxbb-p200.dtb \
- 	meson-gxbb-p201.dtb \
+@@ -215,6 +215,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
+ 	meson-gxbb-wetek-hub.dtb \
+ 	meson-gxbb-wetek-play2.dtb \
  	meson-gxl-s805x-libretech-ac.dtb \
 +	meson-gxl-s805x-p241.dtb \
  	meson-gxl-s905d-libretech-pc.dtb \
@@ -41,13 +42,13 @@ index 000000000000..c25963559f9a
 +#include "meson-gxl-u-boot.dtsi"
 diff --git a/configs/p241_defconfig b/configs/p241_defconfig
 new file mode 100644
-index 000000000000..cd20bfb75428
+index 000000000000..dced4cfeef09
 --- /dev/null
 +++ b/configs/p241_defconfig
-@@ -0,0 +1,86 @@
+@@ -0,0 +1,84 @@
 +CONFIG_ARM=y
 +CONFIG_ARCH_MESON=y
-+CONFIG_TEXT_BASE=0x01000000
++CONFIG_SYS_TEXT_BASE=0x01000000
 +CONFIG_NR_DRAM_BANKS=1
 +CONFIG_ENV_SIZE=0x2000
 +CONFIG_ENV_OFFSET=0x1f0000
@@ -57,11 +58,8 @@ index 000000000000..cd20bfb75428
 +CONFIG_DEBUG_UART_BASE=0xc81004c0
 +CONFIG_DEBUG_UART_CLOCK=24000000
 +CONFIG_IDENT_STRING=" p241"
-+CONFIG_SYS_LOAD_ADDR=0x1000000
 +CONFIG_DEBUG_UART=y
-+CONFIG_HAS_CUSTOM_SYS_INIT_SP_ADDR=y
-+CONFIG_CUSTOM_SYS_INIT_SP_ADDR=0x20000000
-+CONFIG_REMAKE_ELF=y
++CONFIG_SYS_LOAD_ADDR=0x1000000
 +CONFIG_OF_BOARD_SETUP=y
 +CONFIG_USE_PREBOOT=y
 +# CONFIG_DISPLAY_CPUINFO is not set
@@ -90,6 +88,7 @@ index 000000000000..cd20bfb75428
 +CONFIG_MTD=y
 +CONFIG_DM_MTD=y
 +CONFIG_PHY_MESON_GXL=y
++CONFIG_DM_ETH=y
 +CONFIG_DM_MDIO=y
 +CONFIG_DM_MDIO_MUX=y
 +CONFIG_ETH_DESIGNWARE_MESON8B=y
@@ -118,7 +117,7 @@ index 000000000000..cd20bfb75428
 +CONFIG_USB_GADGET_PRODUCT_NUM=0xfada
 +CONFIG_USB_GADGET_DWC2_OTG=y
 +CONFIG_USB_GADGET_DOWNLOAD=y
-+CONFIG_VIDEO=y
++CONFIG_DM_VIDEO=y
 +# CONFIG_VIDEO_BPP8 is not set
 +# CONFIG_VIDEO_BPP16 is not set
 +CONFIG_SYS_WHITE_ON_BLACK=y
@@ -132,5 +131,5 @@ index 000000000000..cd20bfb75428
 +CONFIG_BMP_32BPP=y
 +CONFIG_OF_LIBFDT_OVERLAY=y
 -- 
-2.40.1
+2.42.0
 
