@@ -1,4 +1,4 @@
-From cb4acc2aefee057cef4d7bb39175b66ad9380fd8 Mon Sep 17 00:00:00 2001
+From 44fa4c57a78afb65cd2d94744b1f3f676c5c3c78 Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Tue, 18 Jul 2023 14:49:57 +0200
 Subject: [PATCH 1/2] ARM: dts: sync libretech cottonwood from linux vX.Y
@@ -8,20 +8,20 @@ Import libretech cottonwood s905d3 and a311d dts from linux vX.Y
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
 Upstream-Status: Pending
 ---
- .../arm/dts/meson-g12b-a311d-libretech-cc.dts | 123 ++++
- arch/arm/dts/meson-libretech-cottonwood.dtsi  | 594 ++++++++++++++++++
+ .../arm/dts/meson-g12b-a311d-libretech-cc.dts | 121 ++++
+ arch/arm/dts/meson-libretech-cottonwood.dtsi  | 614 ++++++++++++++++++
  .../arm/dts/meson-sm1-s905d3-libretech-cc.dts |  89 +++
- 3 files changed, 806 insertions(+)
+ 3 files changed, 824 insertions(+)
  create mode 100644 arch/arm/dts/meson-g12b-a311d-libretech-cc.dts
  create mode 100644 arch/arm/dts/meson-libretech-cottonwood.dtsi
  create mode 100644 arch/arm/dts/meson-sm1-s905d3-libretech-cc.dts
 
 diff --git a/arch/arm/dts/meson-g12b-a311d-libretech-cc.dts b/arch/arm/dts/meson-g12b-a311d-libretech-cc.dts
 new file mode 100644
-index 000000000000..59fe1660817b
+index 000000000000..65b963d794cd
 --- /dev/null
 +++ b/arch/arm/dts/meson-g12b-a311d-libretech-cc.dts
-@@ -0,0 +1,123 @@
+@@ -0,0 +1,121 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +/*
 + * Copyright (c) 2023 BayLibre, SAS.
@@ -36,7 +36,7 @@ index 000000000000..59fe1660817b
 +
 +/ {
 +	compatible = "libretech,aml-a311d-cc", "amlogic,a311d", "amlogic,g12b";
-+	model = "Libre Computer AML-A311D-CC";
++	model = "Libre Computer AML-A311D-CC Alta";
 +
 +	vddcpu_a: regulator-vddcpu-a {
 +		compatible = "pwm-regulator";
@@ -46,12 +46,12 @@ index 000000000000..59fe1660817b
 +		regulator-boot-on;
 +		regulator-always-on;
 +		pwm-supply = <&dc_in>;
-+		pwms = <&pwm_AO_ab 1 1250 0>;
++		pwms = <&pwm_ab 0 1250 0>;
 +		pwm-dutycycle-range = <100 0>;
 +	};
 +
 +	sound {
-+		model = "Cottonwood-Big";
++		model = "LC-ALTA";
 +		audio-routing = "TDMOUT_A IN 0", "FRDDR_A OUT 0",
 +				"TDMOUT_A IN 1", "FRDDR_B OUT 0",
 +				"TDMOUT_A IN 2", "FRDDR_C OUT 0",
@@ -138,19 +138,17 @@ index 000000000000..59fe1660817b
 +	clock-latency = <50000>;
 +};
 +
-+&pwm_AO_ab {
-+	status = "okay";
-+	pinctrl-0 = <&pwm_ao_b_pins>;
-+	pinctrl-names = "default";
-+	clocks = <&xtal>;
-+	clock-names = "clkin1";
++&pwm_ab {
++	pinctrl-0 = <&pwm_a_e_pins>, <&pwm_b_x7_pins>;
++	clocks = <&xtal>, <&xtal>;
++	clock-names = "clkin0", "clkin1";
 +};
 diff --git a/arch/arm/dts/meson-libretech-cottonwood.dtsi b/arch/arm/dts/meson-libretech-cottonwood.dtsi
 new file mode 100644
-index 000000000000..b80c3bdc103f
+index 000000000000..35e8f5bae990
 --- /dev/null
 +++ b/arch/arm/dts/meson-libretech-cottonwood.dtsi
-@@ -0,0 +1,594 @@
+@@ -0,0 +1,614 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +/*
 + * Copyright (c) 2023 BayLibre, SAS.
@@ -182,7 +180,6 @@ index 000000000000..b80c3bdc103f
 +	};
 +
 +	dioo2133: audio-amplifier-0 {
-+		status = "okay";
 +		compatible = "simple-audio-amplifier";
 +		enable-gpios = <&gpio GPIOX_0 GPIO_ACTIVE_HIGH>;
 +		VCC-supply = <&vcc_5v>;
@@ -205,16 +202,6 @@ index 000000000000..b80c3bdc103f
 +		reset-gpios = <&gpio BOOT_12 GPIO_ACTIVE_LOW>;
 +	};
 +
-+	gpio-keys-polled {
-+		compatible = "gpio-keys-polled";
-+		poll-interval = <100>;
-+		power-button {
-+			label = "power";
-+			linux,code = <KEY_POWER>;
-+			gpios = <&gpio GPIOX_1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-+		};
-+	};
-+
 +	hdmi-connector {
 +		compatible = "hdmi-connector";
 +		type = "a";
@@ -226,28 +213,40 @@ index 000000000000..b80c3bdc103f
 +		};
 +	};
 +
-+	leds {
-+		compatible = "gpio-leds";
++	led-blue {
++		compatible = "pwm-leds";
 +
-+		led-green {
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_STATUS;
-+			gpios = <&gpio GPIOX_3 GPIO_ACTIVE_LOW>;
-+			linux,default-trigger = "default-on";
-+			panic-indicator;
-+		};
-+
-+		led-orange {
-+			color = <LED_COLOR_ID_YELLOW>;
-+			function = LED_FUNCTION_STANDBY;
-+			gpios = <&gpio GPIOX_6 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		led-blue {
++		led {
 +			color = <LED_COLOR_ID_BLUE>;
 +			function = LED_FUNCTION_ACTIVITY;
-+			gpios = <&gpio GPIOX_7 GPIO_ACTIVE_LOW>;
-+			linux,default-trigger = "activity";
++			linux,default-trigger = "heartbeat";
++			max-brightness = <255>;
++			pwms = <&pwm_ab 1 1250 0>;
++			active-low;
++		};
++	};
++
++	led-green {
++		compatible = "pwm-leds";
++
++		led {
++			color = <LED_COLOR_ID_GREEN>;
++			function = LED_FUNCTION_STATUS;
++			linux,default-trigger = "default-on";
++			max-brightness = <255>;
++			pwms = <&pwm_cd 1 1250 0>;
++			active-low;
++		};
++	};
++
++	led-orange {
++		compatible = "gpio-leds";
++
++		led {
++			color = <LED_COLOR_ID_AMBER>;
++			function = LED_FUNCTION_STANDBY;
++			gpios = <&gpio GPIOX_6 GPIO_ACTIVE_LOW>;
++			panic-indicator;
 +		};
 +	};
 +
@@ -274,7 +273,7 @@ index 000000000000..b80c3bdc103f
 +		regulator-min-microvolt = <3300000>;
 +		regulator-max-microvolt = <3300000>;
 +		vin-supply = <&vddao_3v3>;
-+		gpio = <&gpio GPIOX_2 GPIO_ACTIVE_HIGH>;
++		gpio = <&gpio GPIOX_2 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
 +		enable-active-high;
 +		gpio-open-drain;
 +	};
@@ -298,8 +297,8 @@ index 000000000000..b80c3bdc103f
 +		regulator-always-on;
 +		vin-supply = <&dc_in>;
 +		gpio = <&gpio GPIOH_8 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+		gpio-open-drain;
 +		enable-active-high;
++		gpio-open-drain;
 +	};
 +
 +	vddao_3v3: regulator-vddao_3v3 {
@@ -347,7 +346,6 @@ index 000000000000..b80c3bdc103f
 +
 +	sound {
 +		compatible = "amlogic,axg-sound-card";
-+		model = "Cottonwood";
 +		audio-widgets = "Line", "Lineout";
 +		audio-aux-devs = <&tdmout_a>, <&tdmout_b>, <&tdmout_c>,
 +				 <&tdmin_a>, <&tdmin_b>, <&tdmin_c>,
@@ -386,41 +384,41 @@ index 000000000000..b80c3bdc103f
 +		};
 +
 +		/*
-+		* Audio setup: The 40 pins header provides access to 2 TDMs,
-+		* SPDIF In/Out and PDM inputs.
-+		* - TDM A: 2 lanes
-+		*    D0:    40/X9
-+		*    D1:    38/X8
-+		*    BCLK:  12/X11
-+		*    FS:    35/X10
-+		* - TDM B: 4 lanes
-+		*    D0:    37/A3
-+		*    D1:    16/A4
-+		*    D2:    18/A5 or 7/AO6
-+		*    D3:    22/A6 or 21/H5
-+		*    BCLK:  29/A1 or 8/AO8
-+		*    FS:    31/A2 or 11/AO7
-+		* - 2 Master Clocks:
-+		*    MCLK0: 15/A0 or 10/AO9
-+		*    MCLK1: 33/X15
-+		* - SPDIF:
-+		*    OUT:   32/A11
-+		*    IN:    21/H5
-+		* - PDM Input:
-+		*    DO:    13/A8
-+		*    D1:    26/A9
-+		*    D2:    22/A6
-+		*    D3:    18/A5
-+		*    DCLK:  36/A7
-+		*
-+		* TDM C is not useable on the 40 pins connector so it is
-+		* setup for the HDMI 4 lanes i2s.
-+		*
-+		* No pinctrl is enabled by default to preserve the
-+		* genericity of the 40 pins header. Many configurations are
-+		* possible based on the desired use case. Please adjust TDM
-+		* masks, clock setups and pinctrl accordingly.
-+		*/
++		 * Audio setup: The 40 pins header provides access to 2 TDMs,
++		 * SPDIF In/Out and PDM inputs.
++		 * - TDM A: 2 lanes
++		 *    D0:    40/X9
++		 *    D1:    38/X8
++		 *    BCLK:  12/X11
++		 *    FS:    35/X10
++		 * - TDM B: 4 lanes
++		 *    D0:    37/A3
++		 *    D1:    16/A4
++		 *    D2:    18/A5 or 7/AO6
++		 *    D3:    22/A6 or 21/H5
++		 *    BCLK:  29/A1 or 8/AO8
++		 *    FS:    31/A2 or 11/AO7
++		 * - 2 Master Clocks:
++		 *    MCLK0: 15/A0 or 10/AO9
++		 *    MCLK1: 33/X15
++		 * - SPDIF:
++		 *    OUT:   32/A11
++		 *    IN:    21/H5
++		 * - PDM Input:
++		 *    DO:    13/A8
++		 *    D1:    26/A9
++		 *    D2:    22/A6
++		 *    D3:    18/A5
++		 *    DCLK:  36/A7
++		 *
++		 * TDM C is not usable on the 40 pins connector so it is
++		 * setup for the HDMI 4 lanes i2s.
++		 *
++		 * No pinctrl is enabled by default to preserve the
++		 * genericity of the 40 pins header. Many configurations are
++		 * possible based on the desired use case. Please adjust TDM
++		 * masks, clock setups and pinctrl accordingly.
++		 */
 +
 +		dai-link-6 {
 +			sound-dai = <&tdmif_a>;
@@ -515,6 +513,18 @@ index 000000000000..b80c3bdc103f
 +	};
 +};
 +
++&dwc3 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	hub: hub@1 {
++		compatible = "usb5e3,626";
++		reg = <1>;
++		reset-gpios = <&gpio GPIOC_7 (GPIO_ACTIVE_LOW | GPIO_OPEN_DRAIN)>;
++		vdd-supply = <&vcc_5v>;
++	};
++};
++
 +&ethmac {
 +	pinctrl-0 = <&eth_pins>, <&eth_rgmii_pins>, <&eth_phy_irq_pins>;
 +	pinctrl-names = "default";
@@ -592,11 +602,27 @@ index 000000000000..b80c3bdc103f
 +};
 +
 +&pwm_AO_cd {
++	status = "okay";
 +	pinctrl-0 = <&pwm_ao_d_e_pins>;
 +	pinctrl-names = "default";
 +	clocks = <&xtal>;
 +	clock-names = "clkin1";
++};
++
++&pwm_ab {
 +	status = "okay";
++	pinctrl-0 = <&pwm_b_x7_pins>;
++	pinctrl-names = "default";
++	clocks = <&xtal>;
++	clock-names = "clkin1";
++};
++
++&pwm_cd {
++	status = "okay";
++	pinctrl-0 = <&pwm_d_x3_pins>;
++	pinctrl-names = "default";
++	clocks = <&xtal>;
++	clock-names = "clkin1";
 +};
 +
 +&saradc {
@@ -655,8 +681,8 @@ index 000000000000..b80c3bdc103f
 +	pinctrl-names = "default";
 +	cs-gpios = <&gpio BOOT_14 GPIO_ACTIVE_LOW>;
 +
-+	w25q128: flash@0 {
-+		compatible = "gd25lq128d", "jedec,spi-nor";
++	w25lq128d: flash@0 {
++		compatible = "jedec,spi-nor";
 +		reg = <0>;
 +		#address-cells = <1>;
 +		#size-cells = <1>;
@@ -731,15 +757,7 @@ index 000000000000..b80c3bdc103f
 +};
 +
 +&usb3_pcie_phy {
-+	#address-cells = <1>;
-+        #size-cells = <0>;
 +	phy-supply = <&vcc_5v>;
-+
-+        hub: hub@1 {
-+            compatible = "usb5e3,626";
-+            reg = <1>;
-+            reset-gpios = <&gpio GPIOC_7 (GPIO_ACTIVE_LOW | GPIO_OPEN_DRAIN)>;
-+        };
 +};
 +
 +&usb {
@@ -747,7 +765,7 @@ index 000000000000..b80c3bdc103f
 +};
 diff --git a/arch/arm/dts/meson-sm1-s905d3-libretech-cc.dts b/arch/arm/dts/meson-sm1-s905d3-libretech-cc.dts
 new file mode 100644
-index 000000000000..faa462af8b5d
+index 000000000000..537370db360f
 --- /dev/null
 +++ b/arch/arm/dts/meson-sm1-s905d3-libretech-cc.dts
 @@ -0,0 +1,89 @@
@@ -765,10 +783,10 @@ index 000000000000..faa462af8b5d
 +
 +/ {
 +	compatible = "libretech,aml-s905d3-cc", "amlogic,sm1";
-+	model = "Libre Computer AML-S905D3-CC";
++	model = "Libre Computer AML-S905D3-CC Solitude";
 +
 +	sound {
-+		model = "Cottonwood-Lil";
++		model = "LC-SOLITUDE";
 +		audio-routing = "TDMOUT_A IN 0", "FRDDR_A OUT 0",
 +				"TDMOUT_A IN 1", "FRDDR_B OUT 0",
 +				"TDMOUT_A IN 2", "FRDDR_C OUT 0",
