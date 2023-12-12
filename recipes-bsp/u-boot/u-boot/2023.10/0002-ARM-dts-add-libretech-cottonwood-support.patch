@@ -1,4 +1,4 @@
-From 7561e6e6471bf8d491b6a9d81a0d7d76f7db6af1 Mon Sep 17 00:00:00 2001
+From 030d898f9aa02ce6535a021b8f8dc402ee6aa369 Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Tue, 18 Jul 2023 14:52:19 +0200
 Subject: [PATCH 2/2] ARM: dts: add libretech cottonwood support
@@ -8,32 +8,32 @@ Add support for libretech CC devices based on the S905D3 and A311D
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
 Upstream-Status: Pending
 ---
- arch/arm/dts/Makefile                         |   4 +-
- .../meson-g12b-a311d-libretech-cc-u-boot.dtsi |  23 ++++
- .../meson-sm1-s905d3-libretech-cc-u-boot.dtsi |  23 ++++
+ arch/arm/dts/Makefile                         |   2 +
+ .../meson-g12b-a311d-libretech-cc-u-boot.dtsi |  30 ++++++
+ .../meson-libretech-cottonwood-u-boot.dtsi    |  23 ++++
+ .../meson-sm1-s905d3-libretech-cc-u-boot.dtsi |  30 ++++++
  configs/libretech-a311d-cc_defconfig          | 100 ++++++++++++++++++
  configs/libretech-s905d3-cc_defconfig         | 100 ++++++++++++++++++
- 5 files changed, 248 insertions(+), 2 deletions(-)
+ 6 files changed, 285 insertions(+)
  create mode 100644 arch/arm/dts/meson-g12b-a311d-libretech-cc-u-boot.dtsi
+ create mode 100644 arch/arm/dts/meson-libretech-cottonwood-u-boot.dtsi
  create mode 100644 arch/arm/dts/meson-sm1-s905d3-libretech-cc-u-boot.dtsi
  create mode 100644 configs/libretech-a311d-cc_defconfig
  create mode 100644 configs/libretech-s905d3-cc_defconfig
 
 diff --git a/arch/arm/dts/Makefile b/arch/arm/dts/Makefile
-index cd9c6587ff25..e324f9c579b3 100644
+index cd9c6587ff25..774907dbaf82 100644
 --- a/arch/arm/dts/Makefile
 +++ b/arch/arm/dts/Makefile
-@@ -231,8 +231,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
+@@ -231,6 +231,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
  	meson-g12a-u200.dtb \
  	meson-g12b-a311d-bananapi-m2s.dtb \
  	meson-g12b-a311d-khadas-vim3.dtb \
--	meson-g12b-bananapi-cm4-cm4io.dtb \
--	meson-g12b-gsking-x.dtb \
 +	meson-g12b-a311d-libretech-cc.dtb \
+ 	meson-g12b-bananapi-cm4-cm4io.dtb \
+ 	meson-g12b-gsking-x.dtb \
  	meson-g12b-gtking.dtb \
- 	meson-g12b-gtking-pro.dtb \
- 	meson-g12b-odroid-go-ultra.dtb \
-@@ -243,6 +242,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
+@@ -243,6 +244,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
  	meson-sm1-bananapi-m2-pro.dtb \
  	meson-sm1-bananapi-m5.dtb \
  	meson-sm1-khadas-vim3l.dtb \
@@ -43,9 +43,45 @@ index cd9c6587ff25..e324f9c579b3 100644
  	meson-sm1-sei610.dtb
 diff --git a/arch/arm/dts/meson-g12b-a311d-libretech-cc-u-boot.dtsi b/arch/arm/dts/meson-g12b-a311d-libretech-cc-u-boot.dtsi
 new file mode 100644
-index 000000000000..49e0deef3b19
+index 000000000000..17703289562f
 --- /dev/null
 +++ b/arch/arm/dts/meson-g12b-a311d-libretech-cc-u-boot.dtsi
+@@ -0,0 +1,30 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (c) 2023 BayLibre, SAS
++ * Author: Jerome Brunet <jbrunet@baylibre.com>
++ */
++
++#include "meson-libretech-cottonwood-u-boot.dtsi"
++
++/ {
++	smbios {
++		compatible = "u-boot,sysinfo-smbios";
++
++		smbios {
++			system {
++				manufacturer = "libre-computer";
++				product = "aml-a311d-cc";
++			};
++
++			baseboard {
++				manufacturer = "libre-computer";
++				product = "aml-a311d-cc";
++			};
++
++			chassis {
++				manufacturer = "libre-computer";
++				product = "aml-a311d-cc";
++			};
++		};
++	};
++};
+diff --git a/arch/arm/dts/meson-libretech-cottonwood-u-boot.dtsi b/arch/arm/dts/meson-libretech-cottonwood-u-boot.dtsi
+new file mode 100644
+index 000000000000..49e0deef3b19
+--- /dev/null
++++ b/arch/arm/dts/meson-libretech-cottonwood-u-boot.dtsi
 @@ -0,0 +1,23 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
@@ -72,32 +108,39 @@ index 000000000000..49e0deef3b19
 +};
 diff --git a/arch/arm/dts/meson-sm1-s905d3-libretech-cc-u-boot.dtsi b/arch/arm/dts/meson-sm1-s905d3-libretech-cc-u-boot.dtsi
 new file mode 100644
-index 000000000000..49e0deef3b19
+index 000000000000..f1d77d73f39c
 --- /dev/null
 +++ b/arch/arm/dts/meson-sm1-s905d3-libretech-cc-u-boot.dtsi
-@@ -0,0 +1,23 @@
+@@ -0,0 +1,30 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
 + * Copyright (c) 2023 BayLibre, SAS
 + * Author: Jerome Brunet <jbrunet@baylibre.com>
 + */
 +
-+#include "meson-g12-common-u-boot.dtsi"
++#include "meson-libretech-cottonwood-u-boot.dtsi"
 +
 +/ {
-+	aliases {
-+		spi0 = &spifc;
++	smbios {
++		compatible = "u-boot,sysinfo-smbios";
++
++		smbios {
++			system {
++				manufacturer = "libre-computer";
++				product = "aml-s905d3-cc";
++			};
++
++			baseboard {
++				manufacturer = "libre-computer";
++				product = "aml-s905d3-cc";
++			};
++
++			chassis {
++				manufacturer = "libre-computer";
++				product = "aml-s905d3-cc";
++			};
++		};
 +	};
-+};
-+
-+&sd_emmc_c {
-+	status = "okay";
-+	pinctrl-0 = <&emmc_ctrl_pins>, <&emmc_data_4b_pins>;
-+	bus-width = <4>;
-+};
-+
-+&spifc {
-+	status = "okay";
 +};
 diff --git a/configs/libretech-a311d-cc_defconfig b/configs/libretech-a311d-cc_defconfig
 new file mode 100644
