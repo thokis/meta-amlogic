@@ -1,4 +1,4 @@
-From 108dd9103676e7570260ef642e31814617583312 Mon Sep 17 00:00:00 2001
+From 5253533b4ec350df5b3305ff2de3c139f01deaf3 Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Thu, 6 Jul 2023 20:45:28 +0200
 Subject: [PATCH] arm64: dts: amlogic: add libretech cottonwood support
@@ -171,7 +171,7 @@ index 000000000000..65b963d794cd
 +};
 diff --git a/arch/arm64/boot/dts/amlogic/meson-libretech-cottonwood.dtsi b/arch/arm64/boot/dts/amlogic/meson-libretech-cottonwood.dtsi
 new file mode 100644
-index 000000000000..ed826f673349
+index 000000000000..35e8f5bae990
 --- /dev/null
 +++ b/arch/arm64/boot/dts/amlogic/meson-libretech-cottonwood.dtsi
 @@ -0,0 +1,614 @@
@@ -885,5 +885,5 @@ index 000000000000..537370db360f
 +	clock-latency = <50000>;
 +};
 -- 
-2.40.1
+2.43.0
 

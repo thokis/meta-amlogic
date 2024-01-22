@@ -1,4 +1,4 @@
-From 4edb69890199f8bdf5215c91d7b908c33877f213 Mon Sep 17 00:00:00 2001
+From 972b4f9a8bd09f5b8647c01588e05a849ca80726 Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Tue, 8 Aug 2023 12:07:46 +0200
 Subject: [PATCH 1/2] usb: misc: onboard_usb_hub: add Genesys Logic gl3510 hub
@@ -17,17 +17,17 @@ Upstream-Status: Submitted [bb9f10ff6709e15fb935c954f1fb715ac1f970e7]
  1 file changed, 1 insertion(+)
 
 diff --git a/drivers/usb/misc/onboard_usb_hub.h b/drivers/usb/misc/onboard_usb_hub.h
-index 2cde54b69eed..08a9f18cba84 100644
+index d023fb90b411..fe20a9f3e4fa 100644
 --- a/drivers/usb/misc/onboard_usb_hub.h
 +++ b/drivers/usb/misc/onboard_usb_hub.h
-@@ -27,6 +27,7 @@ static const struct of_device_id onboard_hub_match[] = {
- 	{ .compatible = "usb424,2517", .data = &microchip_usb424_data, },
- 	{ .compatible = "usb451,8140", .data = &ti_tusb8041_data, },
- 	{ .compatible = "usb451,8142", .data = &ti_tusb8041_data, },
+@@ -39,6 +39,7 @@ static const struct of_device_id onboard_hub_match[] = {
+ 	{ .compatible = "usb5e3,608", .data = &genesys_gl850g_data, },
+ 	{ .compatible = "usb5e3,610", .data = &genesys_gl852g_data, },
+ 	{ .compatible = "usb5e3,620", .data = &genesys_gl852g_data, },
 +	{ .compatible = "usb5e3,626", .data = &genesys_gl852g_data, },
  	{ .compatible = "usbbda,411", .data = &realtek_rts5411_data, },
  	{ .compatible = "usbbda,5411", .data = &realtek_rts5411_data, },
  	{ .compatible = "usbbda,414", .data = &realtek_rts5411_data, },
 -- 
-2.40.1
+2.43.0
 
