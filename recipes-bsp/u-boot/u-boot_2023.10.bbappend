@@ -8,8 +8,7 @@ SRC_URI:append:amlogic = " \
 
 # Fixup some mmc problems with 2021.01
 SRC_URI:append:amlogic = " \
-	file://0001-mmc-meson-gx-set-clk-always-on-according-to-the-chip.patch \
-	file://0002-mmc-meson-gx-set-270-core-phase-during-the-identific.patch"
+	file://0001-mmc-meson-gx-set-clk-always-on-according-to-the-chip.patch"
 
 # Add p241 support
 SRC_URI:append:amlogic-p241 = " \
