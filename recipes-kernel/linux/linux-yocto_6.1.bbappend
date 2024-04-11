@@ -16,7 +16,7 @@ SRC_URI:append:amlogic = " \
 	file://0001-arm64-dts-amlogic-add-AO-rti-sticky-register-sram.patch"
 
 # Add libretech cottonwood support
-SRC_URI:append:libretech-cottonwood = " \
+SRC_URI:append:amlogic = " \
 	file://0001-arm64-dts-amlogic-add-libretech-cottonwood-support.patch"
 
 # FIXME:
