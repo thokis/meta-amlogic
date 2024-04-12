@@ -6,6 +6,10 @@ SRCREV_meta-amlogic = "0f6abadec94052bd2cda1df911b8fbb1b7201a64"
 
 require linux-yocto-amlogic.inc
 
+# Fixup possible minor number problem with ASoC
+SRC_URI:append:amlogic = " \
+	file://0001-ASoC-meson-cards-select-SND_DYNAMIC_MINORS.patch"
+
 # Add Genesys gl3510 support for cottonwood
 SRC_URI:append:amlogic = " \
 	file://0001-usb-misc-onboard_usb_hub-add-Genesys-Logic-gl3510-hu.patch \
