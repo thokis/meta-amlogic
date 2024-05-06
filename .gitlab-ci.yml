@@ -22,8 +22,8 @@ variables:
 build:
   extends: .build
   only:
+    - scarthgap
     - nanbield
-    - kirkstone
     - tags
   parallel:
     matrix:

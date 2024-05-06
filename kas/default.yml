@@ -8,13 +8,13 @@ repos:
   core:
     url: https://git.openembedded.org/openembedded-core
     path: layers/oe-core
-    branch: nanbield
+    branch: scarthgap
     layers:
       meta:
   bitbake:
     url: https://git.openembedded.org/bitbake
     path: layers/bitbake
-    branch: '2.6'
+    branch: '2.8'
     layers:
       conf: disabled
 
