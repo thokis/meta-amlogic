@@ -1,4 +1,4 @@
-From d105192113f8a5191f8943908b55f0cd824a04cf Mon Sep 17 00:00:00 2001
+From 757039dfae18873e6ecaeb16ba33f858aa3a38ba Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Tue, 10 Aug 2021 15:51:16 +0200
 Subject: [PATCH 2/2] arm64: meson: add support for the amlogic p241 board
@@ -16,10 +16,10 @@ Upstream-Status: Pending
  create mode 100644 configs/p241_defconfig
 
 diff --git a/arch/arm/dts/Makefile b/arch/arm/dts/Makefile
-index 85fd5b1157b1..cd9c6587ff25 100644
+index 9d28a485bec6..4a4a915de319 100644
 --- a/arch/arm/dts/Makefile
 +++ b/arch/arm/dts/Makefile
-@@ -215,6 +215,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
+@@ -221,6 +221,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
  	meson-gxbb-wetek-hub.dtb \
  	meson-gxbb-wetek-play2.dtb \
  	meson-gxl-s805x-libretech-ac.dtb \
@@ -119,5 +119,5 @@ index 000000000000..d52f6ead93f5
 +CONFIG_USB_GADGET_DWC2_OTG=y
 +CONFIG_USB_GADGET_DOWNLOAD=y
 -- 
-2.42.0
+2.43.0
 

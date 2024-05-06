@@ -1,4 +1,4 @@
-From 030d898f9aa02ce6535a021b8f8dc402ee6aa369 Mon Sep 17 00:00:00 2001
+From 6e0ad2f68efee36b311b6987ea277fe6c5eff8fd Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Tue, 18 Jul 2023 14:52:19 +0200
 Subject: [PATCH 2/2] ARM: dts: add libretech cottonwood support
@@ -22,10 +22,10 @@ Upstream-Status: Pending
  create mode 100644 configs/libretech-s905d3-cc_defconfig
 
 diff --git a/arch/arm/dts/Makefile b/arch/arm/dts/Makefile
-index cd9c6587ff25..774907dbaf82 100644
+index 4a4a915de319..829f5dd9e756 100644
 --- a/arch/arm/dts/Makefile
 +++ b/arch/arm/dts/Makefile
-@@ -231,6 +231,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
+@@ -237,6 +237,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
  	meson-g12a-u200.dtb \
  	meson-g12b-a311d-bananapi-m2s.dtb \
  	meson-g12b-a311d-khadas-vim3.dtb \
@@ -33,7 +33,7 @@ index cd9c6587ff25..774907dbaf82 100644
  	meson-g12b-bananapi-cm4-cm4io.dtb \
  	meson-g12b-gsking-x.dtb \
  	meson-g12b-gtking.dtb \
-@@ -243,6 +244,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
+@@ -249,6 +250,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
  	meson-sm1-bananapi-m2-pro.dtb \
  	meson-sm1-bananapi-m5.dtb \
  	meson-sm1-khadas-vim3l.dtb \
@@ -355,5 +355,5 @@ index 000000000000..da851b710138
 +CONFIG_BMP_24BPP=y
 +CONFIG_BMP_32BPP=y
 -- 
-2.42.0
+2.43.0
 

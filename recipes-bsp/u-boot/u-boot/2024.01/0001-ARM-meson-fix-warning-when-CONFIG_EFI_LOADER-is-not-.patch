@@ -1,4 +1,4 @@
-From 24755956d695f92fc375fe09d7b81a37b82e0120 Mon Sep 17 00:00:00 2001
+From 89a320ad093c925b64063c359dcb080b8e071d52 Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Thu, 13 Jan 2022 15:56:25 +0100
 Subject: [PATCH] ARM: meson: fix warning when CONFIG_EFI_LOADER is not set
@@ -37,5 +37,5 @@ index 7ceba7cede85..376ec61c3c66 100644
  
  int meson_generate_serial_ethaddr(void)
 -- 
-2.42.0
+2.43.0
 

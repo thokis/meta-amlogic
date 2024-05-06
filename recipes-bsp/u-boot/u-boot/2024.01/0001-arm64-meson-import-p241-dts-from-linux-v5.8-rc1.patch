@@ -1,4 +1,4 @@
-From c37662dcf12d922d80c185b856535bfb8cb4ebb4 Mon Sep 17 00:00:00 2001
+From cb6f88d9eb8db1d8eb3e5843cabc392c29e26ede Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Wed, 11 Aug 2021 18:11:14 +0200
 Subject: [PATCH 1/2] arm64: meson: import p241 dts from linux v5.8-rc1
@@ -6,8 +6,8 @@ Subject: [PATCH 1/2] arm64: meson: import p241 dts from linux v5.8-rc1
 Import the dts for the s805x reference board p241 from
 linux commit b3a9e3b9622a ("Linux 5.8-rc1")
 
-Upstream-Status: Pending
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+Upstream-Status: Pending
 ---
  arch/arm/dts/meson-gxl-s805x-p241.dts | 222 ++++++++++++++++++++++++++
  1 file changed, 222 insertions(+)
@@ -242,5 +242,5 @@ index 000000000000..867e30f1d62b
 +	dr_mode = "host";
 +};
 -- 
-2.42.0
+2.43.0
 

@@ -1,14 +1,14 @@
-From 0faf976eb968377b697268c148586db2c715ce34 Mon Sep 17 00:00:00 2001
+From adb571b62f91e1d20762dbbb73aa38469b88cf1c Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Wed, 2 Aug 2023 18:35:32 +0200
-Subject: [PATCH 1/2] mmc: meson-gx: set clk always on according to the chip
+Subject: [PATCH] mmc: meson-gx: set clk always on according to the chip
  revision
 
 Bit for clk_always_on changed on v3 mmc revision of the IP
 Handle that correctly and set the same phases as Linux
 
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
-Upstream-Status: Submitted [u-boot-amlogic@groups.io]
+Upstream-Status: Pending
 ---
  drivers/mmc/meson_gx_mmc.c | 45 ++++++++++++++++----------------------
  drivers/mmc/meson_gx_mmc.h |  9 ++++++--
@@ -147,5 +147,5 @@ index 8974b78f559d..3ec913d1b5ef 100644
  	struct mmc mmc;
  	void *regbase;
 -- 
-2.42.0
+2.43.0
 

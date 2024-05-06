@@ -1,4 +1,4 @@
-From 44fa4c57a78afb65cd2d94744b1f3f676c5c3c78 Mon Sep 17 00:00:00 2001
+From 72a743e5f09bbf624db7e0d35ea188e03f4c61cf Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Tue, 18 Jul 2023 14:49:57 +0200
 Subject: [PATCH 1/2] ARM: dts: sync libretech cottonwood from linux vX.Y
@@ -859,5 +859,5 @@ index 000000000000..537370db360f
 +	clock-latency = <50000>;
 +};
 -- 
-2.42.0
+2.43.0
 
