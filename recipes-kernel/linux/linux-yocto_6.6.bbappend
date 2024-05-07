@@ -42,3 +42,13 @@ COMPATIBLE_MACHINE:append:amlogic = "|aml-a311d-cc|aml-s905d3-cc"
 # Sound DT fixup backport
 SRC_URI:append:amlogic = " \
 	file://0001-arm64-dts-meson-g12-name-spdifout-consistently.patch "
+
+# DSI support backport
+SRC_URI:append:amlogic = " \
+	file://0001-dt-bindings-clk-g12a-clkc-add-CTS_ENCL-clock-ids.patch \
+	file://0002-clk-meson-g12a-add-CTS_ENCL-CTS_ENCL_SEL-clocks.patch \
+	file://0003-clk-meson-add-vclk-driver.patch \
+	file://0004-clk-meson-g12a-make-VCLK2-and-ENCL-clock-path-config.patch \
+	file://0005-arm64-meson-g12-common-add-the-MIPI-DSI-nodes.patch \
+	file://0006-arm64-meson-khadas-vim3l-add-TS050-DSI-panel-overlay.patch \
+	file://0007-drm-meson-gate-px_clk-when-setting-rate.patch "
