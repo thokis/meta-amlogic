@@ -38,3 +38,7 @@ SRC_URI:append:amlogic = " \
 # FIXME:
 # cottonwood is only compatible with v6.6 until it lands in mainline
 COMPATIBLE_MACHINE:append:amlogic = "|aml-a311d-cc|aml-s905d3-cc"
+
+# Sound DT fixup backport
+SRC_URI:append:amlogic = " \
+	file://0001-arm64-dts-meson-g12-name-spdifout-consistently.patch "
