@@ -10,6 +10,10 @@ SRC_URI:append:amlogic = " \
 SRC_URI:append:amlogic = " \
 	file://0001-mmc-meson-gx-set-clk-always-on-according-to-the-chip.patch"
 
+# Fix MCU issue with the Khadas VIM3
+SRC_URI:append:amlogic = " \
+	file://0001-board-amlogic-vim3-retry-mcu-i2c-read-before-failing.patch"
+
 # Add p241 support
 SRC_URI:append:amlogic-p241 = " \
 	file://0001-arm64-meson-import-p241-dts-from-linux-v5.8-rc1.patch \
