@@ -34,10 +34,8 @@ SRC_URI:append:amlogic = " \
 
 # Add p241 support
 SRC_URI:append:amlogic-p241 = " \
-	file://0001-arm64-meson-import-p241-dts-from-linux-v5.8-rc1.patch \
-	file://0002-arm64-meson-add-support-for-the-amlogic-p241-board.patch"
+	file://0001-arm64-meson-add-support-for-the-amlogic-p241-board.patch"
 
 # Add libretech cottonwood support
 SRC_URI:append:libretech-cottonwood = " \
-	file://0001-ARM-dts-sync-libretech-cottonwood-from-linux-vX.Y.patch \
-	file://0002-ARM-dts-add-libretech-cottonwood-support.patch"
+	file://0001-ARM-dts-add-libretech-cottonwood-support.patch"

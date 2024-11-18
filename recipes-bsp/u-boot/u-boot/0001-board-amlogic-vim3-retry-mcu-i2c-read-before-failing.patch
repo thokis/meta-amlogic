@@ -1,4 +1,4 @@
-From 081f33067f90aefa3bdb93cb6da95bb1688bb84c Mon Sep 17 00:00:00 2001
+From 5d0a33783581595f800615e7dcc5c6834a9564a9 Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Mon, 13 May 2024 16:37:53 +0200
 Subject: [PATCH] board: amlogic: vim3: retry mcu i2c read before failing
@@ -13,12 +13,13 @@ we should assume that MCU has a problem and reset the device.
 
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
 Upstream-Status: Pending
+Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
 ---
- board/amlogic/vim3/vim3.c | 29 ++++++++++++++++++++++-------
- 1 file changed, 22 insertions(+), 7 deletions(-)
+ board/amlogic/vim3/vim3.c | 33 ++++++++++++++++++++++++---------
+ 1 file changed, 24 insertions(+), 9 deletions(-)
 
 diff --git a/board/amlogic/vim3/vim3.c b/board/amlogic/vim3/vim3.c
-index 8bdfb302f728..fa460a8d71f9 100644
+index 8bdfb302f728..f32b0ef7d6d3 100644
 --- a/board/amlogic/vim3/vim3.c
 +++ b/board/amlogic/vim3/vim3.c
 @@ -15,8 +15,11 @@
@@ -60,14 +61,17 @@ index 8bdfb302f728..fa460a8d71f9 100644
  	}
  
  	ret = uclass_get_device_by_of_offset(UCLASS_I2C, i2c_node, &bus);
-@@ -76,14 +79,26 @@ int meson_ft_board_setup(void *blob, struct bd_info *bd)
+@@ -76,16 +79,28 @@ int meson_ft_board_setup(void *blob, struct bd_info *bd)
  	ret = i2c_get_chip(bus, i2c_addr, 1, &dev);
  	if (ret < 0) {
  		printf("vim3: cannot find i2c chip (%d)\n", ret);
 -		return 0;
 +		return ret;
-+	}
-+
+ 	}
+ 
+-	/* Read USB_PCIE_SWITCH_REG */
+-	ret = dm_i2c_reg_read(dev, KHADAS_MCU_USB_PCIE_SWITCH_REG);
+-	if (ret < 0) {
 +	/*
 +	 * Read USB_PCIE_SWITCH_REG:
 +	 * It is important for the MCU and DT state to be aligned but sometimes
@@ -79,18 +83,19 @@ index 8bdfb302f728..fa460a8d71f9 100644
 +		if (ret >= 0)
 +			break;
 +
-+		mdelay(1000);
- 	}
- 
--	/* Read USB_PCIE_SWITCH_REG */
--	ret = dm_i2c_reg_read(dev, KHADAS_MCU_USB_PCIE_SWITCH_REG);
- 	if (ret < 0) {
  		printf("vim3: failed to read i2c reg (%d)\n", ret);
 -		return 0;
-+		return ret;
++		mdelay(1000);
  	}
- 	debug("MCU_USB_PCIE_SWITCH_REG: %d\n", ret);
+-	debug("MCU_USB_PCIE_SWITCH_REG: %d\n", ret);
++
++	if (ret < 0)
++		return ret;
++
++	printf("MCU_USB_PCIE_SWITCH_REG: %d\n", ret);
  
+ 	/*
+ 	 * If in PCIe mode, alter DT
 -- 
-2.43.0
+2.45.2
 
