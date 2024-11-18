@@ -4,11 +4,14 @@ header:
   - kas/include/deps.yml
   - kas/include/base.yml
 
+defaults:
+  repos:
+    branch: scarthgap
+
 repos:
   poky:
     url: https://git.yoctoproject.org/poky
     path: layers/poky
-    branch: scarthgap
     layers:
       meta:
       meta-poky:
