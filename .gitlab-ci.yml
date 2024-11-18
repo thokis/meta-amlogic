@@ -23,7 +23,7 @@ build:
   extends: .build
   only:
     - scarthgap
-    - nanbield
+    - styhead
     - tags
   parallel:
     matrix:
