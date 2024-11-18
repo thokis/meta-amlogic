@@ -53,7 +53,7 @@ You are done
 ## Quick Start with Kas
 
 This layer has basic for support kas (see
-https://kas.readthedocs.io/en/1.0/index.html) Boards are
+https://kas.readthedocs.io/en/latest/index.html) Boards are
 provided with the related kas yaml file.
 
 Just checkout `meta-amlogic` and fire up `kas`. It will take care of the
