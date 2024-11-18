@@ -1,9 +1,3 @@
-# Most platform just specify the dtb basename but meson adds the "amlogic/" dir.
-# We could force yocto to install the dtb in an "amlogic/" dir but its easier to just
-# amend the fdtfile variable to match yocto default behavior
-SRC_URI:append:amlogic = " \
-	file://0001-meson-env-remove-amlogic-directory-from-fdtfile-vari.patch"
-
 # HDMI and USB Keyboard mess with the TTY and are annoying while working on the platform
 SRC_URI:append:amlogic = " \
 	${@bb.utils.contains('UBOOT_ILOVEUART', '1', "file://meson-config-only-uart-by-default.patch", "", d)}"
