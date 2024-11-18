@@ -35,10 +35,10 @@ Checkout this awesome layer
 git clone https://gitlab.com/jbrunet/meta-amlogic.git
 ```
 
-Checkout poky with kirkstone and setup the build as usual
+Checkout poky with <branch-name> and setup the build as usual
 
 ```
-git clone git://git.yoctoproject.org/poky -b kirkstone
+git clone git://git.yoctoproject.org/poky -b <branch-name>
 source poky/oe-init-build-env
 ```
 
