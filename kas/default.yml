@@ -5,17 +5,12 @@ header:
   - kas/include/base.yml
 
 repos:
-  core:
-    url: https://git.openembedded.org/openembedded-core
-    path: layers/oe-core
+  poky:
+    url: https://git.yoctoproject.org/poky
+    path: layers/poky
     branch: scarthgap
     layers:
       meta:
-  bitbake:
-    url: https://git.openembedded.org/bitbake
-    path: layers/bitbake
-    branch: '2.8'
-    layers:
-      conf: disabled
+      meta-poky:
 
-distro: nodistro
+distro: poky
