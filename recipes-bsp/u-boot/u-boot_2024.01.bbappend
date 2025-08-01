@@ -9,6 +9,9 @@ SRC_URI:append:amlogic = " \
 # CONFIG_LEGACY_IMAGE_FORMAT for security reasons
 SRC_URI:append:amlogic = " file://fit-support.cfg"
 
+# Enable watchdog support without starting it by default
+SRC_URI:append:amlogic = " file://enable-wdt.cfg"
+
 # Added Environment support
 ADD_ENV_DEFAULT_FILES = " \
 	file://env-storage.cfg \
