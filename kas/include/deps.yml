@@ -1,5 +1,20 @@
 header:
-  version: 17
+  version: 20
+
+defaults:
+  repos:
+    branch: scarthgap
 
 repos:
+  oe-core:
+    url: https://git.openembedded.org/openembedded-core
+    path: layers/openembedded-core
+    layers:
+      meta:
+  bitbake:
+    url: https://git.openembedded.org/bitbake
+    path: layers/bitbake
+    branch: '2.8'
+    layers:
+      .: disabled
   meta-amlogic:

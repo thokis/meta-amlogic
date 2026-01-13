@@ -1,19 +1,7 @@
 header:
-  version: 17
+  version: 20
   includes:
   - kas/include/deps.yml
   - kas/include/base.yml
 
-defaults:
-  repos:
-    branch: scarthgap
-
-repos:
-  poky:
-    url: https://git.yoctoproject.org/poky
-    path: layers/poky
-    layers:
-      meta:
-      meta-poky:
-
-distro: poky
+distro: nodistro
