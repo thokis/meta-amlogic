@@ -1,0 +1,7 @@
+define KMACHINE amlogic
+define KTYPE standard
+define KARCH arm64
+
+include ktypes/standard/standard.scc
+
+kconf hardware amlogic.cfg
