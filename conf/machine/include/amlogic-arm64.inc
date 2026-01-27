@@ -16,6 +16,7 @@ MACHINE_EXTRA_RRECOMMENDS:append = " \
 	${@bb.utils.contains("DISTRO_FEATURES", "alsa", "alsa-state", "", d)}"
 
 KERNEL_CLASSES += "kernel-fitimage"
+KERNEL_DTC_FLAGS += "-@"
 KERNEL_IMAGETYPE ?= "fitImage"
 
 # All Amlogic platforms seems to use this console settings

@@ -10,4 +10,4 @@ PREFERRED_PROVIDER_u-boot-fw-utils ??= "libubootenv"
 MACHINE_EXTRA_RRECOMMENDS:append = ' ${@oe.utils.conditional("PREFERRED_PROVIDER_virtual/bootloader", "u-boot", "u-boot-fw-utils", "", d)}'
 
 # Arm Trusted Firmware
-PREFERRED_PROVIDER_virtual/trusted-firmware-a ??= "amlogic-prebuilt-atf"
+PREFERRED_PROVIDER_virtual/trusted-firmware-a ??= "amlogic-boot-fip"

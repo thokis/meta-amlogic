@@ -15,12 +15,12 @@ set -e
 # 2 - bootloader
 
 errcho() {
-    >&2 echo "$@";
+    >&2 echo "$@"
 }
 
 get_bootenabled() {
     PARTCONF=$(mmc extcsd read "${1}" | grep "PARTITION_CONFIG:" | grep -o -e "0x\([a-fA-F0-9]\)\{2\}")
-    echo "$(( (PARTCONF >> 3) & 0x7 ))"
+    echo "$(((PARTCONF >> 3) & 0x7))"
 }
 
 get_device() {
@@ -28,22 +28,22 @@ get_device() {
     #2 index of the device
 
     case "${1}" in
-	0|7|2) # Treat user and boot1 in the same fashion
-	    SLOT="1"
-	    ;;
-	1)
-	    SLOT="0"
-	    ;;
-	*)
-	    errcho "Unsupported active slot ${1}"
-	    exit 1
-	    ;;
+    0 | 7 | 2) # Treat user and boot1 in the same fashion
+        SLOT="1"
+        ;;
+    1)
+        SLOT="0"
+        ;;
+    *)
+        errcho "Unsupported active slot ${1}"
+        exit 1
+        ;;
     esac
 
     if [ "${SLOT}" = "${2}" ]; then
-	echo "boot0"
+        echo "boot0"
     else
-	echo "boot1"
+        echo "boot1"
     fi
 
 }
@@ -53,8 +53,8 @@ block_size() {
 }
 
 cleanup_on_exit() {
-    echo 1 > "/sys/block/$(basename "${DEVICE}")boot0/force_ro"
-    echo 1 > "/sys/block/$(basename "${DEVICE}")boot1/force_ro"
+    echo 1 >"/sys/block/$(basename "${DEVICE}")boot0/force_ro"
+    echo 1 >"/sys/block/$(basename "${DEVICE}")boot1/force_ro"
     rm -rf "${TMPATF}"
 }
 
@@ -67,7 +67,7 @@ truncate_up() {
 
 update_boot() {
     # unlock device
-    echo 0 > "/sys/block/$(basename "${1}")/force_ro"
+    echo 0 >"/sys/block/$(basename "${1}")/force_ro"
 
     # Erase first sector to make sure the BL is invalid during write
     dd if=/dev/zero of="${1}" seek=1 bs=512 count=1 conv=notrunc 2>/dev/null
@@ -83,13 +83,13 @@ update_boot() {
     MD5EMMC=$(dd if="${1}" bs=512 skip=1 count="$(block_size "${2}")" 2>/dev/null | md5sum | cut -d ' ' -f0)
 
     if [ "${MD5EMMC}" != "$(md5sum "${2}" | cut -d ' ' -f0)" ]; then
-       errcho "${1} update failure"
+        errcho "${1} update failure"
 
-       # Erase the first sector on failure so the ROMCode does not even try
-       dd if=/dev/zero of="${1}" seek=1 bs=512 count=1 conv=notrunc 2>/dev/null
-       exit 1
+        # Erase the first sector on failure so the ROMCode does not even try
+        dd if=/dev/zero of="${1}" seek=1 bs=512 count=1 conv=notrunc 2>/dev/null
+        exit 1
     else
-       errcho "Verified ${1}"
+        errcho "Verified ${1}"
     fi
 }
 
@@ -99,11 +99,11 @@ finalize_update() {
     # but it is necessary if we reflash the device, switching from dos to gpt
     if [ "$(lsblk --raw -nd -o PTTYPE "${1}")" = "dos" ]; then
         case "${2}" in
-	    0|7)
-	        # Invalidate the user part if it was the boot source
-	        errcho "Disabled user partition"
-	        dd if=/dev/zero of="${1}" seek=1 bs=512 count=1 conv=notrunc 2>/dev/null
-	        ;;
+        0 | 7)
+            # Invalidate the user part if it was the boot source
+            errcho "Disabled user partition"
+            dd if=/dev/zero of="${1}" seek=1 bs=512 count=1 conv=notrunc 2>/dev/null
+            ;;
         esac
     fi
 

@@ -4,7 +4,7 @@
 
 # With dos partitioning, bootloader may be installed starting from the 2nd sector
 
-part --source rawcopy --sourceparams="file=atf.bin" --no-table --offset 1s
+part --source rawcopy --sourceparams="file=u-boot.bin.emmc.bin" --no-table --offset 1s
 part /boot --source bootimg-partition --fstype=vfat --label boot --active --align 2048 --size 128 --sourceparams="loader=u-boot" --use-uuid
 part / --source rootfs --fstype=ext4 --label rootfs --align 4 --size 2048 --use-uuid --exclude-path boot/
 
