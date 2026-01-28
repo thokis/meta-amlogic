@@ -2,7 +2,7 @@
 /plugin/;
 
 /{
-    compatible = "hardkernel,odroid-c4", "amlogic,sm1";
+	compatible = "khadas,vim3l", "amlogic,sm1";
 
     fragment@0 {
         target = <&i2c3>;
