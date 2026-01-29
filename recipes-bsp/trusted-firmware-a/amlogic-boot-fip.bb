@@ -14,10 +14,15 @@ SRC_URI = "git://github.com/LibreELEC/amlogic-boot-fip;protocol=http;branch=mast
 
 COMPATIBLE_MACHINE:khadas-vim3l = "khadas-vim3l"
 COMPATIBLE_MACHINE:odroid-c4 = "odroid-c4"
+COMPATIBLE_MACHINE:beelink-gt1-ultimate = "beelink-gt1-ultimate"
+
+MODEL:khadas-vim3l = "khadas-vim3l"
+MODEL:odroid-c4 = "odroid-c4"
+MODEL:beelink-gt1-ultimate = "beelink-gt1"
 
 do_compile () {
     mkdir ${B}/fip
-	./build-fip.sh ${MACHINE} ${DEPLOY_DIR_IMAGE}/u-boot.bin ${B}/fip
+	./build-fip.sh ${MODEL} ${DEPLOY_DIR_IMAGE}/u-boot.bin ${B}/fip
 }
 
 do_deploy () {

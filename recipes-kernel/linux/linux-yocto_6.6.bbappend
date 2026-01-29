@@ -6,5 +6,6 @@ SRC_URI:append:amlogic = " \
 
 KMACHINE:amlogic = "amlogic"
 
+COMPATIBLE_MACHINE:append:amlogic = "|beelink-gt1-ultimate"
 COMPATIBLE_MACHINE:append:amlogic = "|khadas-vim3l"
 COMPATIBLE_MACHINE:append:amlogic = "|odroid-c4"

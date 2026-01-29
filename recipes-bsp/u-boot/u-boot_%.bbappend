@@ -5,11 +5,3 @@ SRC_URI:append = " \
 	file://fit.cfg \
     file://iminfo.cfg \
 "
-
-SRC_URI:sei510:append = " \
-	file://no-android.cfg \
-"
-
-SRC_URI:sei610:append = " \
-	file://no-android.cfg \
-"
